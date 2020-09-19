@@ -1,0 +1,34 @@
+<div class="members index">
+  <h2>Members</h2>
+
+  <%= link_to("Add New Member", new_member_path, :class => 'action new') %>
+
+  <table class="listing" summary="Member list">
+    <tr class="header">
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Fall Points</th>
+      <th>Spring Points</th>
+      <th>Total Points</th>
+      <th>Actions</th>
+    </tr>
+    <% @members.each do |member| %>
+    <tr>
+      <td><%= member.id %></td>
+      <td><%= member.first_name %></td>
+      <td><%= member.last_name %></td>
+      <td class="center"><%= member.email%></td>
+      <td class="center"><%= member.fall_points %></td>
+      <td class="center"><%= member.spring_points %></td>
+      <td class="center"><%= member.total_points %></td>
+      <td class="actions">
+        <%= link_to("Show", member_path(member), :class => 'action show') %>
+        <%= link_to("Edit", edit_member_path(member), :class => 'action edit') %>
+        <%= link_to("Delete", delete_member_path(member), :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
