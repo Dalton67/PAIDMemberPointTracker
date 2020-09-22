@@ -1000,3 +1000,738 @@ Processing by MembersController#index as HTML
 Completed 200 OK in 24ms (Views: 23.6ms | ActiveRecord: 0.2ms | Allocations: 4298)
 
 
+Started GET "/" for ::1 at 2020-09-21 17:07:18 -0500
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "PAID_development" does not exist
+):
+  
+activerecord (6.0.3.3) lib/active_record/connection_adapters/postgresql_adapter.rb:50:in `rescue in postgresql_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/postgresql_adapter.rb:33:in `postgresql_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:887:in `new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `checkout_new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:910:in `try_to_checkout_new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:871:in `acquire_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:593:in `checkout'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:437:in `connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:1119:in `retrieve_connection'
+activerecord (6.0.3.3) lib/active_record/connection_handling.rb:221:in `retrieve_connection'
+activerecord (6.0.3.3) lib/active_record/connection_handling.rb:189:in `connection'
+activerecord (6.0.3.3) lib/active_record/migration.rb:562:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-09-21 17:07:38 -0500
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "PAID_development" does not exist
+):
+  
+activerecord (6.0.3.3) lib/active_record/connection_adapters/postgresql_adapter.rb:50:in `rescue in postgresql_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/postgresql_adapter.rb:33:in `postgresql_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:887:in `new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `checkout_new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:910:in `try_to_checkout_new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:871:in `acquire_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:593:in `checkout'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:437:in `connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:1119:in `retrieve_connection'
+activerecord (6.0.3.3) lib/active_record/connection_handling.rb:221:in `retrieve_connection'
+activerecord (6.0.3.3) lib/active_record/connection_handling.rb:189:in `connection'
+activerecord (6.0.3.3) lib/active_record/migration.rb:562:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-09-21 19:12:37 -0500
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "PAID_development" does not exist
+):
+  
+activerecord (6.0.3.3) lib/active_record/connection_adapters/postgresql_adapter.rb:50:in `rescue in postgresql_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/postgresql_adapter.rb:33:in `postgresql_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:887:in `new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `checkout_new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:910:in `try_to_checkout_new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:871:in `acquire_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:593:in `checkout'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:437:in `connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:1119:in `retrieve_connection'
+activerecord (6.0.3.3) lib/active_record/connection_handling.rb:221:in `retrieve_connection'
+activerecord (6.0.3.3) lib/active_record/connection_handling.rb:189:in `connection'
+activerecord (6.0.3.3) lib/active_record/migration.rb:562:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (185.3ms)[0m  [1m[35mCREATE DATABASE "PAID_development" ENCODING = 'unicode'[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE DATABASE "PAID_test" ENCODING = 'unicode'[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE DATABASE "PAID_development" ENCODING = 'unicode'[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE DATABASE "PAID_test" ENCODING = 'unicode'[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE DATABASE "PAID_development" ENCODING = 'unicode'[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE DATABASE "PAID_test" ENCODING = 'unicode'[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE DATABASE "PAID_development" ENCODING = 'unicode'[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE DATABASE "PAID_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE DATABASE "PAID_production" ENCODING = 'unicode'[0m
+  [1m[35m (131.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (32.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1120682413551588615)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMembers (20200918224407)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (45.8ms)[0m  [1m[35mCREATE TABLE "members" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "fall_points" integer, "spring_points" integer, "total_points" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200918224407"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEvents (20200918224457)
+  [1m[35m (40.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "title" character varying, "date" character varying, "semester" character varying, "points_worth" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200918224457"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEventsMembers (20200918230922)
+  [1m[35m (41.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "events_members" ("event_id" integer, "member_id" integer)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_events_members_on_event_id_and_member_id" ON "events_members"  ("event_id", "member_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200918230922"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-22 00:29:17.673226"], ["updated_at", "2020-09-22 00:29:17.673226"]]
+  [1m[35m (39.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1120682413551588615)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-09-21 19:29:40 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY "members"."id" ASC[0m
+  ↳ app/views/members/index.html.erb:18
+  Rendered members/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1147)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 79ms (Views: 55.8ms | ActiveRecord: 3.6ms | Allocations: 27135)
+
+
+Started GET "/events" for ::1 at 2020-09-21 19:29:42 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 964)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.6ms | Allocations: 5443)
+
+
+Started GET "/events/new" for ::1 at 2020-09-21 19:29:44 -0500
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1159)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 3.3ms | Allocations: 5373)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    3: <div class="members new">
+    4:   <h2>Create New Event</h2>
+    5: 
+    6:   <%= form_for(@event) do |f| %>
+    7: 
+    8:     <table summary="Member form fields">
+    9:       <tr>
+  
+app/views/events/new.html.erb:6
+Started GET "/events" for ::1 at 2020-09-21 19:30:19 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 674)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.5ms | Allocations: 4619)
+
+
+Started GET "/events/new" for ::1 at 2020-09-21 19:30:29 -0500
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 912)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1336)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    3: <div class="members new">
+    4:   <h2>Create New Event</h2>
+    5: 
+    6:   <%= form_for(@event) do |f| %>
+    7: 
+    8:     <table summary="Member form fields">
+    9:       <tr>
+  
+app/views/events/new.html.erb:6
+Started GET "/events/new" for ::1 at 2020-09-21 19:31:23 -0500
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1144)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2298)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    3: <div class="members new">
+    4:   <h2>Create New Event</h2>
+    5: 
+    6:   <%= form_for(@event) do |f| %>
+    7: 
+    8:     <table summary="Member form fields">
+    9:       <tr>
+  
+app/views/events/new.html.erb:6
+Started GET "/events/new" for ::1 at 2020-09-21 19:31:25 -0500
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 0.5ms | Allocations: 912)
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1337)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    3: <div class="members new">
+    4:   <h2>Create New Event</h2>
+    5: 
+    6:   <%= form_for(@event) do |f| %>
+    7: 
+    8:     <table summary="Member form fields">
+    9:       <tr>
+  
+app/views/events/new.html.erb:6
+Started GET "/events" for ::1 at 2020-09-21 19:31:34 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 951)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.2ms | Allocations: 5179)
+
+
+Started GET "/events/new" for ::1 at 2020-09-21 19:31:36 -0500
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 919)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1347)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    3: <div class="members new">
+    4:   <h2>Create New Event</h2>
+    5: 
+    6:   <%= form_for(@event) do |f| %>
+    7: 
+    8:     <table summary="Member form fields">
+    9:       <tr>
+  
+app/views/events/new.html.erb:6
+Started GET "/events/new" for ::1 at 2020-09-21 19:33:31 -0500
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 105.1ms | Allocations: 65313)
+Completed 500 Internal Server Error in 107ms (ActiveRecord: 0.0ms | Allocations: 66464)
+
+
+  
+ActionView::Template::Error (undefined method `date' for #<ActionView::Helpers::FormBuilder:0x00007ff4ad42c2b0>):
+    12:       </tr>
+    13:       <tr>
+    14:         <th>Date</th>
+    15:         <td><%= f.date(:date) %></td>
+    16:       </tr>
+    17:       <tr>
+    18:         <th>Points</th>
+  
+app/views/events/new.html.erb:15
+app/views/events/new.html.erb:6
+Started GET "/events/new" for ::1 at 2020-09-21 19:35:01 -0500
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 12.2ms | Allocations: 3708)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.0ms | Allocations: 8414)
+
+
+Started GET "/members" for ::1 at 2020-09-21 19:35:02 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY "members"."id" ASC[0m
+  ↳ app/views/members/index.html.erb:12
+  Rendered members/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 986)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.6ms | ActiveRecord: 0.3ms | Allocations: 5484)
+
+
+Started GET "/members" for ::1 at 2020-09-21 19:35:21 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY "members"."id" ASC[0m
+  ↳ app/views/members/index.html.erb:12
+  Rendered members/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 981)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.3ms | Allocations: 5827)
+
+
+Started GET "/events" for ::1 at 2020-09-21 19:35:26 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 948)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.3ms | Allocations: 5426)
+
+
+Started GET "/events/new" for ::1 at 2020-09-21 19:35:28 -0500
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 701)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 4733)
+
+
+Started POST "/events" for ::1 at 2020-09-21 19:35:50 -0500
+Processing by EventsController#create as HTML
+  Parameters: {"authenticity_token"=>"NbnUUE1N9+e69Q/M7ebJtdpB9Gnge+/WnTXSsJMPbip0ky8wuSpuW3sdTeSL8p5L5rqC6CHAt76UWK8V8b40Og==", "event"=>{"title"=>"new", "date"=>"2020-09-03", "points_worth"=>"3", "semester"=>"Fall"}, "commit"=>"Create Member"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:16:in `create'
+  [1m[36mEvent Create (0.6ms)[0m  [1m[32mINSERT INTO "events" ("title", "date", "semester", "points_worth", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "new"], ["date", "2020-09-03"], ["semester", "Fall"], ["points_worth", 3], ["created_at", "2020-09-22 00:35:50.884416"], ["updated_at", "2020-09-22 00:35:50.884416"]]
+  ↳ app/controllers/events_controller.rb:16:in `create'
+  [1m[35m (39.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:16:in `create'
+Redirected to http://localhost:3000/events
+Completed 302 Found in 46ms (ActiveRecord: 40.4ms | Allocations: 3081)
+
+
+Started GET "/events" for ::1 at 2020-09-21 19:35:50 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 174.3ms | Allocations: 126042)
+Completed 500 Internal Server Error in 177ms (ActiveRecord: 0.2ms | Allocations: 127202)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `event' for #<#<Class:0x00007ff4ad1ef100>:0x00007ff4ad1e71a8>
+Did you mean?  events
+               @events):
+    12:     </tr>
+    13:     <% @events.each do |events| %>
+    14:     <tr>
+    15:       <td><%= event.id %></td>
+    16:       <td><%= event.title %></td>
+    17:       <td><%= event.date %></td>
+    18:       <td><%= event.points_worth %></td>
+  
+app/views/events/index.html.erb:15
+app/views/events/index.html.erb:13
+Started GET "/events" for ::1 at 2020-09-21 19:36:26 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 3959)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.3ms | Allocations: 5124)
+
+
+  
+ActionView::Template::Error (undefined method `email' for #<Event:0x00007ff4b238abe0>):
+    16:       <td><%= event.title %></td>
+    17:       <td><%= event.date %></td>
+    18:       <td><%= event.points_worth %></td>
+    19:       <td class="center"><%= event.email%></td>
+    20:       <td class="actions">
+    21:         <%= link_to("Show", event_path(event), :class => 'action show') %>
+    22:         <%= link_to("Edit", edit_event_path(event), :class => 'action edit') %>
+  
+app/views/events/index.html.erb:19
+app/views/events/index.html.erb:13
+Started GET "/events" for ::1 at 2020-09-21 19:36:37 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 96.6ms | Allocations: 65262)
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 0.3ms | Allocations: 66427)
+
+
+  
+ActionView::Template::Error (undefined method `delete_event_path' for #<#<Class:0x00007ff4ac9b5408>:0x00007ff4ac9afaf8>
+Did you mean?  delete_member_path
+               edit_event_path):
+    19:       <td class="actions">
+    20:         <%= link_to("Show", event_path(event), :class => 'action show') %>
+    21:         <%= link_to("Edit", edit_event_path(event), :class => 'action edit') %>
+    22:         <%= link_to("Delete", delete_event_path(event), :class => 'action delete') %>
+    23:       </td>
+    24:     </tr>
+    25:     <% end %>
+  
+app/views/events/index.html.erb:22
+app/views/events/index.html.erb:13
+Started GET "/events" for ::1 at 2020-09-21 19:36:55 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1004)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.3ms | Allocations: 5821)
+
+
+Started GET "/events/1" for ::1 at 2020-09-21 19:37:00 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:7:in `show'
+Completed 406 Not Acceptable in 15ms (ActiveRecord: 0.5ms | Allocations: 5037)
+
+
+  
+ActionController::MissingExactTemplate (EventsController#show is missing a template for request formats: text/html):
+  
+actionpack (6.0.3.3) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.3.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.3.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.3.3) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.3.3) lib/abstract_controller/base.rb:195:in `process_action'
+actionpack (6.0.3.3) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.3.3) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.3.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.3) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.3) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.3) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.3) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.3) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.3) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.3) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/events" for ::1 at 2020-09-21 19:37:08 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 758)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.3ms | Allocations: 4675)
+
+
+Started GET "/events/1/edit" for ::1 at 2020-09-21 19:37:09 -0500
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:24:in `edit'
+  Rendering events/edit.html.erb within layouts/application
+  Rendered events/edit.html.erb within layouts/application (Duration: 0.2ms | Allocations: 66)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 0.3ms | Allocations: 4644)
+
+
+Started GET "/events" for ::1 at 2020-09-21 19:38:31 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1013)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.4ms | Allocations: 5829)
+
+
+Started GET "/events/new" for ::1 at 2020-09-21 19:38:34 -0500
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 701)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 4727)
+
+
+Started GET "/members" for ::1 at 2020-09-21 19:38:35 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY "members"."id" ASC[0m
+  ↳ app/views/members/index.html.erb:12
+  Rendered members/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 986)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.3ms | Allocations: 5480)
+
+
+Started GET "/members/new" for ::1 at 2020-09-21 19:38:38 -0500
+Processing by MembersController#new as HTML
+  Rendering members/new.html.erb within layouts/application
+  Rendered members/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 832)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 7.4ms | ActiveRecord: 2.3ms | Allocations: 9338)
+
+
+Started GET "/members" for ::1 at 2020-09-21 19:38:39 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY "members"."id" ASC[0m
+  ↳ app/views/members/index.html.erb:12
+  Rendered members/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 669)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.3ms | Allocations: 4610)
+
+
+Started GET "/members" for ::1 at 2020-09-21 19:39:14 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY "members"."id" ASC[0m
+  ↳ app/views/members/index.html.erb:13
+  Rendered members/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1035)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.3ms | Allocations: 5886)
+
+
+Started GET "/events" for ::1 at 2020-09-21 19:39:16 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (1.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1005)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.4ms | ActiveRecord: 1.3ms | Allocations: 5462)
+
+
+Started GET "/events" for ::1 at 2020-09-21 19:39:53 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1055)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.3ms | Allocations: 5867)
+
+
+Started GET "/members" for ::1 at 2020-09-21 19:39:55 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY "members"."id" ASC[0m
+  ↳ app/views/members/index.html.erb:13
+  Rendered members/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1029)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.3ms | Allocations: 5523)
+
+
+Started GET "/events" for ::1 at 2020-09-21 19:40:04 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 789)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.5ms | Allocations: 4687)
+
+
+Started GET "/events/new" for ::1 at 2020-09-21 19:40:07 -0500
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 700)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 4731)
+
+
+Started GET "/members" for ::1 at 2020-09-21 19:40:09 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY "members"."id" ASC[0m
+  ↳ app/views/members/index.html.erb:13
+  Rendered members/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 703)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.3ms | Allocations: 4644)
+
+
+Started GET "/members/new" for ::1 at 2020-09-21 19:40:10 -0500
+Processing by MembersController#new as HTML
+  Rendering members/new.html.erb within layouts/application
+  Rendered members/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 762)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 4789)
+
+
+Started POST "/members" for ::1 at 2020-09-21 19:40:23 -0500
+Processing by MembersController#create as HTML
+  Parameters: {"authenticity_token"=>"a9guUsqKQC01msc+kITev2C6eIMfZXH70/SDWgKu/reR9nSp0H12mpDsYGSG3dAJSy8/cwHz1QSKuO1FBb3eAw==", "member"=>{"first_name"=>"Maitreyi", "last_name"=>"Ramaswamy", "email"=>"maitreyiramaswamy@gmail.com", "fall_points"=>"0", "spring_points"=>"0", "total_points"=>"4"}, "commit"=>"Create Member"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:17:in `create'
+  [1m[36mMember Create (0.5ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "email", "fall_points", "spring_points", "total_points", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Maitreyi"], ["last_name", "Ramaswamy"], ["email", "maitreyiramaswamy@gmail.com"], ["fall_points", 0], ["spring_points", 0], ["total_points", 4], ["created_at", "2020-09-22 00:40:23.093679"], ["updated_at", "2020-09-22 00:40:23.093679"]]
+  ↳ app/controllers/members_controller.rb:17:in `create'
+  [1m[35m (38.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:17:in `create'
+Redirected to http://localhost:3000/members
+Completed 302 Found in 45ms (ActiveRecord: 39.2ms | Allocations: 2963)
+
+
+Started GET "/members" for ::1 at 2020-09-21 19:40:23 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY "members"."id" ASC[0m
+  ↳ app/views/members/index.html.erb:13
+  Rendered members/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 845)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.2ms | Allocations: 4796)
+
+
+Started GET "/events" for ::1 at 2020-09-21 19:40:30 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 789)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.3ms | Allocations: 4711)
+
+

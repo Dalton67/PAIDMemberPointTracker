@@ -2,18 +2,14 @@
   <h2>Members</h2>
 
   <%= link_to("Add New Member", new_member_path, :class => 'action new') %>
-
+  <%= link_to("View Events", events_path, :class => 'action index') %>
   <table class="listing" summary="Member list">
     <tr class="header">
       <th>ID</th>
       <th>First Name</th>
       <th>Last Name</th>
-      <th>Email</th>
-      <th>Fall Points</th>
-      <th>Spring Points</th>
-      <th>Total Points</th>
-      <th>Actions</th>
     </tr>
+
     <% @members.each do |member| %>
     <tr>
       <td><%= member.id %></td>

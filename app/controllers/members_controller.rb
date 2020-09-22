@@ -1,6 +1,7 @@
 class MembersController < ApplicationController
   def index
     @members = Member.order(:id)
+    @events = Event.order(:id)
   end
 
   def show

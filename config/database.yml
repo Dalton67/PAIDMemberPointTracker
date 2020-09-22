@@ -83,5 +83,5 @@ test:
 production:
   <<: *default
   database: PAID_production
-  username: PAID
-  password: <%= ENV['PAID_DATABASE_PASSWORD'] %>
+  # username: PAID
+  # password: <%= ENV['PAID_DATABASE_PASSWORD'] %>

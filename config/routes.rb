@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'members#index'
-
+  resources :events 
   resources :members do
     member do
       get :delete
