@@ -26,7 +26,7 @@ class AccessController < ApplicationController
       flash[:notice] = "You are now logged in"
       redirect_to(admin_path)
     else
-      flash.now[:notice] = "Invalid username/password combination"
+      flash.now[:danger] = "Invalid username/password combination"
       render('login')
     end
 
