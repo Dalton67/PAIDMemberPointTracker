@@ -1916,3 +1916,341 @@ Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.4ms | Allocations: 4127
   [1m[36mAdminUser Create (0.8ms)[0m  [1m[32mINSERT INTO "admin_users" ("id", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 1], ["first_name", "Kade"], ["last_name", "Flitton"], ["password_digest", "$2a$12$V04k3AiPIYf4mGe3Hs4Np.f67sHtNMJ29WtNZOBOeXCzlpYR1ohdm"], ["created_at", "2020-09-22 22:47:30.586737"], ["updated_at", "2020-09-22 22:47:30.586737"]]
   [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" ORDER BY "admin_users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/members" for 127.0.0.1 at 2020-09-22 19:03:56 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (1.5ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY "members"."id" ASC[0m
+  ↳ app/views/members/index.html.erb:13
+  Rendered members/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1250)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 122ms (Views: 81.9ms | ActiveRecord: 7.5ms | Allocations: 27937)
+
+
+Started GET "/members/login" for 127.0.0.1 at 2020-09-22 19:04:00 -0400
+Processing by MembersController#show as HTML
+  Parameters: {"id"=>"login"}
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:8:in `show'
+Completed 404 Not Found in 9ms (ActiveRecord: 4.7ms | Allocations: 1653)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Member with 'id'=login):
+  
+app/controllers/members_controller.rb:8:in `show'
+Started GET "/events" for 127.0.0.1 at 2020-09-22 19:04:05 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 22.6ms | Allocations: 4667)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 30.7ms | ActiveRecord: 3.7ms | Allocations: 8743)
+
+
+Started GET "/access_menu" for 127.0.0.1 at 2020-09-22 19:04:30 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/access_menu"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/access/menu" for 127.0.0.1 at 2020-09-22 19:04:45 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 2.9ms | Allocations: 154)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 4115)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 19:04:47 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 788)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.5ms | Allocations: 4229)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 19:04:50 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 781)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 0.6ms | Allocations: 4219)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 19:04:51 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 791)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 0.4ms | Allocations: 4233)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 19:04:52 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 789)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.3ms | Allocations: 4224)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 19:04:53 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 781)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.4ms | Allocations: 4215)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-09-22 21:11:24 -0400
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/application
+  Rendered access/login.html.erb within layouts/application (Duration: 2.2ms | Allocations: 677)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 36.7ms | ActiveRecord: 0.0ms | Allocations: 8198)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:17:00 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 2.0ms | Allocations: 226)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 0.0ms | Allocations: 3783)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:18:50 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/admin
+  Rendered access/menu.html.erb within layouts/admin (Duration: 0.8ms | Allocations: 216)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 7313)
+
+
+  
+ActionView::Template::Error (The asset "admin.css" is not present in the asset pipeline.
+):
+    2: <html>
+    3:   <head>
+    4:     <title>Simple CMS: <%= @page_title || "Admin Area" %></title>
+    5:     <%= stylesheet_link_tag('admin', :media => 'all') %>
+    6:   </head>
+    7:   <body>
+    8: 
+  
+app/views/layouts/admin.html.erb:5
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:19:52 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/admin
+  Rendered access/menu.html.erb within layouts/admin (Duration: 1.0ms | Allocations: 214)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 7070)
+
+
+  
+ActionView::Template::Error (The asset "admin.css" is not present in the asset pipeline.
+):
+    2: <html>
+    3:   <head>
+    4:     <title>Simple CMS: <%= @page_title || "Admin Area" %></title>
+    5:     # <%= stylesheet_link_tag('admin', :media => 'all') %>
+    6:   </head>
+    7:   <body>
+    8: 
+  
+app/views/layouts/admin.html.erb:5
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:20:00 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/admin
+  Rendered access/menu.html.erb within layouts/admin (Duration: 0.3ms | Allocations: 77)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 6272)
+
+
+  
+ActionView::Template::Error (The asset "admin.css" is not present in the asset pipeline.
+):
+    2: <html>
+    3:   <head>
+    4:     <title>Simple CMS: <%= @page_title || "Admin Area" %></title>
+    5:     # <%= stylesheet_link_tag('admin', :media => 'all') %>
+    6:   </head>
+    7:   <body>
+    8: 
+  
+app/views/layouts/admin.html.erb:5
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:20:42 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/admin
+  Rendered access/menu.html.erb within layouts/admin (Duration: 0.7ms | Allocations: 213)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 7043)
+
+
+  
+ActionView::Template::Error (The asset "admin.css" is not present in the asset pipeline.
+):
+    2: <html>
+    3:   <head>
+    4:     <title>PAID Admin: <%= @page_title || "Admin Area" %></title>
+    5:     <%= stylesheet_link_tag('admin', :media => 'all') %>
+    6:   </head>
+    7:   <body>
+    8: 
+  
+app/views/layouts/admin.html.erb:5
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:24:08 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/admin
+  Rendered access/menu.html.erb within layouts/admin (Duration: 0.9ms | Allocations: 213)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms | Allocations: 7121)
+
+
+  
+ActionView::Template::Error (couldn't find file 'admin_additions' with type 'text/css'
+Checked in these paths: 
+  /home/osboxes/Documents/CSCE431/PAIDMemberPointTracker/app/assets/config
+  /home/osboxes/Documents/CSCE431/PAIDMemberPointTracker/app/assets/images
+  /home/osboxes/Documents/CSCE431/PAIDMemberPointTracker/app/assets/stylesheets
+  /home/osboxes/.rvm/gems/ruby-2.7.1/gems/actioncable-6.0.3.3/app/assets/javascripts
+  /home/osboxes/.rvm/gems/ruby-2.7.1/gems/activestorage-6.0.3.3/app/assets/javascripts
+  /home/osboxes/.rvm/gems/ruby-2.7.1/gems/actionview-6.0.3.3/lib/assets/compiled
+  /home/osboxes/.rvm/gems/ruby-2.7.1/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/osboxes/Documents/CSCE431/PAIDMemberPointTracker/node_modules):
+    2: <html>
+    3:   <head>
+    4:     <title>PAID Admin: <%= @page_title || "Admin Area" %></title>
+    5:     <%= stylesheet_link_tag('admin', :media => 'all') %>
+    6:   </head>
+    7:   <body>
+    8: 
+  
+app/assets/stylesheets/admin.css:15
+app/views/layouts/admin.html.erb:5
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:24:45 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/admin
+  Rendered access/menu.html.erb within layouts/admin (Duration: 0.3ms | Allocations: 76)
+Completed 200 OK in 99ms (Views: 97.5ms | ActiveRecord: 0.0ms | Allocations: 27990)
+
+
+Started GET "/images/footer_gradient.png" for 127.0.0.1 at 2020-09-22 21:24:45 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/images/footer_gradient.png"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/events" for 127.0.0.1 at 2020-09-22 21:24:53 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (3.6ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 27.1ms | Allocations: 4790)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 74ms (Views: 48.7ms | ActiveRecord: 10.7ms | Allocations: 18861)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-09-22 21:25:11 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/access/login" for 127.0.0.1 at 2020-09-22 21:25:21 -0400
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 3.4ms | Allocations: 504)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 2616)
+
+
