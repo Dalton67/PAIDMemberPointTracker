@@ -1735,3 +1735,1174 @@ Processing by EventsController#index as HTML
 Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.3ms | Allocations: 4711)
 
 
+  [1m[35m (843.8ms)[0m  [1m[35mCREATE DATABASE "PAID_development" ENCODING = 'unicode'[0m
+  [1m[35m (650.0ms)[0m  [1m[35mCREATE DATABASE "PAID_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "events" CASCADE[0m
+  [1m[35m (16.3ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "title" character varying, "date" character varying, "semester" character varying, "points_worth" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "events_members" CASCADE[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "events_members" ("event_id" integer, "member_id" integer)[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE  INDEX  "index_events_members_on_event_id_and_member_id" ON "events_members"  ("event_id", "member_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "members" CASCADE[0m
+  [1m[35m (13.4ms)[0m  [1m[35mCREATE TABLE "members" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "fall_points" integer, "spring_points" integer, "total_points" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200918230922)[0m
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200918224407),
+(20200918224457);
+
+[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-22 22:20:48.109458"], ["updated_at", "2020-09-22 22:20:48.109458"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "d4489c94aeeec5a28f3dbd3068950d0cfc983e3e"], ["created_at", "2020-09-22 22:20:48.126805"], ["updated_at", "2020-09-22 22:20:48.126805"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "events" CASCADE[0m
+  [1m[35m (18.3ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "title" character varying, "date" character varying, "semester" character varying, "points_worth" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "events_members" CASCADE[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "events_members" ("event_id" integer, "member_id" integer)[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE  INDEX  "index_events_members_on_event_id_and_member_id" ON "events_members"  ("event_id", "member_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "members" CASCADE[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "members" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "fall_points" integer, "spring_points" integer, "total_points" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200918230922)[0m
+  [1m[35m (8.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200918224407),
+(20200918224457);
+
+[0m
+  [1m[35m (14.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-22 22:20:48.261448"], ["updated_at", "2020-09-22 22:20:48.261448"]]
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-09-22 22:20:48.282143"], ["key", "environment"]]
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "d4489c94aeeec5a28f3dbd3068950d0cfc983e3e"], ["created_at", "2020-09-22 22:20:48.298552"], ["updated_at", "2020-09-22 22:20:48.298552"]]
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1120682413551588615)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAdminUsersTable (20200922151823)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1120682413551588615)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1120682413551588615)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAdminUsersTable (20200922151823)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (14.9ms)[0m  [1m[35mCREATE TABLE "admin_users" ("id" bigserial primary key, "first_name" character varying(25), "last_name" character varying(50), "email" character varying(100) DEFAULT '' NOT NULL, "username" character varying(25), "password_digest" character varying, "string" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE  INDEX  "index_admin" ON "admin_users"  ("username")[0m
+  [1m[36mprimary::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200922151823"]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(1120682413551588615)[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1120682413551588615)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to FixAdminTable (20200922222310)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "admin_users" DROP COLUMN "string"[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200922222310"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(1120682413551588615)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2020-09-22 18:40:33 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (1.5ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY "members"."id" ASC[0m
+  ↳ app/views/members/index.html.erb:13
+  Rendered members/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 1362)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 157ms (Views: 103.1ms | ActiveRecord: 5.2ms | Allocations: 29141)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 18:40:35 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 981)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 16.8ms | ActiveRecord: 0.7ms | Allocations: 4946)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2020-09-22 18:40:37 -0400
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 12.4ms | Allocations: 1476)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 20.0ms | ActiveRecord: 3.8ms | Allocations: 8630)
+
+
+Started POST "/events" for 127.0.0.1 at 2020-09-22 18:40:47 -0400
+Processing by EventsController#create as HTML
+  Parameters: {"authenticity_token"=>"B6WgPSachNCwOYzQbBj2nqk3CWv2xeu+0ndeZSbZtvAE4vcEzbbEkaUfDhF1Y5UKzeLnj5XtpsjMd89M6y2Ryw==", "event"=>{"title"=>"test", "date"=>"2020-09-23", "points_worth"=>"2", "semester"=>"Fall"}, "commit"=>"Create Events"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:16:in `create'
+  [1m[36mEvent Create (1.5ms)[0m  [1m[32mINSERT INTO "events" ("title", "date", "semester", "points_worth", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test"], ["date", "2020-09-23"], ["semester", "Fall"], ["points_worth", 2], ["created_at", "2020-09-22 22:40:47.238704"], ["updated_at", "2020-09-22 22:40:47.238704"]]
+  ↳ app/controllers/events_controller.rb:16:in `create'
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:16:in `create'
+Redirected to http://localhost:3000/events
+Completed 302 Found in 21ms (ActiveRecord: 5.2ms | Allocations: 3135)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 18:40:47 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 800)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.5ms | Allocations: 4196)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-09-22 18:40:49 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:7:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2249)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.5ms | Allocations: 3783)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+     6:   <table summary="Event detail view">
+     7:     <tr>
+     8:       <th>ID</th>
+     9:       <td><%= @event.id %></td>
+    10:     </tr>
+    11:     <tr>
+    12:       <th>Title</th>
+  
+app/views/events/show.html.erb:9
+Started GET "/events" for 127.0.0.1 at 2020-09-22 18:40:52 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (2.5ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 798)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 13.1ms | ActiveRecord: 2.5ms | Allocations: 4241)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-09-22 18:40:53 -0400
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY "members"."id" ASC[0m
+  ↳ app/views/members/index.html.erb:13
+  Rendered members/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 709)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.4ms | Allocations: 4127)
+
+
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" ORDER BY "admin_users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Create (0.8ms)[0m  [1m[32mINSERT INTO "admin_users" ("id", "first_name", "last_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 1], ["first_name", "Kade"], ["last_name", "Flitton"], ["password_digest", "$2a$12$V04k3AiPIYf4mGe3Hs4Np.f67sHtNMJ29WtNZOBOeXCzlpYR1ohdm"], ["created_at", "2020-09-22 22:47:30.586737"], ["updated_at", "2020-09-22 22:47:30.586737"]]
+  [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" ORDER BY "admin_users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/members" for 127.0.0.1 at 2020-09-22 19:03:56 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (1.5ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY "members"."id" ASC[0m
+  ↳ app/views/members/index.html.erb:13
+  Rendered members/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1250)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 122ms (Views: 81.9ms | ActiveRecord: 7.5ms | Allocations: 27937)
+
+
+Started GET "/members/login" for 127.0.0.1 at 2020-09-22 19:04:00 -0400
+Processing by MembersController#show as HTML
+  Parameters: {"id"=>"login"}
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:8:in `show'
+Completed 404 Not Found in 9ms (ActiveRecord: 4.7ms | Allocations: 1653)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Member with 'id'=login):
+  
+app/controllers/members_controller.rb:8:in `show'
+Started GET "/events" for 127.0.0.1 at 2020-09-22 19:04:05 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 22.6ms | Allocations: 4667)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 30.7ms | ActiveRecord: 3.7ms | Allocations: 8743)
+
+
+Started GET "/access_menu" for 127.0.0.1 at 2020-09-22 19:04:30 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/access_menu"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/access/menu" for 127.0.0.1 at 2020-09-22 19:04:45 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 2.9ms | Allocations: 154)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 4115)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 19:04:47 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 788)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.5ms | Allocations: 4229)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 19:04:50 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 781)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 0.6ms | Allocations: 4219)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 19:04:51 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 791)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 0.4ms | Allocations: 4233)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 19:04:52 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 789)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.3ms | Allocations: 4224)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 19:04:53 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 781)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.4ms | Allocations: 4215)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-09-22 21:11:24 -0400
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/application
+  Rendered access/login.html.erb within layouts/application (Duration: 2.2ms | Allocations: 677)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 36.7ms | ActiveRecord: 0.0ms | Allocations: 8198)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:17:00 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 2.0ms | Allocations: 226)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 0.0ms | Allocations: 3783)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:18:50 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/admin
+  Rendered access/menu.html.erb within layouts/admin (Duration: 0.8ms | Allocations: 216)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 7313)
+
+
+  
+ActionView::Template::Error (The asset "admin.css" is not present in the asset pipeline.
+):
+    2: <html>
+    3:   <head>
+    4:     <title>Simple CMS: <%= @page_title || "Admin Area" %></title>
+    5:     <%= stylesheet_link_tag('admin', :media => 'all') %>
+    6:   </head>
+    7:   <body>
+    8: 
+  
+app/views/layouts/admin.html.erb:5
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:19:52 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/admin
+  Rendered access/menu.html.erb within layouts/admin (Duration: 1.0ms | Allocations: 214)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 7070)
+
+
+  
+ActionView::Template::Error (The asset "admin.css" is not present in the asset pipeline.
+):
+    2: <html>
+    3:   <head>
+    4:     <title>Simple CMS: <%= @page_title || "Admin Area" %></title>
+    5:     # <%= stylesheet_link_tag('admin', :media => 'all') %>
+    6:   </head>
+    7:   <body>
+    8: 
+  
+app/views/layouts/admin.html.erb:5
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:20:00 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/admin
+  Rendered access/menu.html.erb within layouts/admin (Duration: 0.3ms | Allocations: 77)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 6272)
+
+
+  
+ActionView::Template::Error (The asset "admin.css" is not present in the asset pipeline.
+):
+    2: <html>
+    3:   <head>
+    4:     <title>Simple CMS: <%= @page_title || "Admin Area" %></title>
+    5:     # <%= stylesheet_link_tag('admin', :media => 'all') %>
+    6:   </head>
+    7:   <body>
+    8: 
+  
+app/views/layouts/admin.html.erb:5
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:20:42 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/admin
+  Rendered access/menu.html.erb within layouts/admin (Duration: 0.7ms | Allocations: 213)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 7043)
+
+
+  
+ActionView::Template::Error (The asset "admin.css" is not present in the asset pipeline.
+):
+    2: <html>
+    3:   <head>
+    4:     <title>PAID Admin: <%= @page_title || "Admin Area" %></title>
+    5:     <%= stylesheet_link_tag('admin', :media => 'all') %>
+    6:   </head>
+    7:   <body>
+    8: 
+  
+app/views/layouts/admin.html.erb:5
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:24:08 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/admin
+  Rendered access/menu.html.erb within layouts/admin (Duration: 0.9ms | Allocations: 213)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms | Allocations: 7121)
+
+
+  
+ActionView::Template::Error (couldn't find file 'admin_additions' with type 'text/css'
+Checked in these paths: 
+  /home/osboxes/Documents/CSCE431/PAIDMemberPointTracker/app/assets/config
+  /home/osboxes/Documents/CSCE431/PAIDMemberPointTracker/app/assets/images
+  /home/osboxes/Documents/CSCE431/PAIDMemberPointTracker/app/assets/stylesheets
+  /home/osboxes/.rvm/gems/ruby-2.7.1/gems/actioncable-6.0.3.3/app/assets/javascripts
+  /home/osboxes/.rvm/gems/ruby-2.7.1/gems/activestorage-6.0.3.3/app/assets/javascripts
+  /home/osboxes/.rvm/gems/ruby-2.7.1/gems/actionview-6.0.3.3/lib/assets/compiled
+  /home/osboxes/.rvm/gems/ruby-2.7.1/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /home/osboxes/Documents/CSCE431/PAIDMemberPointTracker/node_modules):
+    2: <html>
+    3:   <head>
+    4:     <title>PAID Admin: <%= @page_title || "Admin Area" %></title>
+    5:     <%= stylesheet_link_tag('admin', :media => 'all') %>
+    6:   </head>
+    7:   <body>
+    8: 
+  
+app/assets/stylesheets/admin.css:15
+app/views/layouts/admin.html.erb:5
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:24:45 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/admin
+  Rendered access/menu.html.erb within layouts/admin (Duration: 0.3ms | Allocations: 76)
+Completed 200 OK in 99ms (Views: 97.5ms | ActiveRecord: 0.0ms | Allocations: 27990)
+
+
+Started GET "/images/footer_gradient.png" for 127.0.0.1 at 2020-09-22 21:24:45 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/images/footer_gradient.png"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/events" for 127.0.0.1 at 2020-09-22 21:24:53 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (3.6ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 27.1ms | Allocations: 4790)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 74ms (Views: 48.7ms | ActiveRecord: 10.7ms | Allocations: 18861)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-09-22 21:25:11 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/access/login" for 127.0.0.1 at 2020-09-22 21:25:21 -0400
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 3.4ms | Allocations: 504)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 2616)
+
+
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" ORDER BY "admin_users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Update (0.7ms)[0m  [1m[33mUPDATE "admin_users" SET "username" = $1, "password_digest" = $2, "updated_at" = $3 WHERE "admin_users"."id" = $4[0m  [["username", "kadeflitton"], ["password_digest", "$2a$12$.yvkCgmHEljYMbep8mKBq.dsH0a3c.9mYgANrmi/ozcB461PXFq8S"], ["updated_at", "2020-09-23 01:36:35.691194"], ["id", 1]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/access/login" for 127.0.0.1 at 2020-09-22 21:36:52 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 2.5ms | Allocations: 677)
+Completed 200 OK in 73ms (Views: 58.6ms | ActiveRecord: 0.0ms | Allocations: 7795)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:37:07 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"25GZGnUedaJubnjlCzaaCjgbCIz4cG+4uxAgsnBR2VQnAIafLQZ4MTyVqdwPpgIBDt5fSitXBZiAr4pBJJavRA==", "username"=>"kadeflitton", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "kadeflitton"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:16:in `attempt_login'
+Completed 500 Internal Server Error in 520ms (ActiveRecord: 10.0ms | Allocations: 88718)
+
+
+  
+NameError (undefined local variable or method `paramas' for #<AccessController:0x00007f7e2c04f518>
+Did you mean?  params
+               params=
+               @_params):
+  
+app/controllers/access_controller.rb:18:in `attempt_login'
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:37:26 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"25GZGnUedaJubnjlCzaaCjgbCIz4cG+4uxAgsnBR2VQnAIafLQZ4MTyVqdwPpgIBDt5fSitXBZiAr4pBJJavRA==", "username"=>"kadeflitton", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "kadeflitton"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:16:in `attempt_login'
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 3.2ms | Allocations: 293)
+Completed 200 OK in 288ms (Views: 9.2ms | ActiveRecord: 4.8ms | Allocations: 8144)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:37:29 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"KVLbupfvbU2CvvpSeKQn0IvGU6tUb1afbc9kID1q+uzVw8Q/z/dg3tBFK2t8NL/bvQMEbYdIPL9WcM7Taa2M/A==", "username"=>"kadeflitton", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 0.8ms | Allocations: 280)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.0ms | Allocations: 2298)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:37:32 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"IWVU91ldR/ldm6SdjH7XKgVTTuIKdTyCVUC70Slr+Nrd9EtyAUVKag9gdaSI7k8hM5YZJNlSVqJu/xEifayOyg==", "username"=>"kadeflitton", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "kadeflitton"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:16:in `attempt_login'
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 1.0ms | Allocations: 280)
+Completed 200 OK in 270ms (Views: 7.9ms | ActiveRecord: 0.5ms | Allocations: 3088)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:37:53 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"6K0+T2qmQON2li6AvFfqZsruXlqpy+DqarnossnRDiYUPCHKMr5NcCRt/7m4x3Jt/CsJnHrsispRBkJBnRZ4Ng==", "username"=>"kadeflitton", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "kadeflitton"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:16:in `attempt_login'
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 259ms (ActiveRecord: 0.5ms | Allocations: 1137)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:37:53 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/admin
+  Rendered access/menu.html.erb within layouts/admin (Duration: 1.2ms | Allocations: 227)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 2338)
+
+
+Started GET "/access/logout" for 127.0.0.1 at 2020-09-22 21:37:59 -0400
+  
+AbstractController::ActionNotFound (The action 'logout' could not be found for AccessController):
+  
+actionpack (6.0.3.3) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.3.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.3) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/access/logout" for 127.0.0.1 at 2020-09-22 21:38:14 -0400
+Processing by AccessController#logout as HTML
+Redirected to http://localhost:3000/access/login
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 303)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-09-22 21:38:14 -0400
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 2.2ms | Allocations: 297)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 2451)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:22 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"wYhfix1S7N135QJvIirrEmguj1PAwbOEdQHFGWtX1cA9GUAORUrhTiUe01YmunMZXuvYlRPm2aROvm/qP5Cj0A==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "kade"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:16:in `attempt_login'
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 1.2ms | Allocations: 279)
+Completed 200 OK in 30ms (Views: 8.2ms | ActiveRecord: 6.6ms | Allocations: 3969)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:24 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"Qt6SDG0S5TlZnT0ccUka9fzFNpLpgbIVel+hfR2ZJum+T42JNQroqgtm7CV12YL+ygBhVDqm2DVB4AuOSV5Q+Q==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 0.7ms | Allocations: 279)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 2296)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:26 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"dk4ecLDIb6c+LipYIqmZ7jNTxGYObwf7wKqB2z7Gs5KK3wH16NBiNGzV+2EmOQHlBZaToN1Ibdv7FSsoagHFgg==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 0.6ms | Allocations: 279)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 2290)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:26 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"yD3T4tWQe2S6k/tpiTQEPDIPSv2dnWirGg7FR98/ehQ0rMxnjYh29+hoKlCNpJw3BModO066AoshsW+0i/gMBA==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 1.0ms | Allocations: 279)
+Completed 200 OK in 24ms (Views: 13.1ms | ActiveRecord: 0.0ms | Allocations: 2287)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:27 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"FxAazF7tOPLc/7KdyImX4atbDadN63HEGZw/FECPHJXrgQVJBvU1YY4EY6TMGQ/qnZ5aYZ7MG+QiI5XnFEhqhQ==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 0.9ms | Allocations: 279)
+Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 0.0ms | Allocations: 2280)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:28 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"bCAXABZ8ytUcd6WIdcTY9rvxlwbi6pxGJe3n310GnbiQsQiFTmTHRk6MdLFxVED9jTTAwDHN9mYeUk0sCcHrqA==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 1.0ms | Allocations: 279)
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 2284)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:42 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"RHR1xKAQ1uLXVqmuncCU+D9vFg7V1XieMQ8cy+adAA+45WpB+AjbcYWteJeZUAzzCapByAbyEr4KsLY4slp2Hw==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 1.0ms | Allocations: 288)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 2463)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:55 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"Hp8PnpQK3CpWqiO2I3ZH8C35qnCBJPrcZ1lWzTGN+KTiDhAbzBLRuQRR8o8n5t/7Gzz9tlIDkPxc5vw+ZUqOtA==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 10.1ms | Allocations: 288)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.0ms | Allocations: 2478)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:56 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"b+shWrSaTHSdClKCgjkW0NT20AKLvEtoolv4hpfj4peTej7f7IJB58/xg7uGqY7b4jOHxFibIUiZ5FJ1wySUhw==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 0.7ms | Allocations: 279)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 2302)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:57 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"w9uUKSuQG7z5WK1S1DcFhOaCcNaxrXCvH8Z5wSJp7QQ/Sousc4gWL6ujfGvQp52P0EcnEGKKGo8kedMydq6bFA==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 1.1ms | Allocations: 279)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 2281)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:39:08 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"afvPJ6RkVDzqRmbIKCIGJw16BxVjLh5NVp/hYMDEy7yVatCi/HxZr7i9t/Essp4sO79Q07AJdG1tIEuTlAO9rA==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 1.0ms | Allocations: 288)
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 2451)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:43:10 -0400
+Processing by AccessController#menu as HTML
+Completed 500 Internal Server Error in 202ms (ActiveRecord: 0.0ms | Allocations: 42422)
+
+
+  
+NoMethodError (undefined method `confirm_logged_in' for #<AccessController:0x00007f7e2c0505d0>
+Did you mean?  conrirmed_logged_in):
+  
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:428:in `block in make_lambda'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:181:in `block (2 levels) in halting_and_conditional'
+actionpack (6.0.3.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:513:in `each'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.3.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.3) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.3) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.3) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.3) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.3) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.3) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.3) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/access/admin" for 127.0.0.1 at 2020-09-22 21:43:22 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/access/admin"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:43:27 -0400
+Processing by AccessController#menu as HTML
+Completed 500 Internal Server Error in 190ms (ActiveRecord: 0.0ms | Allocations: 42395)
+
+
+  
+NoMethodError (undefined method `confirm_logged_in' for #<AccessController:0x00007f7e3071f038>
+Did you mean?  conrirmed_logged_in):
+  
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:428:in `block in make_lambda'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:181:in `block (2 levels) in halting_and_conditional'
+actionpack (6.0.3.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:513:in `each'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.3.3) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.3) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.3) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.3) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.3) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.3) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.3) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.3) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:43:47 -0400
+Processing by AccessController#menu as HTML
+Redirected to http://localhost:3000/access/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 381)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-09-22 21:43:47 -0400
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 1.1ms | Allocations: 297)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 2453)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:44:04 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"7wKNqEfmP9U64T3li0dJj78OBA6Pf03H0iMH4JN1/hETk5ItH/4yRmga7NyP19GEictTyFxYJ+fpnK0Tx7KIAQ==", "username"=>"kadeflitton", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "kadeflitton"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:18:in `attempt_login'
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 281ms (ActiveRecord: 7.3ms | Allocations: 5847)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:44:04 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/admin
+  Rendered access/menu.html.erb within layouts/admin (Duration: 0.4ms | Allocations: 73)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 2063)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 21:44:10 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 20.4ms | Allocations: 4520)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 30.5ms | ActiveRecord: 7.6ms | Allocations: 12255)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 21:44:19 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 789)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.3ms | ActiveRecord: 0.7ms | Allocations: 4630)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:44:23 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/admin
+  Rendered access/menu.html.erb within layouts/admin (Duration: 0.4ms | Allocations: 76)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.0ms | Allocations: 2048)
+
+
+Started GET "/access/logout" for 127.0.0.1 at 2020-09-22 21:44:27 -0400
+Processing by AccessController#logout as HTML
+Redirected to http://localhost:3000/access/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 294)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-09-22 21:44:27 -0400
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 0.9ms | Allocations: 292)
+Completed 200 OK in 12ms (Views: 5.0ms | ActiveRecord: 0.0ms | Allocations: 2276)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:44:31 -0400
+Processing by AccessController#menu as HTML
+Redirected to http://localhost:3000/access/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms | Allocations: 312)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-09-22 21:44:31 -0400
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 0.9ms | Allocations: 289)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 2267)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 21:44:37 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 781)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 0.8ms | Allocations: 4652)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 21:47:48 -0400
+Processing by EventsController#index as HTML
+Redirected to http://localhost:3000/access/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 356)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-09-22 21:47:48 -0400
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 0.9ms | Allocations: 298)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 2495)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 21:47:54 -0400
+Processing by EventsController#index as HTML
+Redirected to http://localhost:3000/access/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 304)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-09-22 21:47:54 -0400
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 0.8ms | Allocations: 289)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms | Allocations: 2271)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:48:08 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"obYLF+W/fMjr3ROV0r+XqgSPJ832yS3lO09wzj5vzG5dJxSSvadxW7kmwqzWLw+hMkpwCyXuR8UA8No9aqi6fg==", "username"=>"kadeflitton", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "kadeflitton"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:18:in `attempt_login'
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 300ms (ActiveRecord: 6.6ms | Allocations: 5818)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:48:08 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/admin
+  Rendered access/menu.html.erb within layouts/admin (Duration: 0.4ms | Allocations: 73)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 2062)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 21:48:10 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (1.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 23.7ms | Allocations: 4069)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 26.6ms | ActiveRecord: 7.3ms | Allocations: 9937)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 21:49:01 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (1.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 781)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 27.7ms | ActiveRecord: 1.2ms | Allocations: 4644)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-09-22 21:53:21 -0400
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 1.5ms | Allocations: 289)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 2263)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:53:25 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"3ioswmDfFKnSoMrGnES5q/h0CnpWm11RFQTecri4znAiuzNHOMcZOoBbG/+Y1CGgzrFdvIW8N3Euu3SB7H+4YA==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 0.7ms | Allocations: 279)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.0ms | Allocations: 2308)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:53:36 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"/OxGTiRl/fHBT5Or1kmBfvS4a4imsPHI0kcFEfy/L4QAfVnLfH3wYpO0QpLS2Rl1wn08TnWXm+jp+K/iqHhZlA==", "username"=>"kadeflitton", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "kadeflitton"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:18:in `attempt_login'
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 261ms (ActiveRecord: 0.3ms | Allocations: 1135)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:53:36 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/admin
+  Rendered access/menu.html.erb within layouts/admin (Duration: 0.4ms | Allocations: 70)
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 2065)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 21:53:38 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 781)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.4ms | Allocations: 4628)
+
+
+Started GET "/access/logout" for 127.0.0.1 at 2020-09-22 21:53:41 -0400
+Processing by AccessController#logout as HTML
+Redirected to http://localhost:3000/access/login
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 306)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-09-22 21:53:41 -0400
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 1.6ms | Allocations: 289)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.0ms | Allocations: 2265)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-09-22 21:53:46 -0400
+Processing by EventsController#index as HTML
+Redirected to http://localhost:3000/access/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 290)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-09-22 21:53:46 -0400
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 3.2ms | Allocations: 289)
+Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 2273)
+
+

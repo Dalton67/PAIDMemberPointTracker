@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+    
+  before_action :confirm_logged_in
     def index
         @events = Event.order(:id)
       end

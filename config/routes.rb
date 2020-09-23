@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
   root 'members#index'
+  get 'access/menu'
+  get 'access/login'
+  
+  get 'admin', :to => 'access#menu'
+  post 'access/attempt_login'
+  get 'access/logout'
+
   resources :events 
   resources :members do
     member do
