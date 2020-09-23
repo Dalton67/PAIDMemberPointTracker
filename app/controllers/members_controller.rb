@@ -1,4 +1,7 @@
 class MembersController < ApplicationController
+  
+  before_action :confirm_logged_in
+  
   def index
     @members = Member.order(:id)
     @events = Event.order(:id)
