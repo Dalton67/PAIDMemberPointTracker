@@ -2254,3 +2254,235 @@ Processing by AccessController#login as HTML
 Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 2616)
 
 
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" ORDER BY "admin_users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Update (0.7ms)[0m  [1m[33mUPDATE "admin_users" SET "username" = $1, "password_digest" = $2, "updated_at" = $3 WHERE "admin_users"."id" = $4[0m  [["username", "kadeflitton"], ["password_digest", "$2a$12$.yvkCgmHEljYMbep8mKBq.dsH0a3c.9mYgANrmi/ozcB461PXFq8S"], ["updated_at", "2020-09-23 01:36:35.691194"], ["id", 1]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/access/login" for 127.0.0.1 at 2020-09-22 21:36:52 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 2.5ms | Allocations: 677)
+Completed 200 OK in 73ms (Views: 58.6ms | ActiveRecord: 0.0ms | Allocations: 7795)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:37:07 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"25GZGnUedaJubnjlCzaaCjgbCIz4cG+4uxAgsnBR2VQnAIafLQZ4MTyVqdwPpgIBDt5fSitXBZiAr4pBJJavRA==", "username"=>"kadeflitton", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "kadeflitton"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:16:in `attempt_login'
+Completed 500 Internal Server Error in 520ms (ActiveRecord: 10.0ms | Allocations: 88718)
+
+
+  
+NameError (undefined local variable or method `paramas' for #<AccessController:0x00007f7e2c04f518>
+Did you mean?  params
+               params=
+               @_params):
+  
+app/controllers/access_controller.rb:18:in `attempt_login'
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:37:26 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"25GZGnUedaJubnjlCzaaCjgbCIz4cG+4uxAgsnBR2VQnAIafLQZ4MTyVqdwPpgIBDt5fSitXBZiAr4pBJJavRA==", "username"=>"kadeflitton", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "kadeflitton"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:16:in `attempt_login'
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 3.2ms | Allocations: 293)
+Completed 200 OK in 288ms (Views: 9.2ms | ActiveRecord: 4.8ms | Allocations: 8144)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:37:29 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"KVLbupfvbU2CvvpSeKQn0IvGU6tUb1afbc9kID1q+uzVw8Q/z/dg3tBFK2t8NL/bvQMEbYdIPL9WcM7Taa2M/A==", "username"=>"kadeflitton", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 0.8ms | Allocations: 280)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.0ms | Allocations: 2298)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:37:32 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"IWVU91ldR/ldm6SdjH7XKgVTTuIKdTyCVUC70Slr+Nrd9EtyAUVKag9gdaSI7k8hM5YZJNlSVqJu/xEifayOyg==", "username"=>"kadeflitton", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "kadeflitton"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:16:in `attempt_login'
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 1.0ms | Allocations: 280)
+Completed 200 OK in 270ms (Views: 7.9ms | ActiveRecord: 0.5ms | Allocations: 3088)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:37:53 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"6K0+T2qmQON2li6AvFfqZsruXlqpy+DqarnossnRDiYUPCHKMr5NcCRt/7m4x3Jt/CsJnHrsispRBkJBnRZ4Ng==", "username"=>"kadeflitton", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "kadeflitton"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:16:in `attempt_login'
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 259ms (ActiveRecord: 0.5ms | Allocations: 1137)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:37:53 -0400
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/admin
+  Rendered access/menu.html.erb within layouts/admin (Duration: 1.2ms | Allocations: 227)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 2338)
+
+
+Started GET "/access/logout" for 127.0.0.1 at 2020-09-22 21:37:59 -0400
+  
+AbstractController::ActionNotFound (The action 'logout' could not be found for AccessController):
+  
+actionpack (6.0.3.3) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.3.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.3) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.3) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/access/logout" for 127.0.0.1 at 2020-09-22 21:38:14 -0400
+Processing by AccessController#logout as HTML
+Redirected to http://localhost:3000/access/login
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 303)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-09-22 21:38:14 -0400
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 2.2ms | Allocations: 297)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 2451)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:22 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"wYhfix1S7N135QJvIirrEmguj1PAwbOEdQHFGWtX1cA9GUAORUrhTiUe01YmunMZXuvYlRPm2aROvm/qP5Cj0A==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "kade"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:16:in `attempt_login'
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 1.2ms | Allocations: 279)
+Completed 200 OK in 30ms (Views: 8.2ms | ActiveRecord: 6.6ms | Allocations: 3969)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:24 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"Qt6SDG0S5TlZnT0ccUka9fzFNpLpgbIVel+hfR2ZJum+T42JNQroqgtm7CV12YL+ygBhVDqm2DVB4AuOSV5Q+Q==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 0.7ms | Allocations: 279)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 2296)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:26 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"dk4ecLDIb6c+LipYIqmZ7jNTxGYObwf7wKqB2z7Gs5KK3wH16NBiNGzV+2EmOQHlBZaToN1Ibdv7FSsoagHFgg==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 0.6ms | Allocations: 279)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 2290)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:26 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"yD3T4tWQe2S6k/tpiTQEPDIPSv2dnWirGg7FR98/ehQ0rMxnjYh29+hoKlCNpJw3BModO066AoshsW+0i/gMBA==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 1.0ms | Allocations: 279)
+Completed 200 OK in 24ms (Views: 13.1ms | ActiveRecord: 0.0ms | Allocations: 2287)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:27 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"FxAazF7tOPLc/7KdyImX4atbDadN63HEGZw/FECPHJXrgQVJBvU1YY4EY6TMGQ/qnZ5aYZ7MG+QiI5XnFEhqhQ==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 0.9ms | Allocations: 279)
+Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 0.0ms | Allocations: 2280)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:28 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"bCAXABZ8ytUcd6WIdcTY9rvxlwbi6pxGJe3n310GnbiQsQiFTmTHRk6MdLFxVED9jTTAwDHN9mYeUk0sCcHrqA==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 1.0ms | Allocations: 279)
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 2284)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:42 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"RHR1xKAQ1uLXVqmuncCU+D9vFg7V1XieMQ8cy+adAA+45WpB+AjbcYWteJeZUAzzCapByAbyEr4KsLY4slp2Hw==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 1.0ms | Allocations: 288)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 2463)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:55 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"Hp8PnpQK3CpWqiO2I3ZH8C35qnCBJPrcZ1lWzTGN+KTiDhAbzBLRuQRR8o8n5t/7Gzz9tlIDkPxc5vw+ZUqOtA==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 10.1ms | Allocations: 288)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.0ms | Allocations: 2478)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:56 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"b+shWrSaTHSdClKCgjkW0NT20AKLvEtoolv4hpfj4peTej7f7IJB58/xg7uGqY7b4jOHxFibIUiZ5FJ1wySUhw==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 0.7ms | Allocations: 279)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 2302)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:38:57 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"w9uUKSuQG7z5WK1S1DcFhOaCcNaxrXCvH8Z5wSJp7QQ/Sousc4gWL6ujfGvQp52P0EcnEGKKGo8kedMydq6bFA==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 1.1ms | Allocations: 279)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 2281)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-09-22 21:39:08 -0400
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"afvPJ6RkVDzqRmbIKCIGJw16BxVjLh5NVp/hYMDEy7yVatCi/HxZr7i9t/Essp4sO79Q07AJdG1tIEuTlAO9rA==", "username"=>"kade", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  Rendering access/login.html.erb within layouts/admin
+  Rendered access/login.html.erb within layouts/admin (Duration: 1.0ms | Allocations: 288)
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 2451)
+
+
