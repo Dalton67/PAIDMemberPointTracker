@@ -1,0 +1,33 @@
+<%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+
+<div class="members show">
+  <h2>Show Member</h2>
+
+  <table summary="Member detail view">
+    <tr>
+      <th>ID</th>
+      <td><%= @member.id %></td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td><%= @member.first_name %></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><%= @member.email %></td>
+    </tr>
+    <tr>
+      <th>Fall Points</th>
+      <td><%= @member.fall_points %></td>
+    </tr>
+    <tr>
+      <th>Spring Points</th>
+      <td><%= @member.spring_points %></td>
+    </tr>
+    <tr>
+      <th>Total Points</th>
+      <td><%= @member.total_points %></td>
+    </tr>    
+  </table>
+
+</div>
