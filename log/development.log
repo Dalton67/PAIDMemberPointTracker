@@ -1735,3 +1735,80 @@ Processing by EventsController#index as HTML
 Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.3ms | Allocations: 4711)
 
 
+Started GET "/events/1" for ::1 at 2020-09-22 19:36:20 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:7:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 2028)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 4.9ms | Allocations: 11571)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+     6:   <table summary="Event detail view">
+     7:     <tr>
+     8:       <th>ID</th>
+     9:       <td><%= @event.id %></td>
+    10:     </tr>
+    11:     <tr>
+    12:       <th>Title</th>
+  
+app/views/events/show.html.erb:9
+Started GET "/members/1" for ::1 at 2020-09-22 19:38:48 -0500
+Processing by MembersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMember Load (1.9ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:8:in `show'
+  Rendering members/show.html.erb within layouts/application
+  Rendered members/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 261)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 17.8ms | ActiveRecord: 5.1ms | Allocations: 14578)
+
+
+Started GET "/events/1" for ::1 at 2020-09-22 19:44:14 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:7:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 8.0ms | Allocations: 3388)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 3.4ms | Allocations: 10383)
+
+
+  
+ActionView::Template::Error (undefined method `Points_worth' for #<Event:0x00007fec9f3a93d0>
+Did you mean?  points_worth=
+               points_worth?):
+    14:     </tr>
+    15:     <tr>
+    16:       <th>Points</th>
+    17:       <td><%= @events.Points_worth %></td>
+    18:     </tr>
+    19:     <tr>
+    20:       <th>Semester</th>
+  
+app/views/events/show.html.erb:17
+Started GET "/events/1" for ::1 at 2020-09-22 19:44:25 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:7:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 224)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.5ms | Allocations: 5611)
+
+
+Started GET "/events" for ::1 at 2020-09-22 19:44:28 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (2.7ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:13
+  Rendered events/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1078)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 9.3ms | ActiveRecord: 2.7ms | Allocations: 5132)
+
+
