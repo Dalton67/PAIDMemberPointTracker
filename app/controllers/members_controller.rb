@@ -4,9 +4,11 @@ class MembersController < ApplicationController
   
   def index
     @members = Member.order(:id)
-    @events = Event.order(:id)
   end
-
+  def import
+    Member.import(params[:file])
+    redirect_to root_url
+  end
   def show
     @member = Member.find(params[:id])
   end
