@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :events 
   resources :members do
+    collection {post :import}
     member do
       get :delete
     end
