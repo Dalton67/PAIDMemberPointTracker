@@ -1,3 +1,68 @@
-// Place all the styles related to the Members controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+$maroon: #500000;
+$grey: #c1c1c1;
+$white: #FFFFFF;
+
+$sans_serif: Verdana,Lucida,Arial,Helvetica,sans-serif;
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  width: 100%;
+  min-width: 980px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font: 14px $sans_serif;
+  color: $maroon;
+}
+
+table { border-collapse: collapse; }
+
+table tr th, table tr td {
+  vertical-align: center;
+  text-align: center;
+  padding: 10px;
+  border: 3px solid #666666; 
+  background-color: $grey;
+}
+a, a:visited { color: $maroon; }
+a:hover { color: #003C71}
+
+.centertable {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+/* Structure */
+#header {
+  height: 10%;
+  padding-top: 1em;
+  text-align: center;
+  background: $maroon;
+  color: $white;
+
+  h1 { margin: 0; padding: 0; }
+}
+
+#main {
+  min-height: 100%;
+  background: $white;
+}
+
+
+#content { padding: 10px; }
+
+  a {
+    text-decoration: underline;
+  }
+  
+  /* CRUD */  
+  .index {
+    table {
+      tr td { border: 3px solid #666666; }
+    }
+  }

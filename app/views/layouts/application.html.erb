@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PAID</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title>PAID Points: <%= @page_title || "PAID" %></title>
+    <%= stylesheet_link_tag('application', :media => 'all') %>
   </head>
-
   <body>
-    <%= yield %>
+
+    <div id="header">
+      <%= image_tag('PAID-logo.svg', :size => '400x50') %>
+      <h1>
+      PAID Points
+      </h1>
+    </div>
+    <div id="main">
+      <% if !flash[:notice].blank? %>
+        <div class="notice">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
+      <div id="content">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

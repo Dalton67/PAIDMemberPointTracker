@@ -1735,6 +1735,7 @@ Processing by EventsController#index as HTML
 Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.3ms | Allocations: 4711)
 
 
+<<<<<<< HEAD
   [1m[35m (843.8ms)[0m  [1m[35mCREATE DATABASE "PAID_development" ENCODING = 'unicode'[0m
   [1m[35m (650.0ms)[0m  [1m[35mCREATE DATABASE "PAID_test" ENCODING = 'unicode'[0m
   [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
@@ -2348,6 +2349,29 @@ rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
 rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
 actionpack (6.0.3.3) lib/action_dispatch/middleware/cookies.rb:648:in `call'
 activerecord (6.0.3.3) lib/active_record/migration.rb:567:in `call'
+=======
+Started GET "/" for ::1 at 2020-09-22 17:32:11 -0500
+  
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+):
+  
+pg (1.2.3) lib/pg.rb:58:in `initialize'
+pg (1.2.3) lib/pg.rb:58:in `new'
+pg (1.2.3) lib/pg.rb:58:in `connect'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/postgresql_adapter.rb:46:in `postgresql_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:887:in `new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `checkout_new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:910:in `try_to_checkout_new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:871:in `acquire_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:593:in `checkout'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:437:in `connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:1119:in `retrieve_connection'
+activerecord (6.0.3.3) lib/active_record/connection_handling.rb:221:in `retrieve_connection'
+activerecord (6.0.3.3) lib/active_record/connection_handling.rb:189:in `connection'
+activerecord (6.0.3.3) lib/active_record/migration.rb:562:in `call'
+>>>>>>> html
 actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
 activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
 actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
@@ -2383,6 +2407,7 @@ puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
 puma (4.3.6) lib/puma/server.rb:472:in `process_client'
 puma (4.3.6) lib/puma/server.rb:328:in `block in run'
 puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/access/logout" for 127.0.0.1 at 2020-09-22 21:38:14 -0400
 Processing by AccessController#logout as HTML
 Redirected to http://localhost:3000/access/login
@@ -2531,6 +2556,29 @@ rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
 rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
 actionpack (6.0.3.3) lib/action_dispatch/middleware/cookies.rb:648:in `call'
 activerecord (6.0.3.3) lib/active_record/migration.rb:567:in `call'
+=======
+Started GET "/" for ::1 at 2020-09-22 21:14:35 -0500
+  
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+):
+  
+pg (1.2.3) lib/pg.rb:58:in `initialize'
+pg (1.2.3) lib/pg.rb:58:in `new'
+pg (1.2.3) lib/pg.rb:58:in `connect'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/postgresql_adapter.rb:46:in `postgresql_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:887:in `new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `checkout_new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:910:in `try_to_checkout_new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:871:in `acquire_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:593:in `checkout'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:437:in `connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:1119:in `retrieve_connection'
+activerecord (6.0.3.3) lib/active_record/connection_handling.rb:221:in `retrieve_connection'
+activerecord (6.0.3.3) lib/active_record/connection_handling.rb:189:in `connection'
+activerecord (6.0.3.3) lib/active_record/migration.rb:562:in `call'
+>>>>>>> html
 actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
 activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
 actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
@@ -2566,6 +2614,7 @@ puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
 puma (4.3.6) lib/puma/server.rb:472:in `process_client'
 puma (4.3.6) lib/puma/server.rb:328:in `block in run'
 puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/access/admin" for 127.0.0.1 at 2020-09-22 21:43:22 -0400
   
 ActionController::RoutingError (No route matches [GET] "/access/admin"):
@@ -2645,6 +2694,29 @@ rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
 rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
 actionpack (6.0.3.3) lib/action_dispatch/middleware/cookies.rb:648:in `call'
 activerecord (6.0.3.3) lib/active_record/migration.rb:567:in `call'
+=======
+Started GET "/" for ::1 at 2020-09-22 22:11:22 -0500
+  
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+):
+  
+pg (1.2.3) lib/pg.rb:58:in `initialize'
+pg (1.2.3) lib/pg.rb:58:in `new'
+pg (1.2.3) lib/pg.rb:58:in `connect'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/postgresql_adapter.rb:46:in `postgresql_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:887:in `new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `checkout_new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:910:in `try_to_checkout_new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:871:in `acquire_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:593:in `checkout'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:437:in `connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:1119:in `retrieve_connection'
+activerecord (6.0.3.3) lib/active_record/connection_handling.rb:221:in `retrieve_connection'
+activerecord (6.0.3.3) lib/active_record/connection_handling.rb:189:in `connection'
+activerecord (6.0.3.3) lib/active_record/migration.rb:562:in `call'
+>>>>>>> html
 actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
 activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
 actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
@@ -2680,6 +2752,7 @@ puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
 puma (4.3.6) lib/puma/server.rb:472:in `process_client'
 puma (4.3.6) lib/puma/server.rb:328:in `block in run'
 puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/admin" for 127.0.0.1 at 2020-09-22 21:43:47 -0400
 Processing by AccessController#menu as HTML
 Redirected to http://localhost:3000/access/login
@@ -2906,3 +2979,5 @@ Processing by AccessController#login as HTML
 Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 2273)
 
 
+=======
+>>>>>>> html
