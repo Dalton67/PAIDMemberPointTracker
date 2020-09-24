@@ -1,7 +1,7 @@
 <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
 
-<div class="members show">
-  <h2>Show Member</h2>
+<div class="centertable">
+  <h2>Member Details</h2>
 
   <table summary="Member detail view">
     <tr>
@@ -15,6 +15,10 @@
     <tr>
       <th>Email</th>
       <td><%= @member.email %></td>
+    </tr>
+    <tr>
+      <th>Fall Points</th>
+      <td><%= @member.total_points %></td>
     </tr>
     <tr>
       <th>Fall Points</th>

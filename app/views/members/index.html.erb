@@ -1,28 +1,28 @@
 <div class="members index">
-  <h2>Members test</h2>
+  <h1 style="text-align:center">PAID Points</h1>
 
-  <%= link_to("Add New Member", new_member_path, :class => 'action new') %>
+  <h2 style="margin-left:10%">
   <%= link_to("View Events", events_path, :class => 'action index') %>
-  <table class="listing" summary="Member list">
+  </h2>
+  
+  <table class="centertable" summary="Member list">
     <tr class="header">
-      <th>ID</th>
       <th>First Name</th>
       <th>Last Name</th>
+      <th>Total Points</th>
+      <th>Fall Points</th>
+      <th>Spring Points</th>
     </tr>
 
     <% @members.each do |member| %>
     <tr>
-      <td><%= member.id %></td>
       <td><%= member.first_name %></td>
       <td><%= member.last_name %></td>
-      <td class="center"><%= member.email%></td>
+      <td class="center"><%= member.total_points %></td>
       <td class="center"><%= member.fall_points %></td>
       <td class="center"><%= member.spring_points %></td>
-      <td class="center"><%= member.total_points %></td>
       <td class="actions">
         <%= link_to("Show", member_path(member), :class => 'action show') %>
-        <%= link_to("Edit", edit_member_path(member), :class => 'action edit') %>
-        <%= link_to("Delete", delete_member_path(member), :class => 'action delete') %>
       </td>
     </tr>
     <% end %>
