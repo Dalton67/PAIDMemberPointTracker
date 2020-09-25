@@ -6,7 +6,7 @@ class MembersController < ApplicationController
     @members = Member.order(:id)
   end
   def import
-    Member.import(params[:file])
+    Member.import(params[:file],params[:points_worth])
     redirect_to root_url
   end
   def show
