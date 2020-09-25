@@ -12,8 +12,7 @@ class Member < ApplicationRecord
       member = Member.find_by(email: row['email'])
       if member
         puts points
-        puts "*********"
-        member.update_attribute(:total_points, points)
+        member.update_attribute(:total_points, points.to_i+member.total_points)
         member.save()
       end
       #Member.create! row.to_hash
