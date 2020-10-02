@@ -8,14 +8,24 @@ class Member < ApplicationRecord
     self.total_points ||= 0
   end
   def self.import(file,points)
+    data = Array.new
     CSV.foreach(file.path,headers:true) do |row|
       member = Member.find_by(email: row['email'])
       if member
         puts points
         member.update_attribute(:total_points, points.to_i+member.total_points)
         member.save()
+      else
+        data.push(row['email'])
+      end 
+    end
+    if !data.empty?
+      puts data
+      csv = CSV.open("missing.csv",'w') do |row|
+        data.each do |email|
+          row << [email] 
+        end
       end
-      #Member.create! row.to_hash
     end
   end
 end
