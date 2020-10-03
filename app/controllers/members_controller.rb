@@ -4,10 +4,18 @@ class MembersController < ApplicationController
   
   def index
     @members = Member.order(:id)
+    respond_to do |format|
+      format.html {render 'index'}
+      format.csv {send_data @members.to_csv }
+    end
   end
+  def missing
+    @missing_members = session[:data]#[ "Buy Milk", "Buy Soap", "Pay bill", "Draw Money" ]
+  end 
   def import
-    Member.import(params[:file],params[:points_worth])
-    redirect_to root_url
+    data = Member.import(params[:file],params[:points_worth])
+    session[:data] = data
+    redirect_to missing_members_path  #(data :data)
   end
   def show
     @member = Member.find(params[:id])
