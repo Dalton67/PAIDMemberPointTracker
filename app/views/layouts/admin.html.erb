@@ -3,6 +3,7 @@
   <head>
     <title>PAID Admin: <%= @page_title || "Admin Area" %></title>
     <%= stylesheet_link_tag('admin', :media => 'all') %>
+    <% csrf_meta_tags %>
   </head>
   <body>
 
@@ -21,7 +22,7 @@
       </div>
     </div>
     <div id="footer">
-      <p id="copyright">&copy; kade/p>
+      <p id="copyright">&copy; kade</p>
     </div>
   </body>
 </html>
