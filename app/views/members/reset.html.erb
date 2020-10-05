@@ -1,0 +1,7 @@
+<%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+
+<div class="members reset">
+  <h2>Reset Members</h2>
+  <p>Are you sure you want to permanently delete all members?</p>
+  <%= link_to "Reset Members", members_path, :controller => :members, :action => :reset_members, :method => :post %>
+</div>

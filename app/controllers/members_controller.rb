@@ -1,14 +1,16 @@
 class MembersController < ApplicationController
-  
+
   before_action :confirm_logged_in
-  
+
   def index
     @members = Member.order(:id)
   end
+
   def import
     Member.import(params[:file],params[:points_worth])
     redirect_to root_url
   end
+
   def show
     @member = Member.find(params[:id])
   end
@@ -46,6 +48,16 @@ class MembersController < ApplicationController
   def destroy
     @member = Member.find(params[:id])
     @member.destroy
+    redirect_to(members_path)
+  end
+
+  def reset
+    @members = Member.all
+    @member = Member.new
+  end
+
+  def reset_members
+    Member.delete_all
     redirect_to(members_path)
   end
 
