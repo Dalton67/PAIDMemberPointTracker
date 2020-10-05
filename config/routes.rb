@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :members do
     collection {post :import}
+    collection {get :missing}
     member do
       get :delete
     end

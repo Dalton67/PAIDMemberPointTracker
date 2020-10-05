@@ -6,9 +6,14 @@ class MembersController < ApplicationController
     @members = Member.order(:id)
   end
 
+  def missing
+    @missing_members = session[:data]
+  end 
+
   def import
-    Member.import(params[:file],params[:points_worth])
-    redirect_to root_url
+    data = Member.import(params[:file],params[:points_worth])
+    session[:data] = data
+    redirect_to missing_members_path 
   end
 
   def show
