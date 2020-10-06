@@ -3,8 +3,12 @@ class MembersController < ApplicationController
   before_action :confirm_logged_in
 
   def index
-    #@members = Member.order(:id)
-    @members = Member.search(params[:search])
+    @members = Member.all
+    if params[:search]
+      @members = Member.search(params[:search]).order("created_at DESC")
+    else
+      @members = Member.all.order("created_at DESC")
+    end
   end
 
   def missing

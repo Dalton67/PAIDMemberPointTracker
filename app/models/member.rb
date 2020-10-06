@@ -24,14 +24,14 @@ class Member < ApplicationRecord
 
   def self.search(search)
     if search
-      member_type = Member.find_by(first_name: search)
-        if member_type
-          self.where(id: member_type)
-        else
-          @members = Member.all
-        end
+      members_first = Member.find_by(first_name: search)
+      if members_first
+        self.where(id: members_first)
       else
-        @members = Member.all
+        @memebrs = Member.all.order("created_at DESC")
       end
+    else
+      @memebrs = Member.all.order("created_at DESC")
     end
+  end
 end
