@@ -22,6 +22,9 @@ class MembersController < ApplicationController
 
   def new
     @member = Member.new
+    if params[:email]
+      @member.email = params[:email]
+    end
   end
 
   def create
