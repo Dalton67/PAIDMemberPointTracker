@@ -26,7 +26,7 @@ class Member < ApplicationRecord
     if search
       member_type = Member.find_by(first_name: search)
         if member_type
-          self.where(member_id: member_type)
+          self.where(id: member_type)
         else
           @members = Member.all
         end
