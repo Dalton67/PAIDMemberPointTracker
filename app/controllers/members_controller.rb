@@ -3,7 +3,8 @@ class MembersController < ApplicationController
   before_action :confirm_logged_in
 
   def index
-    @members = Member.order(:id)
+    #@members = Member.order(:id)
+    @members = Member.search(params[:search])
   end
 
   def missing
@@ -72,6 +73,6 @@ class MembersController < ApplicationController
   private
 
   def member_params
-    params.require(:member).permit(:id, :first_name, :last_name, :email, :fall_points, :spring_points, :total_points)
+    params.require(:member).permit(:id, :first_name, :last_name, :email, :fall_points, :spring_points, :total_points, :search)
   end
 end

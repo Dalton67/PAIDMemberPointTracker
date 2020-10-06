@@ -21,4 +21,17 @@ class Member < ApplicationRecord
     end
     return data
   end
+
+  def self.search(search)
+    if search
+      member_type = Member.find_by(first_name: search)
+        if member_type
+          self.where(member_id: member_type)
+        else
+          @members = Member.all
+        end
+      else
+        @members = Member.all
+      end
+    end
 end
