@@ -6,8 +6,6 @@ class MembersController < ApplicationController
     @members = Member.all
     if params[:search]
       @members = Member.search(params[:search]).order("created_at DESC")
-    else
-      @members = Member.all.order("created_at DESC")
     end
   end
 

@@ -24,14 +24,9 @@ class Member < ApplicationRecord
 
   def self.search(search)
     if search
-      members_first = Member.find_by(first_name: search)
-      if members_first
-        self.where(id: members_first)
-      else
-        @memebrs = Member.all.order("created_at DESC")
-      end
+      Member.where('first_name ILIKE :search OR last_name ILIKE :search OR email ILIKE :search', search: "%#{search}%")
     else
-      @memebrs = Member.all.order("created_at DESC")
+      Member.all.order("created_at DESC")
     end
   end
 end
