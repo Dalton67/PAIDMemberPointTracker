@@ -1,0 +1,32 @@
+<%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+
+<div class="members edit">
+  <h2>Update Event</h2>
+
+  <%= form_for(@event) do |f| %>
+
+    <table summary="Member form fields">
+      <tr>
+        <th>Title</th>
+        <td><%= f.text_field(:title) %></td>
+      </tr>
+      <tr>
+        <th>Date</th>
+        <td><%= f.date_field(:date) %></td>
+      </tr>
+      <tr>
+        <th>Points</th>
+        <td><%= f.text_field(:points_worth) %></td>
+      </tr>
+      <tr>
+        <th>Semester</th>
+        <td><%= f.select :semester, ['Fall','Spring']%></td>
+      </tr>
+    </table>
+
+    <div class="form-buttons">
+      <%= f.submit("Update Member") %>
+    </div>
+
+  <% end %>
+</div>
