@@ -3,16 +3,23 @@ Rails.application.routes.draw do
   root 'members#index'
   get 'access/menu'
   get 'access/login'
-  
+
   get 'admin', :to => 'access#menu'
   post 'access/attempt_login'
   get 'access/logout'
 
-  resources :events 
+  resources :events
+
+  get '/members/reset' => 'members#reset'
+
   resources :members do
     collection {post :import}
+    collection {get :missing}
     member do
       get :delete
+    end
+    collection do
+      get :reset_members
     end
   end
 
