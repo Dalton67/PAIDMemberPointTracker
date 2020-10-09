@@ -8,14 +8,25 @@ class Member < ApplicationRecord
     self.total_points ||= 0
   end
   def self.import(file,points)
+    data = Array.new
     CSV.foreach(file.path,headers:true) do |row|
       member = Member.find_by(email: row['email'])
       if member
         puts points
         member.update_attribute(:total_points, points.to_i+member.total_points)
         member.save()
-      end
-      #Member.create! row.to_hash
+      else
+        data.push(row['email'])
+      end 
+    end
+    return data
+  end
+
+  def self.search(search)
+    if search
+      Member.where('first_name ILIKE :search OR last_name ILIKE :search OR email ILIKE :search', search: "%#{search}%")
+    else
+      Member.all.order("created_at DESC")
     end
   end
 end
