@@ -10,6 +10,14 @@
 
   <%= link_to("Add New Member", new_member_path, :class => 'action new') %>
 
+  <%= form_tag members_path, :method => "get", id: "search-form" do %>
+    <%= label_tag(:search, "Search for a member:") %>
+    <%= text_field_tag :search, params[:search], placeholder: "Enter name or email" %>
+    <%= submit_tag("Search", :name => nil) %>
+  <% end %>
+
+  <br>
+
   <table class="centertable" summary="Member list">
     <tr class="header">
       <th>First Name</th>
