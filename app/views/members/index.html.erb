@@ -1,14 +1,13 @@
 <div class="members index">
   <h1 style="text-align:center">PAID Points</h1>
 
-  <h2 style="margin-left:10%">
+  <h2 style="text-align:center">
+  <%= link_to("Add New Member", new_member_path, :class => 'action new') %>
   <%= link_to("View Events", events_path, :class => 'action index') %>
   <%= link_to("Admin Users Menu", admin_path, :class => 'action index') %>
   <%= link_to("Reset Members", members_reset_path, :class => 'action reset') %>
 
   </h2>
-
-  <%= link_to("Add New Member", new_member_path, :class => 'action new') %>
 
   <%= form_tag members_path, :method => "get", id: "search-form" do %>
     <%= label_tag(:search, "Search for a member:") %>
@@ -17,23 +16,24 @@
   <% end %>
 
   <br>
-
+  
   <table class="centertable" summary="Member list">
     <tr class="header">
       <th>First Name</th>
       <th>Last Name</th>
-      <th>Total Points</th>
       <th>Fall Points</th>
       <th>Spring Points</th>
+      <th>Total Points</th>
+      <th>Actions</th>
     </tr>
 
     <% @members.each do |member| %>
     <tr>
       <td><%= member.first_name %></td>
       <td><%= member.last_name %></td>
-      <td class="center"><%= member.total_points %></td>
       <td class="center"><%= member.fall_points %></td>
       <td class="center"><%= member.spring_points %></td>
+      <td class="center"><%= member.total_points %></td>
       <td class="actions">
         <%= link_to("Show", member_path(member), :class => 'action show') %>
         <%= link_to("Edit", edit_member_path(member), :class => 'action edit') %>
