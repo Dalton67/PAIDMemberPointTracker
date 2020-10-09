@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'generalmember/index'
   root 'members#index'
   get 'access/menu'
   get 'access/login'

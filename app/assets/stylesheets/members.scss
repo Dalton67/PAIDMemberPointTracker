@@ -37,6 +37,15 @@ a:hover { color: #003C71}
   width: 80%;
 }
 
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+  a:visited { color: $white; }
+  a:hover { color: #003C71}
+}
+
 /* Structure */
 #header {
   height: 10%;

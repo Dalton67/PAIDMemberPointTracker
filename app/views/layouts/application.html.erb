@@ -7,11 +7,12 @@
   </head>
   <body>
 
+    <h2 class="topright">
+    <%= link_to("Admin Home", admin_path, :class => 'action index') %>
+    </h2>
+
     <div id="header">
       <%= image_tag('PAID-logo.svg', :size => '400x50') %>
-      <h1>
-      PAID Points
-      </h1>
     </div>
     <div id="main">
       <% if !flash[:notice].blank? %>
