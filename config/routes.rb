@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'members#index'
+  get 'generalmember/index'
+  root 'generalmember#index'
   get 'access/menu'
   get 'access/login'
 
@@ -23,5 +24,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :admin_users, :except => [:show] do
+    member do
+      get :delete
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

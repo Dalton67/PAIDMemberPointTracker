@@ -2,6 +2,12 @@
 /* load after primary.css.scss */
 
 /* Structure */
+
+$maroon: #500000;
+$grey: #c1c1c1;
+$white: #FFFFFF;
+$blue: #003C71;
+
 #content {
     padding-left: 100px;
     padding-right: 100px;
@@ -27,6 +33,7 @@
   a {
     text-decoration: none;
     &:hover { text-decoration: underline; }
+    &:hover { color: #003C71}
   }
   
   /* large action buttons */
@@ -34,7 +41,7 @@
     float: right;
     padding: 2px 5px;
     margin: 0 0 1em 1em;
-    background: #94B26F;
+    background: $maroon;
     color: #4C2516;
     border: 1px solid #4C2516;
     text-decoration: none;
@@ -61,8 +68,8 @@
     height: 1.25em;
     padding: 0.5em;
     text-align: center;
-    background: #B6D491;
-    color: #4C2516;
+    background: $maroon;
+    color: $white;
   }
   
   .back-link {

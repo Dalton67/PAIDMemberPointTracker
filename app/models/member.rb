@@ -20,4 +20,12 @@ class Member < ApplicationRecord
     end
     return data
   end
+
+  def self.search(search)
+    if search
+      Member.where('first_name ILIKE :search OR last_name ILIKE :search OR email ILIKE :search', search: "%#{search}%")
+    else
+      Member.all.order("created_at DESC")
+    end
+  end
 end
