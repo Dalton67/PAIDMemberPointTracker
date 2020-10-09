@@ -7,7 +7,11 @@ $light_green: #B6D491;
 $yellow: #F2DC87;
 $dark_brown: #332318;
 $light_brown: #4C2516;
+
+$maroon: #500000;
+$grey: #c1c1c1;
 $white: #FFFFFF;
+$blue: #003C71;
 
 $sans_serif: Verdana,Lucida,Arial,Helvetica,sans-serif;
 
@@ -23,7 +27,7 @@ body {
   margin: 0;
   padding: 0;
   font: 14px $sans_serif;
-  color: $dark_brown;
+  color: $white;
 }
 
 p, td, ul, ol, li, dl, dt, dd {
@@ -38,7 +42,7 @@ table tr th, table tr td {
   text-align: left;
   padding: 3px;
 }
-a, a:visited { color: $red; }
+a, a:visited { color: $maroon; }
 a:hover {}
 
 .clear { clear: both; }
@@ -49,7 +53,7 @@ a:hover {}
   height: 4em;
   padding-top: 1em;
   text-align: center;
-  background: $red;
+  background: $maroon;
   color: $white;
 
   h1 { margin: 0; padding: 0; }
@@ -57,7 +61,7 @@ a:hover {}
 
 #main {
   min-height: 500px;
-  background: $yellow;
+  background: $white;
 }
 
 #navigation {
@@ -65,8 +69,8 @@ a:hover {}
   width: 180px;
   min-height: 480px;
   padding: 10px;
-  background: $green;
-  color: $light_brown;
+  background: $grey;
+  color: $white;
 }
 
 #content { padding: 10px; }
@@ -75,8 +79,8 @@ a:hover {}
   clear: both;
   height: 2.5em;
   text-align: right;
-  background: $light_brown image-url('footer_gradient.png') repeat-y 0 0;
-  color: $yellow;
+  background: $white image-url('footer_gradient.png') repeat-y 0 0;
+  color: $maroon;
 
   p {
     margin: 0;
@@ -104,7 +108,7 @@ a:hover {}
     text-decoration: none;
     padding: 1px 3px;
     &:hover {
-      background: $yellow;
+      background: $blue;
     }
   }
 
@@ -112,5 +116,5 @@ a:hover {}
 
 /* Content */
 #content h2 {
-  color: $light_brown;
+  color: $maroon;
 }
