@@ -12,7 +12,6 @@ class Member < ApplicationRecord
     CSV.foreach(file.path,headers:true) do |row|
       member = Member.find_by(email: row['email'])
       if member
-        puts points
         member.update_attribute(:total_points, points.to_i+member.total_points)
         member.save()
       else
