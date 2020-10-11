@@ -1,22 +1,21 @@
-class MembersController < ApplicationController
+# frozen_string_literal: true
 
+class MembersController < ApplicationController
   before_action :confirm_logged_in
 
   def index
     @members = Member.all
-    if params[:search]
-      @members = Member.search(params[:search]).order("created_at DESC")
-    end
+    @members = Member.search(params[:search]).order('created_at DESC') if params[:search]
   end
 
   def missing
     @missing_members = session[:data]
-  end 
+  end
 
   def import
-    data = Member.import(params[:file],params[:points_worth])
+    data = Member.import(params[:file], params[:points_worth])
     session[:data] = data
-    redirect_to missing_members_path 
+    redirect_to missing_members_path
   end
 
   def show
@@ -25,9 +24,7 @@ class MembersController < ApplicationController
 
   def new
     @member = Member.new
-    if params[:email]
-      @member.email = params[:email]
-    end
+    @member.email = params[:email] if params[:email]
   end
 
   def create
