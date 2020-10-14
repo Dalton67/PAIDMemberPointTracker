@@ -7,13 +7,17 @@ class Member < ApplicationRecord
     self.spring_points ||= 0
     self.total_points ||= 0
   end
-  def self.import(file,points)
+  def self.import(file,points,id)
     data = Array.new
+    event = Event.find(id)
     CSV.foreach(file.path,headers:true) do |row|
       member = Member.find_by(email: row['email'])
       if member
         puts points
         member.update_attribute(:total_points, points.to_i+member.total_points)
+        if  member.events.exclude? event
+          member.events << event
+        end 
         member.save()
       else
         data.push(row['email'])

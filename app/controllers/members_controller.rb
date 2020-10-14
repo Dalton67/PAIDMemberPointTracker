@@ -14,7 +14,7 @@ class MembersController < ApplicationController
   end 
 
   def import
-    data = Member.import(params[:file],params[:points_worth])
+    data = Member.import(params[:file],params[:points_worth],params[:id])
     session[:data] = data
     redirect_to missing_members_path 
   end
@@ -75,6 +75,6 @@ class MembersController < ApplicationController
   private
 
   def member_params
-    params.require(:member).permit(:id, :first_name, :last_name, :email, :fall_points, :spring_points, :total_points, :search)
+    params.require(:member).permit(:id, :first_name, :last_name, :email, :fall_points, :spring_points, :total_points, :search, :events)
   end
 end

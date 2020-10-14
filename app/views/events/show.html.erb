@@ -21,7 +21,7 @@
       <td><%= @event.semester %></td>
     </tr>
   </table>
-<%=form_tag import_members_path(points_worth: @event.points_worth), multipart: true do %>
+<%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id), multipart: true do %>
   <%=file_field_tag :file%>
   <%= submit_tag "Import"%>
 <% end %>

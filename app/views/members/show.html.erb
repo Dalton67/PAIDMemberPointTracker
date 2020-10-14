@@ -31,7 +31,11 @@
     <tr>
       <th>Total Points</th>
       <td><%= @member.total_points %></td>
-    </tr>    
+    </tr>
+    <tr>
+    <th>Events Attended</th>
+      <td><%= Event.find(@member.event_ids) %></td>
+  </tr>     
   </table>
 
 </div>
