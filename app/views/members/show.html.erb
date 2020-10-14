@@ -34,7 +34,10 @@
     </tr>
     <tr>
     <th>Events Attended</th>
-      <td><%= Event.find(@member.event_ids) %></td>
+     <% Event.find(@member.event_ids).each do |event| %>
+      <td><%= event.title %></td>
+      <% end %>
+    </tr>
   </tr>     
   </table>
 
