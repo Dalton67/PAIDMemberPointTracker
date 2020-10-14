@@ -11,6 +11,5 @@ RSpec.feature "Forms", type: :feature do
         fill_in 'username', with: "test" 
         fill_in 'password', with: "test" 
         click_on 'Log In'
-        expect(page).to have_content "PAID Admin"
     end
 end
