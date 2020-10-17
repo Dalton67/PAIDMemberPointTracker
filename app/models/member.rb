@@ -16,13 +16,13 @@ class Member < ApplicationRecord
       member = Member.find_by(email: row['email'])
       if member
         puts points
-        member.update_attribute(:total_points, points.to_i + member.total_points)
         if semester == 'Fall'
           member.update_attribute(:fall_points, points.to_i + member.fall_points)
         else
           member.update_attribute(:spring_points, points.to_i + member.spring_points)
-        member.save
         end
+        member.update_attribute(:total_points, member.fall_points + member.spring_points)
+        member.save
       else
         data.push(row['email'])
       end
