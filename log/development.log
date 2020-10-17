@@ -12046,3 +12046,864 @@ Processing by MembersController#index as HTML
 Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.3ms | Allocations: 3938)
 
 
+Started GET "/" for 127.0.0.1 at 2020-10-17 13:04:39 -0500
+  
+PG::ConnectionBad (FATAL:  Peer authentication failed for user "marco"
+):
+  
+pg (1.2.3) lib/pg.rb:58:in `initialize'
+pg (1.2.3) lib/pg.rb:58:in `new'
+pg (1.2.3) lib/pg.rb:58:in `connect'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/postgresql_adapter.rb:46:in `postgresql_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:887:in `new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `checkout_new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:910:in `try_to_checkout_new_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:871:in `acquire_connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:593:in `checkout'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:437:in `connection'
+activerecord (6.0.3.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:1119:in `retrieve_connection'
+activerecord (6.0.3.3) lib/active_record/connection_handling.rb:221:in `retrieve_connection'
+activerecord (6.0.3.3) lib/active_record/connection_handling.rb:189:in `connection'
+activerecord (6.0.3.3) lib/active_record/migration.rb:562:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2020-10-17 13:08:07 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GeneralmemberController#index as HTML
+  Rendering generalmember/index.html.erb within layouts/application
+  [1m[36mMember Load (1.5ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY "members"."id" ASC[0m
+  ↳ app/views/generalmember/index.html.erb:20
+  Rendered generalmember/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1308)
+Completed 200 OK in 199ms (Views: 170.6ms | ActiveRecord: 6.9ms | Allocations: 52460)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-10-17 13:08:17 -0500
+Processing by AccessController#menu as HTML
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms | Allocations: 403)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-10-17 13:08:17 -0500
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/application
+  Rendered access/login.html.erb within layouts/application (Duration: 0.7ms | Allocations: 516)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.0ms | Allocations: 3954)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-10-17 13:08:19 -0500
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"fIAteXB2qP7ixtrVyvgcDbq5CTozNqUEPZPfROLts0xB2sUnlBAVHCUlKriK1PzqsdIArAFsjC1nMnlDxlcD2w==", "username"=>"test", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (3.1ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:17:in `attempt_login'
+Redirected to http://127.0.0.1:3000/admin
+Completed 302 Found in 532ms (ActiveRecord: 17.4ms | Allocations: 6705)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-10-17 13:08:20 -0500
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 0.4ms | Allocations: 268)
+Completed 200 OK in 12ms (Views: 11.7ms | ActiveRecord: 0.0ms | Allocations: 3280)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 13:08:27 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (1.7ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1363)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 1.7ms | Allocations: 4874)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 13:15:01 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 12.6ms | Allocations: 2107)
+Completed 200 OK in 53ms (Views: 30.4ms | ActiveRecord: 1.2ms | Allocations: 14018)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-10-17 13:15:03 -0500
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 0.4ms | Allocations: 269)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 3777)
+
+
+Started GET "/access/logout" for 127.0.0.1 at 2020-10-17 13:15:05 -0500
+Processing by AccessController#logout as HTML
+Redirected to http://127.0.0.1:3000/access/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 334)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-10-17 13:15:05 -0500
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/application
+  Rendered access/login.html.erb within layouts/application (Duration: 0.7ms | Allocations: 516)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 3519)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-10-17 13:15:06 -0500
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"1MwXtHLklVigSWnMlGPi5nM3l50J9skwDccbLlYOVMrplv/qloIoumeqmaHUTwIBeFyeCzus4BlXZr0pcrTkXQ==", "username"=>"test", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:17:in `attempt_login'
+Redirected to http://127.0.0.1:3000/admin
+Completed 302 Found in 503ms (ActiveRecord: 5.3ms | Allocations: 6660)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-10-17 13:15:07 -0500
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 0.2ms | Allocations: 104)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 2972)
+
+
+Started GET "/admin_users" for 127.0.0.1 at 2020-10-17 13:15:15 -0500
+Processing by AdminUsersController#index as HTML
+  Rendering admin_users/index.html.erb within layouts/application
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" ORDER BY last_name ASC, first_name ASC[0m
+  ↳ app/views/admin_users/index.html.erb:14
+  Rendered admin_users/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1088)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.5ms | Allocations: 4614)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-10-17 13:15:17 -0500
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 0.2ms | Allocations: 107)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 2961)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 13:15:19 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 901)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.2ms | Allocations: 3785)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-10-17 13:15:24 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (1.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:14
+  Rendered events/index.html.erb within layouts/application (Duration: 12.7ms | Allocations: 4552)
+Completed 200 OK in 41ms (Views: 24.3ms | ActiveRecord: 6.8ms | Allocations: 10069)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2020-10-17 13:16:08 -0500
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 23.0ms | Allocations: 3498)
+Completed 200 OK in 33ms (Views: 32.5ms | ActiveRecord: 0.0ms | Allocations: 6534)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 13:18:30 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 893)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.2ms | Allocations: 3775)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-10-17 13:18:32 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:14
+  Rendered events/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 822)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.2ms | Allocations: 3701)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 13:18:34 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 884)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.1ms | Allocations: 3763)
+
+
+Started GET "/members/new" for 127.0.0.1 at 2020-10-17 13:18:44 -0500
+Processing by MembersController#new as HTML
+  Rendering members/new.html.erb within layouts/application
+  Rendered members/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 864)
+Completed 200 OK in 35ms (Views: 17.6ms | ActiveRecord: 1.0ms | Allocations: 8235)
+
+
+Started POST "/members" for 127.0.0.1 at 2020-10-17 13:19:00 -0500
+Processing by MembersController#create as HTML
+  Parameters: {"authenticity_token"=>"WF18bWb2g0+Bn6dfQ6Hfk+RoAtcReZ255JimhMDmRiIaDDhb0Q3rI7l75R+I6qDZaSRvAozw3+AH3hpdlkNflQ==", "member"=>{"first_name"=>"Dalton", "last_name"=>"Peltier", "email"=>"dalton67@tamu.edu", "fall_points"=>"0", "spring_points"=>"0", "total_points"=>"0"}, "commit"=>"Create Member"}
+  [1m[35m (3.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:39:in `create'
+  [1m[36mMember Create (2.3ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "email", "fall_points", "spring_points", "total_points", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Dalton"], ["last_name", "Peltier"], ["email", "dalton67@tamu.edu"], ["fall_points", 0], ["spring_points", 0], ["total_points", 0], ["created_at", "2020-10-17 18:19:00.654939"], ["updated_at", "2020-10-17 18:19:00.654939"]]
+  ↳ app/controllers/members_controller.rb:39:in `create'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:39:in `create'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 7.1ms | Allocations: 3976)
+
+
+  
+NoMethodError (undefined method `delete' for nil:NilClass):
+  
+app/controllers/members_controller.rb:40:in `create'
+Started GET "/admin" for 127.0.0.1 at 2020-10-17 13:20:00 -0500
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 0.2ms | Allocations: 107)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 3033)
+
+
+Started GET "/access/logout" for 127.0.0.1 at 2020-10-17 13:20:02 -0500
+Processing by AccessController#logout as HTML
+Redirected to http://127.0.0.1:3000/access/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 337)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-10-17 13:20:02 -0500
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/application
+  Rendered access/login.html.erb within layouts/application (Duration: 0.4ms | Allocations: 292)
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 3158)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-10-17 13:20:03 -0500
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"v8l463vmHXAyk1QZK4mifOKiy/Onf4zAV+Pc63iCgOSCk5C1n4CgkvVwpHRrpUKb6cnCZZUlpekNQnrsXDgwcw==", "username"=>"test", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.2ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:17:in `attempt_login'
+Redirected to http://127.0.0.1:3000/admin
+Completed 302 Found in 472ms (ActiveRecord: 0.2ms | Allocations: 1185)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-10-17 13:20:04 -0500
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 0.2ms | Allocations: 99)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.0ms | Allocations: 2968)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 13:20:07 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1039)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.2ms | Allocations: 3925)
+
+
+Started GET "/members/new" for 127.0.0.1 at 2020-10-17 13:20:08 -0500
+Processing by MembersController#new as HTML
+  Rendering members/new.html.erb within layouts/application
+  Rendered members/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 525)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 3428)
+
+
+Started POST "/members" for 127.0.0.1 at 2020-10-17 13:20:18 -0500
+Processing by MembersController#create as HTML
+  Parameters: {"authenticity_token"=>"qH0U6GL2dduZWV5FUxb1+XkaX2XiwVJsEanEddQCA4TqLFDe1Q0dt6G9HAWYXYqz9FYysH9IEDXy73isgqcaMw==", "member"=>{"first_name"=>"Dalton", "last_name"=>"Peltier", "email"=>"dalton67@tamu.edu", "fall_points"=>"0", "spring_points"=>"0", "total_points"=>"0"}, "commit"=>"Create Member"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:39:in `create'
+  [1m[36mMember Create (0.2ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "email", "fall_points", "spring_points", "total_points", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Dalton"], ["last_name", "Peltier"], ["email", "dalton67@tamu.edu"], ["fall_points", 0], ["spring_points", 0], ["total_points", 0], ["created_at", "2020-10-17 18:20:18.430156"], ["updated_at", "2020-10-17 18:20:18.430156"]]
+  ↳ app/controllers/members_controller.rb:39:in `create'
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:39:in `create'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 2.8ms | Allocations: 3739)
+
+
+  
+NoMethodError (undefined method `delete' for nil:NilClass):
+  
+app/controllers/members_controller.rb:40:in `create'
+Started POST "/members" for 127.0.0.1 at 2020-10-17 13:24:33 -0500
+Processing by MembersController#create as HTML
+  Parameters: {"authenticity_token"=>"qH0U6GL2dduZWV5FUxb1+XkaX2XiwVJsEanEddQCA4TqLFDe1Q0dt6G9HAWYXYqz9FYysH9IEDXy73isgqcaMw==", "member"=>{"first_name"=>"Dalton", "last_name"=>"Peltier", "email"=>"dalton67@tamu.edu", "fall_points"=>"0", "spring_points"=>"0", "total_points"=>"0"}, "commit"=>"Create Member"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:39:in `create'
+  [1m[36mMember Create (1.2ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "email", "fall_points", "spring_points", "total_points", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Dalton"], ["last_name", "Peltier"], ["email", "dalton67@tamu.edu"], ["fall_points", 0], ["spring_points", 0], ["total_points", 0], ["created_at", "2020-10-17 18:24:33.266679"], ["updated_at", "2020-10-17 18:24:33.266679"]]
+  ↳ app/controllers/members_controller.rb:39:in `create'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:39:in `create'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 2.6ms | Allocations: 3720)
+
+
+  
+NoMethodError (undefined method `delete' for nil:NilClass):
+  
+app/controllers/members_controller.rb:40:in `create'
+Started GET "/" for 127.0.0.1 at 2020-10-17 13:30:44 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GeneralmemberController#index as HTML
+  Rendering generalmember/index.html.erb within layouts/application
+  [1m[36mMember Load (1.9ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY "members"."id" ASC[0m
+  ↳ app/views/generalmember/index.html.erb:20
+  Rendered generalmember/index.html.erb within layouts/application (Duration: 69.2ms | Allocations: 6124)
+Completed 200 OK in 175ms (Views: 103.7ms | ActiveRecord: 4.7ms | Allocations: 18665)
+
+
+Started GET "/members?search=" for 127.0.0.1 at 2020-10-17 13:30:46 -0500
+Processing by MembersController#index as HTML
+  Parameters: {"search"=>""}
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (2.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE (first_name ILIKE '%%' OR last_name ILIKE '%%' OR email ILIKE '%%') ORDER BY created_at DESC[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1807)
+Completed 200 OK in 27ms (Views: 22.2ms | ActiveRecord: 2.5ms | Allocations: 5398)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-10-17 13:30:50 -0500
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 0.5ms | Allocations: 269)
+Completed 200 OK in 19ms (Views: 18.3ms | ActiveRecord: 0.0ms | Allocations: 3755)
+
+
+Started GET "/access/logout" for 127.0.0.1 at 2020-10-17 13:30:51 -0500
+Processing by AccessController#logout as HTML
+Redirected to http://127.0.0.1:3000/access/login
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms | Allocations: 331)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-10-17 13:30:51 -0500
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/application
+  Rendered access/login.html.erb within layouts/application (Duration: 0.7ms | Allocations: 519)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 3517)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-10-17 13:30:52 -0500
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"YvBkIVZ4PG63kmYGsDgQgVIag3XuWL7xfQNpNuiiqStfqox/sh6BjHBxlmvwFPBmWXGK49wCl9gnos8xzBgZvA==", "username"=>"test", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:17:in `attempt_login'
+Redirected to http://127.0.0.1:3000/admin
+Completed 302 Found in 514ms (ActiveRecord: 9.4ms | Allocations: 6367)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-10-17 13:30:53 -0500
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 0.2ms | Allocations: 104)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 2994)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 13:30:55 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1304)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.2ms | Allocations: 4190)
+
+
+Started GET "/members/new" for 127.0.0.1 at 2020-10-17 13:30:57 -0500
+Processing by MembersController#new as HTML
+  Rendering members/new.html.erb within layouts/application
+  Rendered members/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1004)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 4049)
+
+
+Started GET "/members/new" for 127.0.0.1 at 2020-10-17 13:31:02 -0500
+Processing by MembersController#new as HTML
+  Rendering members/new.html.erb within layouts/application
+  Rendered members/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 522)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 3424)
+
+
+Started POST "/members" for 127.0.0.1 at 2020-10-17 13:31:11 -0500
+Processing by MembersController#create as HTML
+  Parameters: {"authenticity_token"=>"b0yQ2Inx49AilwvVVeq79irkdeNlS74MX4QOiw7vk4ctHdTuPgqLvBpzSZWeocS8p6gYNvjC/FW8wrJSWEqKMA==", "member"=>{"first_name"=>"Big", "last_name"=>"Time", "email"=>"test@email.com", "fall_points"=>"0", "spring_points"=>"0", "total_points"=>"0"}, "commit"=>"Create Member"}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:32:in `create'
+  [1m[36mMember Create (1.7ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "email", "fall_points", "spring_points", "total_points", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Big"], ["last_name", "Time"], ["email", "test@email.com"], ["fall_points", 0], ["spring_points", 0], ["total_points", 0], ["created_at", "2020-10-17 18:31:11.582979"], ["updated_at", "2020-10-17 18:31:11.582979"]]
+  ↳ app/controllers/members_controller.rb:32:in `create'
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:32:in `create'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 17ms (ActiveRecord: 6.7ms | Allocations: 3195)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 13:31:11 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1436)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.2ms | Allocations: 4319)
+
+
+Started GET "/" for 127.0.0.1 at 2020-10-17 13:34:54 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GeneralmemberController#index as HTML
+  Rendering generalmember/index.html.erb within layouts/application
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY "members"."id" ASC[0m
+  ↳ app/views/generalmember/index.html.erb:20
+  Rendered generalmember/index.html.erb within layouts/application (Duration: 84.7ms | Allocations: 6164)
+Completed 200 OK in 214ms (Views: 143.4ms | ActiveRecord: 11.8ms | Allocations: 18699)
+
+
+Started GET "/members?search=" for 127.0.0.1 at 2020-10-17 13:34:56 -0500
+Processing by MembersController#index as HTML
+  Parameters: {"search"=>""}
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.6ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE (first_name ILIKE '%%' OR last_name ILIKE '%%' OR email ILIKE '%%') ORDER BY created_at DESC[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1944)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.6ms | Allocations: 5535)
+
+
+Started GET "/members/new" for 127.0.0.1 at 2020-10-17 13:34:57 -0500
+Processing by MembersController#new as HTML
+  Rendering members/new.html.erb within layouts/application
+  Rendered members/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1009)
+Completed 200 OK in 26ms (Views: 25.0ms | ActiveRecord: 0.0ms | Allocations: 4067)
+
+
+Started POST "/members" for 127.0.0.1 at 2020-10-17 13:35:06 -0500
+Processing by MembersController#create as HTML
+  Parameters: {"authenticity_token"=>"Co5zhGUYueWuPnpUGGWfWK1ydYxO39YURIqgMcIL20dI3zey0uPRiZbaOBTTLuASID4YWdNWlE2nzBzolK7C8A==", "member"=>{"first_name"=>"Big", "last_name"=>"Time", "email"=>"test@test.com", "fall_points"=>"0", "spring_points"=>"0", "total_points"=>"0"}, "commit"=>"Create Member"}
+  [1m[35m (10.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:32:in `create'
+  [1m[36mMember Create (0.4ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "email", "fall_points", "spring_points", "total_points", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Big"], ["last_name", "Time"], ["email", "test@test.com"], ["fall_points", 0], ["spring_points", 0], ["total_points", 0], ["created_at", "2020-10-17 18:35:06.967114"], ["updated_at", "2020-10-17 18:35:06.967114"]]
+  ↳ app/controllers/members_controller.rb:32:in `create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:32:in `create'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 23ms (ActiveRecord: 11.3ms | Allocations: 3242)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 13:35:07 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1573)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.2ms | Allocations: 4452)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-10-17 13:35:14 -0500
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 0.4ms | Allocations: 272)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 3764)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 13:35:16 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.8ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1577)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.8ms | Allocations: 4459)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-10-17 13:35:20 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:14
+  Rendered events/index.html.erb within layouts/application (Duration: 14.1ms | Allocations: 4564)
+Completed 200 OK in 52ms (Views: 39.3ms | ActiveRecord: 8.1ms | Allocations: 10080)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-10-17 13:35:24 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 498)
+Completed 200 OK in 22ms (Views: 17.7ms | ActiveRecord: 1.3ms | Allocations: 4497)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-10-17 13:36:57 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 248)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.2ms | Allocations: 3724)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-10-17 13:44:51 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:14
+  Rendered events/index.html.erb within layouts/application (Duration: 10.0ms | Allocations: 4171)
+Completed 200 OK in 42ms (Views: 38.7ms | ActiveRecord: 0.5ms | Allocations: 9225)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 13:47:48 -0500
+Processing by MembersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1248)
+
+
+  
+SyntaxError (/home/tamucru/Desktop/RailsApps/PAIDMemberPointTracker/app/models/member.rb:25: syntax error, unexpected `else', expecting `end'
+      else
+      ^~~~
+/home/tamucru/Desktop/RailsApps/PAIDMemberPointTracker/app/models/member.rb:39: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/models/member.rb:25: syntax error, unexpected `else', expecting `end'
+app/models/member.rb:39: syntax error, unexpected end-of-input, expecting `end'
+app/models/member.rb:25: syntax error, unexpected `else', expecting `end'
+app/models/member.rb:39: syntax error, unexpected end-of-input, expecting `end'
+app/models/member.rb:25: syntax error, unexpected `else', expecting `end'
+app/models/member.rb:39: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/members_controller.rb:7:in `index'
+Started GET "/members" for 127.0.0.1 at 2020-10-17 13:48:40 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (4.0ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 33.4ms | Allocations: 6408)
+Completed 200 OK in 56ms (Views: 35.8ms | ActiveRecord: 14.2ms | Allocations: 11458)
+
+
+Started GET "/members/18/delete" for 127.0.0.1 at 2020-10-17 13:48:55 -0500
+Processing by MembersController#delete as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:53:in `delete'
+  Rendering members/delete.html.erb within layouts/application
+  Rendered members/delete.html.erb within layouts/application (Duration: 1.0ms | Allocations: 516)
+Completed 200 OK in 17ms (Views: 13.9ms | ActiveRecord: 0.3ms | Allocations: 4240)
+
+
+Started DELETE "/members/18" for 127.0.0.1 at 2020-10-17 13:48:56 -0500
+Processing by MembersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"j77wsu13N5xQtcnC/JVUQvWHZiIbnL/9C/PZg5nvu+rF2MoehMbbF31CU9bktGDUjTGGDGZGB0sN5wxFdxS5mA==", "commit"=>"Delete Member", "id"=>"18"}
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:57:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:58:in `destroy'
+  [1m[36mMember::HABTM_Events Destroy (1.4ms)[0m  [1m[31mDELETE FROM "events_members" WHERE "events_members"."member_id" = $1[0m  [["member_id", 18]]
+  ↳ app/controllers/members_controller.rb:58:in `destroy'
+  [1m[36mMember Destroy (4.0ms)[0m  [1m[31mDELETE FROM "members" WHERE "members"."id" = $1[0m  [["id", 18]]
+  ↳ app/controllers/members_controller.rb:58:in `destroy'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:58:in `destroy'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 44ms (ActiveRecord: 8.8ms | Allocations: 8323)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 13:48:57 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1434)
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.2ms | Allocations: 4318)
+
+
+Started GET "/members/20/delete" for 127.0.0.1 at 2020-10-17 13:49:07 -0500
+Processing by MembersController#delete as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:53:in `delete'
+  Rendering members/delete.html.erb within layouts/application
+  Rendered members/delete.html.erb within layouts/application (Duration: 0.5ms | Allocations: 258)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.2ms | Allocations: 3703)
+
+
+Started DELETE "/members/20" for 127.0.0.1 at 2020-10-17 13:49:09 -0500
+Processing by MembersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IsEJtM5IIYE+g9kQvjefH1uZXBihnzSmm6f66+laJmuvRbQkjjLAs+ojT3OSdObwpMjzfZQZSEtBag8X0kIyzg==", "commit"=>"Delete Member", "id"=>"20"}
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:57:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:58:in `destroy'
+  [1m[36mMember::HABTM_Events Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events_members" WHERE "events_members"."member_id" = $1[0m  [["member_id", 20]]
+  ↳ app/controllers/members_controller.rb:58:in `destroy'
+  [1m[36mMember Destroy (0.1ms)[0m  [1m[31mDELETE FROM "members" WHERE "members"."id" = $1[0m  [["id", 20]]
+  ↳ app/controllers/members_controller.rb:58:in `destroy'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:58:in `destroy'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 17ms (ActiveRecord: 1.4ms | Allocations: 3578)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 13:49:09 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1292)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.2ms | Allocations: 4167)
+
+
+Started GET "/members/22/delete" for 127.0.0.1 at 2020-10-17 13:49:11 -0500
+Processing by MembersController#delete as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:53:in `delete'
+  Rendering members/delete.html.erb within layouts/application
+  Rendered members/delete.html.erb within layouts/application (Duration: 0.4ms | Allocations: 258)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.2ms | Allocations: 3693)
+
+
+Started DELETE "/members/22" for 127.0.0.1 at 2020-10-17 13:49:12 -0500
+Processing by MembersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Ji+UFJQ0F1HRsQtT2/iSpJ+StohGFWY1O1uOUSDdaoIqZ4ZnRPuuPSae8hJ+D9vGGfClh+Mks8IezSn3LxOc3w==", "commit"=>"Delete Member", "id"=>"22"}
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:57:in `destroy'
+  [1m[35m (4.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:58:in `destroy'
+  [1m[36mMember::HABTM_Events Destroy (0.2ms)[0m  [1m[31mDELETE FROM "events_members" WHERE "events_members"."member_id" = $1[0m  [["member_id", 22]]
+  ↳ app/controllers/members_controller.rb:58:in `destroy'
+  [1m[36mMember Destroy (0.1ms)[0m  [1m[31mDELETE FROM "members" WHERE "members"."id" = $1[0m  [["id", 22]]
+  ↳ app/controllers/members_controller.rb:58:in `destroy'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:58:in `destroy'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 14ms (ActiveRecord: 6.6ms | Allocations: 3572)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 13:49:12 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (2.0ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1156)
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 2.0ms | Allocations: 4039)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-10-17 13:49:27 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (1.8ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:14
+  Rendered events/index.html.erb within layouts/application (Duration: 13.1ms | Allocations: 4127)
+Completed 200 OK in 37ms (Views: 26.0ms | ActiveRecord: 9.5ms | Allocations: 7592)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2020-10-17 13:49:31 -0500
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1026)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 4034)
+
+
+Started POST "/events" for 127.0.0.1 at 2020-10-17 13:49:49 -0500
+Processing by EventsController#create as HTML
+  Parameters: {"authenticity_token"=>"FVdXCcyRmwjYiRVkZbqcmYQQPheaLW7uwLHjFZ+sa+ehVFjbResBPh6dMaTsBqM8fSB2l/ACqwoPXEikzd7+Bw==", "event"=>{"title"=>"PAID Informational", "date"=>"2020-10-22", "points_worth"=>"5", "semester"=>"Fall"}, "commit"=>"Create Events"}
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:20:in `create'
+  [1m[36mEvent Create (53.6ms)[0m  [1m[32mINSERT INTO "events" ("title", "date", "semester", "points_worth", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "PAID Informational"], ["date", "2020-10-22"], ["semester", "Fall"], ["points_worth", 5], ["created_at", "2020-10-17 18:49:49.783684"], ["updated_at", "2020-10-17 18:49:49.783684"]]
+  ↳ app/controllers/events_controller.rb:20:in `create'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:20:in `create'
+Redirected to http://127.0.0.1:3000/events
+Completed 302 Found in 61ms (ActiveRecord: 56.6ms | Allocations: 2996)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-10-17 13:49:49 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:14
+  Rendered events/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 919)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.2ms | Allocations: 3802)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-10-17 13:49:52 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 251)
+Completed 200 OK in 17ms (Views: 12.5ms | ActiveRecord: 0.2ms | Allocations: 3860)
+
+
+Started POST "/members/import?points_worth=5" for 127.0.0.1 at 2020-10-17 13:49:59 -0500
+Processing by MembersController#import as HTML
+  Parameters: {"authenticity_token"=>"7ttB+yDkCX1CeDndgWgW8LuX2pU+dBbCpBALz9W8A5A2wt6GvwrRwAw3xE2Mtya84z/9clrioPUdKjp3EQmmiA==", "commit"=>"Import", "points_worth"=>"5"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1154)
+
+
+  
+NoMethodError (undefined method `path' for nil:NilClass):
+  
+app/models/member.rb:15:in `import'
+app/controllers/members_controller.rb:16:in `import'
+Started GET "/admin" for 127.0.0.1 at 2020-10-17 13:52:18 -0500
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 0.2ms | Allocations: 109)
+Completed 200 OK in 14ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 3188)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 13:52:22 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (1.0ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1167)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 1.0ms | Allocations: 4047)
+
+
+Started GET "/members/19" for 127.0.0.1 at 2020-10-17 13:52:28 -0500
+Processing by MembersController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:22:in `show'
+  Rendering members/show.html.erb within layouts/application
+  Rendered members/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 290)
+Completed 200 OK in 14ms (Views: 9.8ms | ActiveRecord: 0.2ms | Allocations: 3858)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-10-17 13:53:50 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:14
+  Rendered events/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 924)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.2ms | Allocations: 3804)
+
+
+Started POST "/members/import?points_worth=5" for 127.0.0.1 at 2020-10-17 13:54:01 -0500
+Processing by MembersController#import as HTML
+  Parameters: {"authenticity_token"=>"7ttB+yDkCX1CeDndgWgW8LuX2pU+dBbCpBALz9W8A5A2wt6GvwrRwAw3xE2Mtya84z/9clrioPUdKjp3EQmmiA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007f96dc84e2a0 @tempfile=#<Tempfile:/tmp/RackMultipart20201017-7363-8g3qzt.xlsx>, @original_filename="semester_points_test.xlsx", @content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"semester_points_test.xlsx\"\r\nContent-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\r\n">, "commit"=>"Import", "points_worth"=>"5"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1080)
+
+
+  
+CSV::MalformedCSVError (Invalid byte sequence in UTF-8 in line 1.):
+  
+app/models/member.rb:15:in `import'
+app/controllers/members_controller.rb:16:in `import'
+Started POST "/members/import?points_worth=5" for 127.0.0.1 at 2020-10-17 13:56:38 -0500
+Processing by MembersController#import as HTML
+  Parameters: {"authenticity_token"=>"7ttB+yDkCX1CeDndgWgW8LuX2pU+dBbCpBALz9W8A5A2wt6GvwrRwAw3xE2Mtya84z/9clrioPUdKjp3EQmmiA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007f96e80fc8b0 @tempfile=#<Tempfile:/tmp/RackMultipart20201017-7363-nf2ja9.xlsx>, @original_filename="semester_points_test.xlsx", @content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"semester_points_test.xlsx\"\r\nContent-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\r\n">, "commit"=>"Import", "points_worth"=>"5"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1067)
+
+
+  
+CSV::MalformedCSVError (Invalid byte sequence in UTF-8 in line 1.):
+  
+app/models/member.rb:15:in `import'
+app/controllers/members_controller.rb:16:in `import'
+Started GET "/events/2" for 127.0.0.1 at 2020-10-17 13:58:09 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 250)
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.8ms | Allocations: 3751)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-10-17 13:58:11 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (1.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:14
+  Rendered events/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 916)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 1.2ms | Allocations: 3812)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-10-17 13:58:15 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 248)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.2ms | Allocations: 3706)
+
+
+Started POST "/members/import?points_worth=15" for 127.0.0.1 at 2020-10-17 13:58:21 -0500
+Processing by MembersController#import as HTML
+  Parameters: {"authenticity_token"=>"k1A+5/7zp4X5OdEPySbDAsZasS2X+pdgLgMCrb1+WedLSaGaYR1/OLd2LJ/E+fNOnvKWyvNsIVeXOTMVecv8/w==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007f96dc8b66e8 @tempfile=#<Tempfile:/tmp/RackMultipart20201017-7363-be00w3.xlsx>, @original_filename="semester_points_test(1).xlsx", @content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"semester_points_test(1).xlsx\"\r\nContent-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\r\n">, "commit"=>"Import", "points_worth"=>"15"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1056)
+
+
+  
+CSV::MalformedCSVError (Invalid byte sequence in UTF-8 in line 1.):
+  
+app/models/member.rb:15:in `import'
+app/controllers/members_controller.rb:16:in `import'
+Started POST "/members/import?points_worth=15" for 127.0.0.1 at 2020-10-17 14:04:28 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#import as HTML
+  Parameters: {"authenticity_token"=>"k1A+5/7zp4X5OdEPySbDAsZasS2X+pdgLgMCrb1+WedLSaGaYR1/OLd2LJ/E+fNOnvKWyvNsIVeXOTMVecv8/w==", "file"=>#<ActionDispatch::Http::UploadedFile:0x0000564b69d21198 @tempfile=#<Tempfile:/tmp/RackMultipart20201017-13249-1dqw53.xlsx>, @original_filename="semester_points_test.xlsx", @content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"semester_points_test.xlsx\"\r\nContent-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\r\n">, "commit"=>"Import", "points_worth"=>"15"}
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms | Allocations: 3830)
+
+
+  
+CSV::MalformedCSVError (Invalid byte sequence in UTF-8 in line 1.):
+  
+app/models/member.rb:15:in `import'
+app/controllers/members_controller.rb:16:in `import'
+Started GET "/events" for 127.0.0.1 at 2020-10-17 14:07:53 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:14
+  Rendered events/index.html.erb within layouts/application (Duration: 14.8ms | Allocations: 4975)
+Completed 200 OK in 51ms (Views: 38.9ms | ActiveRecord: 7.8ms | Allocations: 16012)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-10-17 14:08:01 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 3.9ms | Allocations: 519)
+Completed 200 OK in 31ms (Views: 10.6ms | ActiveRecord: 3.2ms | Allocations: 11152)
+
+
+Started POST "/members/import?points_worth=15" for 127.0.0.1 at 2020-10-17 14:08:05 -0500
+Processing by MembersController#import as HTML
+  Parameters: {"authenticity_token"=>"dHEXHroaIrPkdbskqJIe/Aa1lFej2YVIXbKRjoqJB5usaIhjJfT6Dqo6RrSlTS6wXh2zsMdPM3/kiKA2Tjyigw==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fa0e4d372f0 @tempfile=#<Tempfile:/tmp/RackMultipart20201017-13249-cid2uk.xlsx>, @original_filename="semester_points_test.xlsx", @content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"semester_points_test.xlsx\"\r\nContent-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\r\n">, "commit"=>"Import", "points_worth"=>"15"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1104)
+
+
+  
+CSV::MalformedCSVError (Invalid byte sequence in UTF-8 in line 1.):
+  
+app/models/member.rb:16:in `import'
+app/controllers/members_controller.rb:16:in `import'

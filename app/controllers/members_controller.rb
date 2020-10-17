@@ -13,7 +13,7 @@ class MembersController < ApplicationController
   end
 
   def import
-    data = Member.import(params[:file], params[:points_worth])
+    data = Member.import(params[:file], params[:points_worth], params[:semester])
     session[:data] = data
     redirect_to missing_members_path
   end
