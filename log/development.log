@@ -15503,3 +15503,1273 @@ Processing by MembersController#index as HTML
 Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.2ms | Allocations: 4034)
 
 
+Started GET "/members" for 127.0.0.1 at 2020-10-17 16:10:22 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (1.0ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 80.8ms | Allocations: 7080)
+Completed 200 OK in 217ms (Views: 154.6ms | ActiveRecord: 6.6ms | Allocations: 19010)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:10:24 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1328)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1991)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+
+<div class="members reset">
+  <h2>Reset Members</h2>
+  <p>Are you sure you want to permanently delete all members?</p>
+  <%= flash[:warning] = "This will delete all members and corresponding information."
+  <%= link_to "Reset Members", :controller => :members, :action => :reset_members, :method => :post %>
+</div>
+
+):
+1:    <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+2:    
+3:    <div class="members reset">
+4:      <h2>Reset Members</h2>
+5:      <p>Are you sure you want to permanently delete all members?</p>
+6:      <%= flash[:warning] = "This will delete all members and corresponding information."
+7:      <%= link_to "Reset Members", :controller => :members, :action => :reset_members, :method => :post %>
+8:    </div>
+  
+app/views/members/reset.html.erb:7: syntax error, unexpected '<', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected ',', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected '<', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected ',', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected '<', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected ',', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected '<', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected ',', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected '<', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected ',', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected '<', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected ',', expecting ')'
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:10:39 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 1.6ms | Allocations: 819)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.0ms | Allocations: 4804)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:13:16 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 1.0ms | Allocations: 334)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 4247)
+
+
+Started GET "/members/reset?data%5Baction%5D=reset_members&data%5Bconfirm%5D=Are+you+sure%3F&data%5Bcontroller%5D=members&data%5Bmethod%5D=post" for 127.0.0.1 at 2020-10-17 16:13:18 -0500
+Processing by MembersController#reset as HTML
+  Parameters: {"data"=>{"action"=>"reset_members", "confirm"=>"Are you sure?", "controller"=>"members", "method"=>"post"}}
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.4ms | Allocations: 199)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 3099)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-10-17 16:13:30 -0500
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 0.6ms | Allocations: 269)
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 3789)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 16:13:32 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1617)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.2ms | Allocations: 4638)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:13:54 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.9ms | Allocations: 302)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 4177)
+
+
+Started GET "/members/reset_members?data%5Bconfirm%5D=Are+you+sure%3F&method=post" for 127.0.0.1 at 2020-10-17 16:13:55 -0500
+Processing by MembersController#reset_members as HTML
+  Parameters: {"data"=>{"confirm"=>"Are you sure?"}, "method"=>"post"}
+  [1m[36mMember Destroy (0.8ms)[0m  [1m[31mDELETE FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:68:in `reset_members'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms | Allocations: 801)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 16:13:55 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (4.9ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1332)
+Completed 200 OK in 16ms (Views: 10.7ms | ActiveRecord: 4.9ms | Allocations: 4375)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:14:59 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.8ms | Allocations: 302)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 4187)
+
+
+Started GET "/members/reset_members?data%5Bconfirm%5D=Are+you+sure%3F&method=post" for 127.0.0.1 at 2020-10-17 16:15:01 -0500
+Processing by MembersController#reset_members as HTML
+  Parameters: {"data"=>{"confirm"=>"Are you sure?"}, "method"=>"post"}
+  [1m[36mMember Destroy (0.7ms)[0m  [1m[31mDELETE FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:68:in `reset_members'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms | Allocations: 764)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 16:15:01 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.9ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1331)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.9ms | Allocations: 4374)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:15:15 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.9ms | Allocations: 287)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 4170)
+
+
+Started GET "/members/reset_members?method=post" for 127.0.0.1 at 2020-10-17 16:15:16 -0500
+Processing by MembersController#reset_members as HTML
+  Parameters: {"method"=>"post"}
+  [1m[36mMember Destroy (0.2ms)[0m  [1m[31mDELETE FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:68:in `reset_members'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 776)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 16:15:16 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (1.0ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1331)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 1.0ms | Allocations: 4368)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:15:35 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 1.2ms | Allocations: 272)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 4157)
+
+
+Started GET "/members/reset_members?method=post" for 127.0.0.1 at 2020-10-17 16:15:36 -0500
+Processing by MembersController#reset_members as HTML
+  Parameters: {"method"=>"post"}
+  [1m[36mMember Destroy (0.1ms)[0m  [1m[31mDELETE FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:68:in `reset_members'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 768)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 16:15:36 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1331)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.4ms | Allocations: 4392)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:17:12 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.3ms | Allocations: 141)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 3031)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:17:28 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.3ms | Allocations: 137)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 3049)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:17:45 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.8ms | Allocations: 270)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 4162)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:23:24 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1053)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 2315)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+<%= javascript_include_tag :defaults %>
+<div class="members reset">
+  <h2>Reset Members</h2>
+  <p>Are you sure you want to permanently delete all members?</p>
+  <%= flash[:warning] = "This will delete all members and corresponding information." %><br>
+  <%= link_to("Reset Members", {:controller => :members, :action => :reset_members, :method => :post}, data: => {confirm: 'Are you sure?'}) %>
+</div>
+
+):
+1:    <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+2:    <%= javascript_include_tag :defaults %>
+3:    <div class="members reset">
+4:      <h2>Reset Members</h2>
+5:      <p>Are you sure you want to permanently delete all members?</p>
+6:      <%= flash[:warning] = "This will delete all members and corresponding information." %><br>
+7:      <%= link_to("Reset Members", {:controller => :members, :action => :reset_members, :method => :post}, data: => {confirm: 'Are you sure?'}) %>
+8:    </div>
+  
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected ')', expecting `end'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected ')', expecting `end'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected ')', expecting `end'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected ')', expecting `end'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected ')', expecting `end'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected ')', expecting `end'
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:23:41 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1053)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2317)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+<%= javascript_include_tag :defaults %>
+<div class="members reset">
+  <h2>Reset Members</h2>
+  <p>Are you sure you want to permanently delete all members?</p>
+  <%= flash[:warning] = "This will delete all members and corresponding information." %><br>
+  <%= link_to "Reset Members", {:controller => :members, :action => :reset_members, :method => :post}, data: => {confirm: 'Are you sure?'} %>
+</div>
+
+):
+1:    <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+2:    <%= javascript_include_tag :defaults %>
+3:    <div class="members reset">
+4:      <h2>Reset Members</h2>
+5:      <p>Are you sure you want to permanently delete all members?</p>
+6:      <%= flash[:warning] = "This will delete all members and corresponding information." %><br>
+7:      <%= link_to "Reset Members", {:controller => :members, :action => :reset_members, :method => :post}, data: => {confirm: 'Are you sure?'} %>
+8:    </div>
+  
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:24:02 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1051)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2315)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+<%= javascript_include_tag :defaults %>
+<div class="members reset">
+  <h2>Reset Members</h2>
+  <p>Are you sure you want to permanently delete all members?</p>
+  <%= flash[:warning] = "This will delete all members and corresponding information." %><br>
+  <%= link_to "Reset Members", {:controller => :members, :action => :reset_members, :method => :post}, data: => {confirm: => 'Are you sure?'} %>
+</div>
+
+):
+1:    <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+2:    <%= javascript_include_tag :defaults %>
+3:    <div class="members reset">
+4:      <h2>Reset Members</h2>
+5:      <p>Are you sure you want to permanently delete all members?</p>
+6:      <%= flash[:warning] = "This will delete all members and corresponding information." %><br>
+7:      <%= link_to "Reset Members", {:controller => :members, :action => :reset_members, :method => :post}, data: => {confirm: => 'Are you sure?'} %>
+8:    </div>
+  
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:26:46 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1051)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 2315)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+<%= javascript_include_tag :defaults %>
+<div class="members reset">
+  <h2>Reset Members</h2>
+  <p>Are you sure you want to permanently delete all members?</p>
+  <%= flash[:warning] = "This will delete all members and corresponding information." %><br>
+  <%= link_to "Reset Members", :controller => :members, :action => :reset_members, :method => :post, data: => {confirm: => 'Are you sure?'} %>
+</div>
+
+):
+1:    <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+2:    <%= javascript_include_tag :defaults %>
+3:    <div class="members reset">
+4:      <h2>Reset Members</h2>
+5:      <p>Are you sure you want to permanently delete all members?</p>
+6:      <%= flash[:warning] = "This will delete all members and corresponding information." %><br>
+7:      <%= link_to "Reset Members", :controller => :members, :action => :reset_members, :method => :post, data: => {confirm: => 'Are you sure?'} %>
+8:    </div>
+  
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:26:50 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.5ms | Allocations: 1038)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1566)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+<%= javascript_include_tag :defaults %>
+<div class="members reset">
+  <h2>Reset Members</h2>
+  <p>Are you sure you want to permanently delete all members?</p>
+  <%= flash[:warning] = "This will delete all members and corresponding information." %><br>
+  <%= link_to "Reset Members", :controller => :members, :action => :reset_members, :method => :post, data: => {confirm: => 'Are you sure?'} %>
+</div>
+
+):
+1:    <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+2:    <%= javascript_include_tag :defaults %>
+3:    <div class="members reset">
+4:      <h2>Reset Members</h2>
+5:      <p>Are you sure you want to permanently delete all members?</p>
+6:      <%= flash[:warning] = "This will delete all members and corresponding information." %><br>
+7:      <%= link_to "Reset Members", :controller => :members, :action => :reset_members, :method => :post, data: => {confirm: => 'Are you sure?'} %>
+8:    </div>
+  
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:28:11 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1054)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 2318)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+<%= javascript_include_tag :defaults %>
+<div class="members reset">
+  <h2>Reset Members</h2>
+  <p>Are you sure you want to permanently delete all members?</p>
+  <%= flash[:warning] = "This will delete all members and corresponding information." %><br>
+  <%= link_to "Reset Members", data: => {:controller => :members, :action => :reset_members, :method => :post, confirm: => 'Are you sure?'} %>
+</div>
+
+):
+1:    <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+2:    <%= javascript_include_tag :defaults %>
+3:    <div class="members reset">
+4:      <h2>Reset Members</h2>
+5:      <p>Are you sure you want to permanently delete all members?</p>
+6:      <%= flash[:warning] = "This will delete all members and corresponding information." %><br>
+7:      <%= link_to "Reset Members", data: => {:controller => :members, :action => :reset_members, :method => :post, confirm: => 'Are you sure?'} %>
+8:    </div>
+  
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:29:05 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1051)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2315)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+<%= javascript_include_tag :defaults %>
+<div class="members reset">
+  <h2>Reset Members</h2>
+  <p>Are you sure you want to permanently delete all members?</p>
+  <%= flash[:warning] = "This will delete all members and corresponding information." %><br>
+  <%= link_to "Reset Members", data: {:controller => :members, :action => :reset_members, :method => :post, confirm: => 'Are you sure?'} %>
+</div>
+
+):
+1:    <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+2:    <%= javascript_include_tag :defaults %>
+3:    <div class="members reset">
+4:      <h2>Reset Members</h2>
+5:      <p>Are you sure you want to permanently delete all members?</p>
+6:      <%= flash[:warning] = "This will delete all members and corresponding information." %><br>
+7:      <%= link_to "Reset Members", data: {:controller => :members, :action => :reset_members, :method => :post, confirm: => 'Are you sure?'} %>
+8:    </div>
+  
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+app/views/members/reset.html.erb:7: syntax error, unexpected =>
+app/views/members/reset.html.erb:7: syntax error, unexpected '}', expecting ')'
+app/views/members/reset.html.erb:11: syntax error, unexpected `end', expecting ')'
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:29:25 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.6ms | Allocations: 270)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.0ms | Allocations: 4215)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:30:08 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.6ms | Allocations: 269)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms | Allocations: 9667)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+    3:   <head>
+    4:     <title>PAID Points: <%= @page_title || "PAID" %></title>
+    5:     <%= stylesheet_link_tag('application', :media => 'all') %>
+    6:     <%= javascript_include_tag 'application' %>
+    7:     <% csrf_meta_tags %>
+    8:   </head>
+    9:   <body>
+  
+app/views/layouts/application.html.erb:6
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:30:20 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.5ms | Allocations: 270)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 9540)
+
+
+  
+ActionView::Template::Error (The asset "default.js" is not present in the asset pipeline.
+):
+    3:   <head>
+    4:     <title>PAID Points: <%= @page_title || "PAID" %></title>
+    5:     <%= stylesheet_link_tag('application', :media => 'all') %>
+    6:     <%= javascript_include_tag 'default' %>
+    7:     <% csrf_meta_tags %>
+    8:   </head>
+    9:   <body>
+  
+app/views/layouts/application.html.erb:6
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:30:42 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.6ms | Allocations: 269)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms | Allocations: 9670)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+    3:   <head>
+    4:     <title>PAID Points: <%= @page_title || "PAID" %></title>
+    5:     <%= stylesheet_link_tag('application', :media => 'all') %>
+    6:     <%= javascript_include_tag 'application' %>
+    7:     <% csrf_meta_tags %>
+    8:   </head>
+    9:   <body>
+  
+app/views/layouts/application.html.erb:6
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:31:39 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 7.1ms | Allocations: 6349)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 7594)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+    1: <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+    2: <%= javascript_include_tag 'application' %>
+    3: <div class="members reset">
+    4:   <h2>Reset Members</h2>
+    5:   <p>Are you sure you want to permanently delete all members?</p>
+  
+app/views/members/reset.html.erb:2
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:32:41 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 10.1ms | Allocations: 6205)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 6715)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+    1: <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+    2: <%= javascript_include_tag 'application' %>
+    3: <div class="members reset">
+    4:   <h2>Reset Members</h2>
+    5:   <p>Are you sure you want to permanently delete all members?</p>
+  
+app/views/members/reset.html.erb:2
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:32:57 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 16.8ms | Allocations: 6825)
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 5.4ms | Allocations: 16624)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+    1: <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+    2: <%= javascript_include_tag 'application' %>
+    3: <div class="members reset">
+    4:   <h2>Reset Members</h2>
+    5:   <p>Are you sure you want to permanently delete all members?</p>
+  
+app/views/members/reset.html.erb:2
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:33:59 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 1.0ms | Allocations: 820)
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 0.0ms | Allocations: 18018)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+    3:   <head>
+    4:     <title>PAID Points: <%= @page_title || "PAID" %></title>
+    5:     <%= stylesheet_link_tag('application', :media => 'all') %>
+    6:     <%= javascript_include_tag 'application' %>
+    7:     <% csrf_meta_tags %>
+    8:   </head>
+    9:   <body>
+  
+app/views/layouts/application.html.erb:6
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:34:16 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 4.0ms | Allocations: 958)
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 2.6ms | Allocations: 26995)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+    3:   <head>
+    4:     <title>PAID Points: <%= @page_title || "PAID" %></title>
+    5:     <%= stylesheet_link_tag('application', :media => 'all') %>
+    6:     <%= javascript_include_tag 'application' %>
+    7:     <% csrf_meta_tags %>
+    8:   </head>
+    9:   <body>
+  
+app/views/layouts/application.html.erb:6
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:35:06 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 3.5ms | Allocations: 958)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 144ms (Views: 80.9ms | ActiveRecord: 7.4ms | Allocations: 22855)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:37:08 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 3.3ms | Allocations: 958)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/tamucru/Desktop/RailsApps/PAIDMemberPointTracker/public/packs
+[Webpacker] Hash: ae879091508faf6fdfd5
+Version: webpack 4.44.1
+Time: 1240ms
+Built at: 10/17/2020 4:37:11 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-937a765df41b32145a51.js    124 KiB  application  [emitted] [immutable]  application
+js/application-937a765df41b32145a51.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-937a765df41b32145a51.js js/application-937a765df41b32145a51.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 769 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 3668ms (Views: 3615.8ms | ActiveRecord: 9.4ms | Allocations: 68297)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 16:37:14 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (2.0ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1449)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 11.8ms | ActiveRecord: 2.0ms | Allocations: 6159)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:37:16 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.3ms | Allocations: 144)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 4637)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:38:12 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 9.9ms | Allocations: 958)
+Completed 500 Internal Server Error in 174ms (ActiveRecord: 14.4ms | Allocations: 27302)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+    3:   <head>
+    4:     <title>PAID Points: <%= @page_title || "PAID" %></title>
+    5:     <%= stylesheet_link_tag('application', :media => 'all') %>
+    6:     <%= javascript_include_tag :application %>
+    7:     <% csrf_meta_tags %>
+    8:   </head>
+    9:   <body>
+  
+app/views/layouts/application.html.erb:6
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:38:19 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.6ms | Allocations: 273)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 5915)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:38:39 -0500
+  [1m[35m (5.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 3.6ms | Allocations: 958)
+Completed 500 Internal Server Error in 175ms (ActiveRecord: 8.8ms | Allocations: 27298)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.
+):
+    3:   <head>
+    4:     <title>PAID Points: <%= @page_title || "PAID" %></title>
+    5:     <%= stylesheet_link_tag('application', :media => 'all') %>
+    6:     <%= javascript_include_tag 'application' %>
+    7:     <% csrf_meta_tags %>
+    8:   </head>
+    9:   <body>
+  
+app/views/layouts/application.html.erb:6
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:39:02 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 3.6ms | Allocations: 958)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 98ms (Views: 49.2ms | ActiveRecord: 2.8ms | Allocations: 22976)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:40:10 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 3.9ms | Allocations: 958)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 98ms (Views: 43.9ms | ActiveRecord: 5.6ms | Allocations: 22978)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:42:03 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 3.9ms | Allocations: 973)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 120ms (Views: 66.2ms | ActiveRecord: 2.6ms | Allocations: 22993)
+
+
+Started GET "/members/reset_members?confirm=Are+you+sure%3F&method=post" for 127.0.0.1 at 2020-10-17 16:42:05 -0500
+Processing by MembersController#reset_members as HTML
+  Parameters: {"confirm"=>"Are you sure?", "method"=>"post"}
+  [1m[36mMember Destroy (0.4ms)[0m  [1m[31mDELETE FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:68:in `reset_members'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 816)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 16:42:05 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (3.0ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1441)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 11.1ms | ActiveRecord: 3.0ms | Allocations: 6111)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:43:13 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.3ms | Allocations: 156)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 23.6ms | ActiveRecord: 0.0ms | Allocations: 4637)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:45:37 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 3.8ms | Allocations: 976)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 187ms (Views: 122.4ms | ActiveRecord: 9.2ms | Allocations: 22994)
+
+
+Started GET "/members/reset_members?method=post" for 127.0.0.1 at 2020-10-17 16:45:42 -0500
+Processing by MembersController#reset_members as HTML
+  Parameters: {"method"=>"post"}
+  [1m[36mMember Destroy (0.2ms)[0m  [1m[31mDELETE FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:68:in `reset_members'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 830)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 16:45:42 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (2.2ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1440)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 15.9ms | ActiveRecord: 2.2ms | Allocations: 6102)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:46:26 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.7ms | Allocations: 260)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 5782)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:46:51 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 2.0ms | Allocations: 256)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 5766)
+
+
+Started GET "/members/reset_members?method=post" for 127.0.0.1 at 2020-10-17 16:46:57 -0500
+Processing by MembersController#reset_members as HTML
+  Parameters: {"method"=>"post"}
+  [1m[36mMember Destroy (0.1ms)[0m  [1m[31mDELETE FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:68:in `reset_members'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 753)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 16:46:57 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (1.4ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1331)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.5ms | ActiveRecord: 1.4ms | Allocations: 5958)
+
+
+Started GET "/members/new" for 127.0.0.1 at 2020-10-17 16:46:59 -0500
+Processing by MembersController#new as HTML
+  Rendering members/new.html.erb within layouts/application
+  Rendered members/new.html.erb within layouts/application (Duration: 13.9ms | Allocations: 3156)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 20.5ms | ActiveRecord: 0.0ms | Allocations: 7685)
+
+
+Started POST "/members" for 127.0.0.1 at 2020-10-17 16:47:06 -0500
+Processing by MembersController#create as HTML
+  Parameters: {"authenticity_token"=>"T9oJOZA4pmuWtxCQw9F5N6eGSRhZQqxO5Dbat9xI22oNi00PJ8POB65TUtAImgZ9KsokzcTL7hcHcGZuiu3C3Q==", "member"=>{"first_name"=>"Big", "last_name"=>"Time", "email"=>"bigtime@yahoo.com", "fall_points"=>"0", "spring_points"=>"0", "total_points"=>"0"}, "commit"=>"Create Member"}
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:32:in `create'
+  [1m[36mMember Create (2.1ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "email", "fall_points", "spring_points", "total_points", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Big"], ["last_name", "Time"], ["email", "bigtime@yahoo.com"], ["fall_points", 0], ["spring_points", 0], ["total_points", 0], ["created_at", "2020-10-17 21:47:06.654995"], ["updated_at", "2020-10-17 21:47:06.654995"]]
+  ↳ app/controllers/members_controller.rb:32:in `create'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:32:in `create'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 12ms (ActiveRecord: 4.9ms | Allocations: 3221)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 16:47:06 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1042)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.2ms | Allocations: 5510)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-10-17 16:47:23 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:14
+  Rendered events/index.html.erb within layouts/application (Duration: 16.3ms | Allocations: 4869)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 26.6ms | ActiveRecord: 7.4ms | Allocations: 11911)
+
+
+Started GET "/events/4" for 127.0.0.1 at 2020-10-17 16:47:44 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 501)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 13.3ms | ActiveRecord: 0.3ms | Allocations: 7843)
+
+
+Started POST "/members/import?points_worth=50&semester=Spring" for 127.0.0.1 at 2020-10-17 16:47:49 -0500
+Processing by MembersController#import as HTML
+  Parameters: {"authenticity_token"=>"a0ysi1WSWNhBLa2ivVDTp2B1z4V/meeDZpQOWQjFdbizVTP2ynyAZQ9iUDKwj+PrON3oYhsPUbTfrj/hzHDQoA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007f77281255b0 @tempfile=#<Tempfile:/tmp/RackMultipart20201017-25494-anman5.csv>, @original_filename="semester_points_check.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"semester_points_check.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import", "points_worth"=>"50", "semester"=>"Spring"}
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "maitreyiramaswamy@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:16:in `block in import'
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:16:in `block in import'
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:16:in `block in import'
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "hey"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:16:in `block in import'
+Redirected to http://127.0.0.1:3000/members/missing
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms | Allocations: 2950)
+
+
+Started GET "/members/missing" for 127.0.0.1 at 2020-10-17 16:47:49 -0500
+Processing by MembersController#missing as HTML
+  Rendering members/missing.html.erb within layouts/application
+  Rendered members/missing.html.erb within layouts/application (Duration: 1.2ms | Allocations: 399)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms | Allocations: 4991)
+
+
+Started GET "/members/new?email=maitreyiramaswamy%40gmail.com" for 127.0.0.1 at 2020-10-17 16:47:52 -0500
+Processing by MembersController#new as HTML
+  Parameters: {"email"=>"maitreyiramaswamy@gmail.com"}
+  Rendering members/new.html.erb within layouts/application
+  Rendered members/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 535)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 5032)
+
+
+Started POST "/members" for 127.0.0.1 at 2020-10-17 16:47:58 -0500
+Processing by MembersController#create as HTML
+  Parameters: {"authenticity_token"=>"Qx3ufAxo3BAYg10oAcbk39vbQYc6d6pZDD3rVYWPnRgBTKpKu5O0fCBnH2jKjZuVVpcsUqf+6ADve1eM0yqErw==", "member"=>{"first_name"=>"Maitreyi", "last_name"=>"Ramaswamy", "email"=>"maitreyiramaswamy@gmail.com", "fall_points"=>"0", "spring_points"=>"0", "total_points"=>"0"}, "commit"=>"Create Member"}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:32:in `create'
+  [1m[36mMember Create (1.5ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "email", "fall_points", "spring_points", "total_points", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Maitreyi"], ["last_name", "Ramaswamy"], ["email", "maitreyiramaswamy@gmail.com"], ["fall_points", 0], ["spring_points", 0], ["total_points", 0], ["created_at", "2020-10-17 21:47:58.910443"], ["updated_at", "2020-10-17 21:47:58.910443"]]
+  ↳ app/controllers/members_controller.rb:32:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:32:in `create'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 9ms (ActiveRecord: 2.8ms | Allocations: 2940)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 16:47:58 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1161)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 12.7ms | ActiveRecord: 0.2ms | Allocations: 5626)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-10-17 16:48:06 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:14
+  Rendered events/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1119)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 24.4ms | ActiveRecord: 0.2ms | Allocations: 5600)
+
+
+Started GET "/events/4" for 127.0.0.1 at 2020-10-17 16:48:08 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 256)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.2ms | Allocations: 5301)
+
+
+Started POST "/members/import?points_worth=50&semester=Spring" for 127.0.0.1 at 2020-10-17 16:48:13 -0500
+Processing by MembersController#import as HTML
+  Parameters: {"authenticity_token"=>"cBIYtuAAGRqu771eiUbZ0EIMuFKOdhfm1SYfUMBbk32oC4fLf+7Bp+CgQM6EmemcGqSftergodFsHC7oBO42ZQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007f771c418788 @tempfile=#<Tempfile:/tmp/RackMultipart20201017-25494-x9r9sd.csv>, @original_filename="semester_points_check.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"semester_points_check.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import", "points_worth"=>"50", "semester"=>"Spring"}
+  [1m[36mMember Load (1.0ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "maitreyiramaswamy@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:16:in `block in import'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:22:in `block in import'
+  [1m[36mMember Update (3.3ms)[0m  [1m[33mUPDATE "members" SET "spring_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["spring_points", 50], ["updated_at", "2020-10-17 21:48:13.493442"], ["id", 8]]
+  ↳ app/models/member.rb:22:in `block in import'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:22:in `block in import'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:24:in `block in import'
+  [1m[36mMember Update (0.4ms)[0m  [1m[33mUPDATE "members" SET "total_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["total_points", 50], ["updated_at", "2020-10-17 21:48:13.501142"], ["id", 8]]
+  ↳ app/models/member.rb:24:in `block in import'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:24:in `block in import'
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:16:in `block in import'
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:16:in `block in import'
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "hey"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:16:in `block in import'
+Redirected to http://127.0.0.1:3000/members/missing
+Completed 302 Found in 22ms (ActiveRecord: 7.3ms | Allocations: 7687)
+
+
+Started GET "/members/missing" for 127.0.0.1 at 2020-10-17 16:48:13 -0500
+Processing by MembersController#missing as HTML
+  Rendering members/missing.html.erb within layouts/application
+  Rendered members/missing.html.erb within layouts/application (Duration: 0.3ms | Allocations: 176)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 4610)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-10-17 16:48:15 -0500
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 1.0ms | Allocations: 271)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.0ms | Allocations: 5300)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 16:48:18 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (2.0ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1166)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.2ms | ActiveRecord: 2.0ms | Allocations: 5637)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:48:20 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.3ms | Allocations: 138)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 4631)
+
+
+Started GET "/members/reset_members?method=post" for 127.0.0.1 at 2020-10-17 16:48:24 -0500
+Processing by MembersController#reset_members as HTML
+  Parameters: {"method"=>"post"}
+  [1m[36mMember Destroy (0.8ms)[0m  [1m[31mDELETE FROM "members"[0m
+  ↳ app/controllers/members_controller.rb:68:in `reset_members'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 2ms (ActiveRecord: 0.8ms | Allocations: 756)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 16:48:24 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 884)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.1ms | Allocations: 5367)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-10-17 16:48:31 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:14
+  Rendered events/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1119)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.2ms | Allocations: 5594)
+
+
+Started GET "/events/4/edit" for 127.0.0.1 at 2020-10-17 16:48:32 -0500
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:28:in `edit'
+  Rendering events/edit.html.erb within layouts/application
+  Rendered events/edit.html.erb within layouts/application (Duration: 0.2ms | Allocations: 66)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 8.5ms | ActiveRecord: 0.2ms | Allocations: 5252)
+
+
+Started GET "/events/4" for 127.0.0.1 at 2020-10-17 16:48:38 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 256)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.4ms | ActiveRecord: 0.2ms | Allocations: 5300)
+
+
+Started POST "/members/import?points_worth=50&semester=Spring" for 127.0.0.1 at 2020-10-17 16:48:44 -0500
+Processing by MembersController#import as HTML
+  Parameters: {"authenticity_token"=>"6D07FYA9UuWQppmDmxY8Y3A4K126LYzSY4Yqnvgqfq8wJKRoH9OKWN7pZBOWyQwvKJAMut67OuXavBsmPJ/btw==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007f77208f07e8 @tempfile=#<Tempfile:/tmp/RackMultipart20201017-25494-ycs501.csv>, @original_filename="semester_points_check.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"semester_points_check.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import", "points_worth"=>"50", "semester"=>"Spring"}
+  [1m[36mMember Load (0.7ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "maitreyiramaswamy@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:16:in `block in import'
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:16:in `block in import'
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:16:in `block in import'
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "hey"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:16:in `block in import'
+Redirected to http://127.0.0.1:3000/members/missing
+Completed 302 Found in 9ms (ActiveRecord: 1.0ms | Allocations: 2813)
+
+
+Started GET "/members/missing" for 127.0.0.1 at 2020-10-17 16:48:44 -0500
+Processing by MembersController#missing as HTML
+  Rendering members/missing.html.erb within layouts/application
+  Rendered members/missing.html.erb within layouts/application (Duration: 0.3ms | Allocations: 235)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 4691)
+
+
+Started GET "/members/new?email=maitreyiramaswamy%40gmail.com" for 127.0.0.1 at 2020-10-17 16:48:45 -0500
+Processing by MembersController#new as HTML
+  Parameters: {"email"=>"maitreyiramaswamy@gmail.com"}
+  Rendering members/new.html.erb within layouts/application
+  Rendered members/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 534)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms | Allocations: 5038)
+
+
+Started POST "/members" for 127.0.0.1 at 2020-10-17 16:48:51 -0500
+Processing by MembersController#create as HTML
+  Parameters: {"authenticity_token"=>"zjq+N/LEdxhhWeWpRJ6kyi+b5Mm5ec/q2cXjLFBjMW6Ma/oBRT8fdFm9p+mP1duAoteJHCTwjbM6g1/1BsYo2Q==", "member"=>{"first_name"=>"Maitreyi", "last_name"=>"Ramaswamy", "email"=>"maitreyiramaswamy@gmail.com", "fall_points"=>"0", "spring_points"=>"0", "total_points"=>"0"}, "commit"=>"Create Member"}
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:32:in `create'
+  [1m[36mMember Create (0.2ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "email", "fall_points", "spring_points", "total_points", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Maitreyi"], ["last_name", "Ramaswamy"], ["email", "maitreyiramaswamy@gmail.com"], ["fall_points", 0], ["spring_points", 0], ["total_points", 0], ["created_at", "2020-10-17 21:48:51.896294"], ["updated_at", "2020-10-17 21:48:51.896294"]]
+  ↳ app/controllers/members_controller.rb:32:in `create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:32:in `create'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 7ms (ActiveRecord: 2.1ms | Allocations: 2928)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 16:48:51 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1025)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.1ms | Allocations: 5513)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-10-17 16:48:55 -0500
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:14
+  Rendered events/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1115)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.2ms | Allocations: 5599)
+
+
+Started GET "/events/4" for 127.0.0.1 at 2020-10-17 16:49:02 -0500
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mEvent Load (1.9ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:10:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 254)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 13.9ms | ActiveRecord: 1.9ms | Allocations: 5312)
+
+
+Started POST "/members/import?points_worth=50&semester=Spring" for 127.0.0.1 at 2020-10-17 16:49:06 -0500
+Processing by MembersController#import as HTML
+  Parameters: {"authenticity_token"=>"YfzaMZsjh4emt+Bgv9b31HyaFs+tOFCZCARPT3rhGTG55UVMBM1fOuj4HfCyCceYJDIxKMmu5q6xPn73vlS8KQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x0000562d2a7366c8 @tempfile=#<Tempfile:/tmp/RackMultipart20201017-25494-1ablr5t.csv>, @original_filename="semester_points_check.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"semester_points_check.csv\"\r\nContent-Type: text/csv\r\n">, "commit"=>"Import", "points_worth"=>"50", "semester"=>"Spring"}
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "maitreyiramaswamy@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:16:in `block in import'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:22:in `block in import'
+  [1m[36mMember Update (0.2ms)[0m  [1m[33mUPDATE "members" SET "spring_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["spring_points", 50], ["updated_at", "2020-10-17 21:49:06.861720"], ["id", 9]]
+  ↳ app/models/member.rb:22:in `block in import'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:22:in `block in import'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:24:in `block in import'
+  [1m[36mMember Update (0.7ms)[0m  [1m[33mUPDATE "members" SET "total_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["total_points", 50], ["updated_at", "2020-10-17 21:49:06.868717"], ["id", 9]]
+  ↳ app/models/member.rb:24:in `block in import'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:24:in `block in import'
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:16:in `block in import'
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:16:in `block in import'
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "hey"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:16:in `block in import'
+Redirected to http://127.0.0.1:3000/members/missing
+Completed 302 Found in 33ms (ActiveRecord: 3.9ms | Allocations: 7629)
+
+
+Started GET "/members/missing" for 127.0.0.1 at 2020-10-17 16:49:06 -0500
+Processing by MembersController#missing as HTML
+  Rendering members/missing.html.erb within layouts/application
+  Rendered members/missing.html.erb within layouts/application (Duration: 0.2ms | Allocations: 176)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 4631)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-10-17 16:49:10 -0500
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 0.2ms | Allocations: 107)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 4546)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 16:49:12 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (1.5ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1018)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 1.5ms | Allocations: 5488)
+
+
+Started GET "/members/reset" for 127.0.0.1 at 2020-10-17 16:49:13 -0500
+Processing by MembersController#reset as HTML
+  Rendering members/reset.html.erb within layouts/application
+  Rendered members/reset.html.erb within layouts/application (Duration: 0.2ms | Allocations: 138)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 4617)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-17 16:49:24 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members"[0m
+  ↳ app/views/members/index.html.erb:30
+  Rendered members/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1018)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.2ms | Allocations: 5486)
+
+
