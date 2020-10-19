@@ -35,10 +35,22 @@
     <tr>
     <th>Events Attended</th>
      <% Event.find(@member.event_ids).each do |event| %>
-      <td><%= event.title %></td>
+      <td><%= event.title %>
       <% end %>
+      </td>
+      
     </tr>
   </tr>     
   </table>
+
+  <h2>Events Attended</h2>
+  <table summary="Events view">
+  <% Event.find(@member.event_ids).each do |event| %>
+  <tr>
+    <th>Event Name</th>
+    <td><%= event.title %>
+    <% end %>
+  </tr>
+</table>
 
 </div>
