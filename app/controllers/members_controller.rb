@@ -5,16 +5,21 @@ class MembersController < ApplicationController
 
   def index
     @members = Member.all
+    
     if params[:search] != ''
-      @members = Member.search(params[:search]).order('created_at DESC') if params[:search]
+      @members = Member.search(params[:search]).order('first_name') if params[:search]
     elsif params[:order] == 'total_points'
       @members = Member.all.order('total_points').reverse_order
     elsif params[:order] == 'fall_points'
       @members = Member.all.order('fall_points').reverse_order
     elsif params[:order] == 'spring_points'
       @members = Member.all.order('spring_points').reverse_order
+    elsif params[:order] == 'first_name'
+      @members = Member.all.order('first_name')
+    elsif params[:order] == 'last_name'
+      @members = Member.all.order('last_name')
     else
-      @members = Member.all
+      @members = Member.all.order('first_name')
     end
   end
 
