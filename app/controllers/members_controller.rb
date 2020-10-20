@@ -5,7 +5,17 @@ class MembersController < ApplicationController
 
   def index
     @members = Member.all
-    @members = Member.search(params[:search]).order('created_at DESC') if params[:search]
+    if params[:search] != ''
+      @members = Member.search(params[:search]).order('created_at DESC') if params[:search]
+    elsif params[:order] == 'total_points'
+      @members = Member.all.order('total_points').reverse_order
+    elsif params[:order] == 'fall_points'
+      @members = Member.all.order('fall_points').reverse_order
+    elsif params[:order] == 'spring_points'
+      @members = Member.all.order('spring_points').reverse_order
+    else
+      @members = Member.all
+    end
   end
 
   def missing
@@ -72,6 +82,6 @@ class MembersController < ApplicationController
   private
 
   def member_params
-    params.require(:member).permit(:id, :first_name, :last_name, :email, :fall_points, :spring_points, :total_points, :search)
+    params.require(:member).permit(:id, :first_name, :last_name, :email, :fall_points, :spring_points, :total_points, :search, :order)
   end
 end

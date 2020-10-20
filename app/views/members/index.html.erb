@@ -15,6 +15,12 @@
     <%= submit_tag("Search", :name => nil) %>
   <% end %>
 
+  <p>Sort by:
+    <%= link_to "Total Points", members_path(order: 'total_points') %>
+    <%= link_to "Fall Points", members_path(order: 'fall_points') %>
+    <%= link_to "Spring Points", members_path(order: 'spring_points') %>
+  </p>
+
   <br>
   
   <table class="centertable" summary="Member list">
