@@ -29,8 +29,8 @@ class MembersController < ApplicationController
       @members = @searched_members.all.order('last_name')
       puts "last_name"
     else
-      @members = @searched_members.all.order('first_name')
-      puts "default"
+      @members = @searched_members.all.order('total_points').reverse_order
+      puts "default (total_points)"
     end
   end
 
