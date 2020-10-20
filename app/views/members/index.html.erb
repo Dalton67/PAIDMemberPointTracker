@@ -12,15 +12,16 @@
   <%= form_tag members_path, :method => "get", id: "search-form" do %>
     <%= label_tag(:search, "Search for a member:") %>
     <%= text_field_tag :search, params[:search], placeholder: "Enter name or email" %>
-    <%= submit_tag("Search", :name => nil) %>
+    <%= submit_tag "Search", :name => nil %>
+    <%= link_to "Reset", members_path(search: '') %>
   <% end %>
 
   <p>Sort by:
-    <%= link_to "Total Points", members_path(order: 'total_points') %>
-    <%= link_to "Fall Points", members_path(order: 'fall_points') %>
-    <%= link_to "Spring Points", members_path(order: 'spring_points') %>
-    <%= link_to "First Name", members_path(order: 'first_name') %>
-    <%= link_to "Last Name", members_path(order: 'last_name') %>
+    <%= link_to "Total Points", members_path(order: 'total_points', search: params[:search]) %>
+    <%= link_to "Fall Points", members_path(order: 'fall_points', search: params[:search]) %>
+    <%= link_to "Spring Points", members_path(order: 'spring_points', search: params[:search]) %>
+    <%= link_to "First Name", members_path(order: 'first_name', search: params[:search]) %>
+    <%= link_to "Last Name", members_path(order: 'last_name', search: params[:search]) %>
   </p>
 
   <br>

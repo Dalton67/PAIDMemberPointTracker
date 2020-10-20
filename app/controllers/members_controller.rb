@@ -4,22 +4,33 @@ class MembersController < ApplicationController
   before_action :confirm_logged_in
 
   def index
-    @members = Member.all
-    
     if params[:search] != ''
-      @members = Member.search(params[:search]).order('first_name') if params[:search]
-    elsif params[:order] == 'total_points'
-      @members = Member.all.order('total_points').reverse_order
-    elsif params[:order] == 'fall_points'
-      @members = Member.all.order('fall_points').reverse_order
-    elsif params[:order] == 'spring_points'
-      @members = Member.all.order('spring_points').reverse_order
-    elsif params[:order] == 'first_name'
-      @members = Member.all.order('first_name')
-    elsif params[:order] == 'last_name'
-      @members = Member.all.order('last_name')
+      @searched_members = Member.search(params[:search]) if params[:search]
+      puts "search"
+      puts params[:search]
     else
-      @members = Member.all.order('first_name')
+      @searched_members = Member.all
+      puts "non-search"
+    end
+
+    if params[:order] == 'total_points'
+      @members = @searched_members.all.order('total_points').reverse_order
+      puts "total_points"
+    elsif params[:order] == 'fall_points'
+      @members = @searched_members.all.order('fall_points').reverse_order
+      puts "fall_points"
+    elsif params[:order] == 'spring_points'
+      @members = @searched_members.all.order('spring_points').reverse_order
+      puts "spring_points"
+    elsif params[:order] == 'first_name'
+      @members = @searched_members.all.order('first_name')
+      puts "first_name"
+    elsif params[:order] == 'last_name'
+      @members = @searched_members.all.order('last_name')
+      puts "last_name"
+    else
+      @members = @searched_members.all.order('first_name')
+      puts "default"
     end
   end
 
