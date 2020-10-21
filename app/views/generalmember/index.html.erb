@@ -2,10 +2,20 @@
   <h1 style="text-align:center">PAID Points</h1>
 
 
-  <%= form_tag members_path, :method => "get", id: "search-form" do %>
-    <%= label_tag(:search, "Search for a member:") %>
-    <%= text_field_tag :search, params[:search], placeholder: "Enter name or email" %>
-    <%= submit_tag("Search", :name => nil) %>
+  <<%= form_tag members_path, :method => "get", id: "search-form" do %>
+    <div>
+      <%= label_tag("Search for a member:") %>
+      <%= text_field_tag :search, params[:search], placeholder: "Enter name or email" %>
+      <%= submit_tag "Search", :name => nil %>
+      <%= link_to '<button type="button">Reset</button>'.html_safe, members_path(sort: 'total_points', search: '') %>
+    </div>
+
+    <br>
+
+    <div>
+      <%= label_tag("Sort by:") %>
+      <%= select_tag(:sort, options_for_select(@sorts_all.map { |s| [s[:name], s[:id]] }, params[:sort]), :onchange => ("this.form.submit();")) %>
+    </div>
   <% end %>
   
   <table class="centertable" summary="Member list">
