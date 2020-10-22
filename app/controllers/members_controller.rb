@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'csv'
 
 class MembersController < ApplicationController
   before_action :confirm_logged_in
@@ -42,7 +43,7 @@ class MembersController < ApplicationController
   end
 
   def import
-    data = Member.import(params[:file], params[:points_worth])
+    data = Member.import(params[:file], params[:points_worth], params[:semester])
     session[:data] = data
     redirect_to missing_members_path
   end
@@ -95,6 +96,25 @@ class MembersController < ApplicationController
 
   def reset_members
     Member.delete_all
+    redirect_to(members_path)
+  end
+
+  def export
+    file = "#{Rails.root}/public/PAIDMemberData.csv"
+    
+
+    table = Member.all;0 
+    wanted_columns = [:id, :first_name, :last_name, :email, :fall_points, :spring_points, :total_points ]
+    
+    columns = %w(id first_name last_name email fall_points spring_points total_points)
+    CSV.open( file, 'w' ) do |writer|
+      writer << wanted_columns
+      #columns(&:humanize)
+      #table.first.attributes.map { |a,v| a }
+      table.each do |s|
+        writer << s.attributes.values_at(*columns)
+      end
+    end
     redirect_to(members_path)
   end
 
