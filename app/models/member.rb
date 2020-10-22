@@ -10,7 +10,20 @@ class Member < ApplicationRecord
     self.total_points ||= 0
   end
 
-  def self.import(file, points, semester)
+#   def self.import(file,points,id)
+#     data = Array.new
+#     event = Event.find(id)
+#     CSV.foreach(file.path,headers:true) do |row|
+#       member = Member.find_by(email: row['email'])
+#       if member
+#         puts points
+#         member.update_attribute(:total_points, points.to_i+member.total_points)
+#         if  member.events.exclude? event
+#           member.events << event
+#         end 
+#         member.save()
+
+  def self.import(file, points, id, semester)
     data = []
     CSV.foreach(file.path, headers: true) do |row|
       member = Member.find_by(email: row['email'])
@@ -22,7 +35,10 @@ class Member < ApplicationRecord
           member.update_attribute(:spring_points, points.to_i + member.spring_points)
         end
         member.update_attribute(:total_points, member.fall_points + member.spring_points)
-        member.save
+        if  member.events.exclude? event
+          member.events << event
+        end 
+        member.save()
       else
         data.push(row['email'])
       end
