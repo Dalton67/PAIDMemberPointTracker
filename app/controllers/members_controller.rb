@@ -5,8 +5,37 @@ class MembersController < ApplicationController
   before_action :confirm_logged_in
 
   def index
+    @searched_members = Member.all
     @members = Member.all
-    @members = Member.search(params[:search]).order('created_at DESC') if params[:search]
+
+    if params[:search] != ''
+      @searched_members = Member.search(params[:search]) if params[:search]
+      # puts "search"
+      puts params[:search]
+    else
+      @searched_members = Member.all
+      # puts "non-search"
+    end
+
+    if params[:sort] == 'total_points'
+      @members = @searched_members.all.order('total_points').reverse_order
+      # puts "total_points"
+    elsif params[:sort] == 'fall_points'
+      @members = @searched_members.all.order('fall_points').reverse_order
+      # puts "fall_points"
+    elsif params[:sort] == 'spring_points'
+      @members = @searched_members.all.order('spring_points').reverse_order
+      # puts "spring_points"
+    elsif params[:sort] == 'first_name'
+      @members = @searched_members.all.order('first_name')
+      # puts "first_name"
+    elsif params[:sort] == 'last_name'
+      @members = @searched_members.all.order('last_name')
+      # puts "last_name"
+    else
+      @members = @searched_members.all.order('total_points').reverse_order
+      # puts "default (total_points)"
+    end
   end
 
   def missing
@@ -92,6 +121,6 @@ class MembersController < ApplicationController
   private
 
   def member_params
-    params.require(:member).permit(:id, :first_name, :last_name, :email, :fall_points, :spring_points, :spring_points, :search)
+    params.require(:member).permit(:id, :first_name, :last_name, :email, :fall_points, :spring_points, :total_points, :search, :sort)
   end
 end

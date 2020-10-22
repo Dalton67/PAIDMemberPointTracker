@@ -37,4 +37,14 @@ class Member < ApplicationRecord
       Member.all.order('created_at DESC')
     end
   end
+
+  def self.SORTS_ALL
+    [
+      {:name => "Total Points", :id => 'total_points'},
+      {:name => "Fall Points", :id => 'fall_points'},
+      {:name => "Spring Points", :id => 'spring_points'},
+      {:name => "First Name", :id => 'first_name'},
+      {:name => "Last Name", :id => 'last_name'}
+    ]
+  end
 end
