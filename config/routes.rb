@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :events
 
   get '/members/reset' => 'members#reset'
+  get '/members/export' => 'members#export'
+  get '/members/export', to: redirect('member/index')
+  #match 'members/export' => 'members#export', as: :export
 
   resources :members do
     collection { post :import }
@@ -22,6 +25,7 @@ Rails.application.routes.draw do
     end
     collection do
       get :reset_members
+      get :export
     end
   end
 
