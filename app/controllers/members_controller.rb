@@ -115,7 +115,8 @@ class MembersController < ApplicationController
         writer << s.attributes.values_at(*columns)
       end
     end
-    redirect_to(members_path)
+    redirect_to("/PAIDMemberData.csv")
+    #redirect_to(members_path)
   end
 
   private
