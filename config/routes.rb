@@ -1,11 +1,12 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   get 'generalmember/index'
   root 'generalmember#index'
   get 'access/menu'
   get 'access/login'
 
-  get 'admin', :to => 'access#menu'
+  get 'admin', to: 'access#menu'
   post 'access/attempt_login'
   get 'access/logout'
 
@@ -14,8 +15,8 @@ Rails.application.routes.draw do
   get '/members/reset' => 'members#reset'
 
   resources :members do
-    collection {post :import}
-    collection {get :missing}
+    collection { post :import }
+    collection { get :missing }
     member do
       get :delete
     end
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :admin_users, :except => [:show] do
+  resources :admin_users, except: [:show] do
     member do
       get :delete
     end

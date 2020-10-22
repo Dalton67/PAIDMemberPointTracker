@@ -1,9 +1,8 @@
+# frozen_string_literal: true
+
 class AdminUsersController < ApplicationController
-
-
   before_action :confirm_logged_in
 
-  
   def index
     @admin_users = AdminUser.sorted
   end
@@ -15,13 +14,13 @@ class AdminUsersController < ApplicationController
   def create
     @admin_user = AdminUser.new(admin_user_params)
     if @admin_user.save
-        flash[:notice] = 'Admin user created successfully.'
-        redirect_to(admin_users_path)
+      flash[:notice] = 'Admin user created successfully.'
+      redirect_to(admin_users_path)
     else
       render('new')
     end
   end
-  
+
   def edit
     @admin_user = AdminUser.find(params[:id])
   end
@@ -43,7 +42,7 @@ class AdminUsersController < ApplicationController
   def destroy
     @admin_user = AdminUser.find(params[:id])
     @admin_user.destroy
-    flash[:notice] = "Admin user destroyed successfully."
+    flash[:notice] = 'Admin user destroyed successfully.'
     redirect_to(admin_users_path)
   end
 
@@ -57,5 +56,4 @@ class AdminUsersController < ApplicationController
       :password
     )
   end
-
 end
