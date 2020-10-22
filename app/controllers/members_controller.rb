@@ -48,6 +48,12 @@ class MembersController < ApplicationController
     redirect_to missing_members_path
   end
 
+  def apimport
+    data = Member.api()
+    session[:data] = data
+    redirect_to missing_members_path
+  end 
+
   def show
     @member = Member.find(params[:id])
   end

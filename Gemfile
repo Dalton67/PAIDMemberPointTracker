@@ -26,6 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 # jquery
 gem "jquery-rails"
 
+gem "httparty"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
