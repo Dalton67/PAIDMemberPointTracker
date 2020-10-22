@@ -10,13 +10,18 @@ class Member < ApplicationRecord
     self.total_points ||= 0
   end
 
-  def self.import(file, points)
+  def self.import(file, points, semester)
     data = []
     CSV.foreach(file.path, headers: true) do |row|
       member = Member.find_by(email: row['email'])
       if member
         puts points
-        member.update_attribute(:total_points, points.to_i + member.total_points)
+        if semester == 'Fall'
+          member.update_attribute(:fall_points, points.to_i + member.fall_points)
+        else
+          member.update_attribute(:spring_points, points.to_i + member.spring_points)
+        end
+        member.update_attribute(:total_points, member.fall_points + member.spring_points)
         member.save
       else
         data.push(row['email'])
