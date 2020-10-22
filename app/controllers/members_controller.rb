@@ -4,14 +4,6 @@ class MembersController < ApplicationController
   before_action :confirm_logged_in
 
   def index
-    @sorts_all = [
-      {:name => "Total Points", :id => 'total_points'},
-      {:name => "Fall Points", :id => 'fall_points'},
-      {:name => "Spring Points", :id => 'spring_points'},
-      {:name => "First Name", :id => 'first_name'},
-      {:name => "Last Name", :id => 'last_name'}
-    ]
-
     @searched_members = Member.all
     @members = Member.all
 

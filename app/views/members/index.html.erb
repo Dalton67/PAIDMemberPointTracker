@@ -21,7 +21,7 @@
 
     <div>
       <%= label_tag("Sort by:") %>
-      <%= select_tag(:sort, options_for_select(@sorts_all.map { |s| [s[:name], s[:id]] }, params[:sort]), :onchange => ("this.form.submit();")) %>
+      <%= select_tag(:sort, options_for_select(Member.SORTS_ALL.map { |s| [s[:name], s[:id]] }, params[:sort]), :onchange => ("this.form.submit();")) %>
     </div>
   <% end %>
 
