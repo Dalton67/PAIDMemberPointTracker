@@ -25,6 +25,7 @@ class Member < ApplicationRecord
 
   def self.import(file, points, id, semester)
     data = []
+    event = Event.find(id)
     CSV.foreach(file.path, headers: true) do |row|
       member = Member.find_by(email: row['email'])
       if member
