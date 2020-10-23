@@ -45,7 +45,15 @@ class MembersController < ApplicationController
   def import
     data = Member.import(params[:file],params[:points_worth],params[:id],params[:semester])
     session[:data] = data
+
     redirect_to missing_members_path
+
+#     if data.empty? 
+#       redirect_to(members_path)
+#     else 
+#       redirect_to missing_members_path 
+#     end 
+
   end
 
   def show
@@ -60,7 +68,12 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(member_params)
     if @member.save
-      redirect_to(members_path)
+      session[:data].delete(@member.email)
+      if session[:data] 
+        redirect_to missing_members_path 
+      else 
+        redirect_to(members_path)
+      end 
     else
       render('new')
     end
