@@ -1,7 +1,7 @@
 <div class="events edit">
   <h2>Update Event</h2>
 
-  <%= form_for(@event) do |f| %>
+  <%= form_for(Event.find(params[:id])) do |f| %>
 
     <table class="centertable" summary="Event form fields">
       <tr> 
