@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class AdminUser < ApplicationRecord
-    has_secure_password
+  has_secure_password
 
-    scope :sorted, lambda {order ('last_name ASC, first_name ASC')}
+  scope :sorted, -> { order('last_name ASC, first_name ASC') }
 
-    def name
-        "#{first_name} #{last_name}"
-    end
+  def name
+    "#{first_name} #{last_name}"
+  end
 end

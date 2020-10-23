@@ -2,17 +2,30 @@
   <h1 style="text-align:center">PAID Points</h1>
 
   <h2 style="text-align:center">
-  <%= link_to("Add New Member", new_member_path, :class => 'action new') %>
-  <%= link_to("View Events", events_path, :class => 'action index') %>
-  <%= link_to("Admin Users Menu", admin_path, :class => 'action index') %>
-  <%= link_to("Reset Members", members_reset_path, :class => 'action reset') %>
-
+  <%= link_to '<button class="button">Add New Member</button>'.html_safe, new_member_path, :class => 'action new' %>
+  <%= link_to '<button class="button">View Events</button>'.html_safe, events_path, :class => 'action index' %>
+  <%= link_to '<button class="button">Admin Users Menu</button>'.html_safe, admin_path, :class => 'action index' %>
+  <%= link_to '<button class="button">Reset Members</button>'.html_safe, members_reset_path, :class => 'action index' %>
   </h2>
 
   <%= form_tag members_path, :method => "get", id: "search-form" do %>
-    <%= label_tag(:search, "Search for a member:") %>
-    <%= text_field_tag :search, params[:search], placeholder: "Enter name or email" %>
-    <%= submit_tag("Search", :name => nil) %>
+    <div>
+      <%= label_tag("Search for a member:") %>
+      <%= text_field_tag :search, params[:search], placeholder: "Enter name or email" %>
+      <%= submit_tag "Search", :name => nil, :class => "button" %>
+      <%= link_to '<button class="button">Reset</button>'.html_safe, members_path(sort: 'total_points', search: '') %>
+    </div>
+
+    <br>
+
+    <div>
+      <%= label_tag("Sort by:") %>
+      <%= select_tag(:sort, options_for_select(Member.SORTS_ALL.map { |s| [s[:name], s[:id]] }, params[:sort]), :onchange => ("this.form.submit();")) %>
+    </div>
+
+    <br>
+
+    <%= link_to '<button class="button">Export Table</button>'.html_safe, :controller => :members, :action => :export %>
   <% end %>
 
   <br>
@@ -35,9 +48,9 @@
       <td class="center"><%= member.spring_points %></td>
       <td class="center"><%= member.total_points %></td>
       <td class="actions">
-        <%= link_to("Show", member_path(member), :class => 'action show') %>
-        <%= link_to("Edit", edit_member_path(member), :class => 'action edit') %>
-        <%= link_to("Delete", delete_member_path(member), :class => 'action delete') %>
+        <%= link_to "Show", member_path(member), :class => 'action show' %>
+        <%= link_to "Edit", edit_member_path(member), :class => 'action edit' %>
+        <%= link_to "Delete", delete_member_path(member), :class => 'action delete' %>
       </td>
     </tr>
     <% end %>

@@ -1,18 +1,17 @@
-<%= link_to("<< Back to List", members_path, :class => 'back-link') %>
 
-<div class="members edit">
+<div class="events edit">
   <h2>Update Event</h2>
 
-  <%= form_for(@event) do |f| %>
+  <%= form_for(Event.find(params[:id])) do |f| %>
 
-    <table summary="Member form fields">
+    <table class="centertable" summary="Event form fields">
+      <tr> 
+        <th>ID</th>
+        <td><%= f.text_field(:id) %></td>
+      </tr>
       <tr>
         <th>Title</th>
         <td><%= f.text_field(:title) %></td>
-      </tr>
-      <tr>
-        <th>Date</th>
-        <td><%= f.date_field(:date) %></td>
       </tr>
       <tr>
         <th>Points</th>
@@ -22,11 +21,11 @@
         <th>Semester</th>
         <td><%= f.select :semester, ['Fall','Spring']%></td>
       </tr>
+      <tr>
+        <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+        <td><%= f.submit "Update Events", :class => "button" %></td>
+      </tr>
     </table>
-
-    <div class="form-buttons">
-      <%= f.submit("Update Member") %>
-    </div>
 
   <% end %>
 </div>
