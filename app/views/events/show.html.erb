@@ -20,7 +20,7 @@
     </tr>
     <tr>
         <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
-        <td><%=form_tag import_members_path(points_worth: @event.points_worth), multipart: true do , :class => "button" %>
+        <td><%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester), multipart: true do, :class => "button"%>
           <%=file_field_tag :file%>
           <%= submit_tag "Import", :class => "button"%>
         </td>
@@ -28,4 +28,5 @@
   </table>
 
   <% end %>
+
 </div>

@@ -1,11 +1,10 @@
+# frozen_string_literal: true
+
 class AccessController < ApplicationController
-  
-  layout 'admin'
-  
-  before_action :confirm_logged_in, :except => [:login, :attempt_login, :logout]
+  before_action :confirm_logged_in, except: %i[login attempt_login logout]
 
   def menu
-    #display text and links
+    # display text and links
   end
 
   def login
@@ -14,23 +13,19 @@ class AccessController < ApplicationController
 
   def attempt_login
     if params[:username].present? && params[:password].present?
-      #this should sanitize our data for us
-      found_user = AdminUser.where(:username => params[:username]).first
-      if found_user
-        authorized_user = found_user.authenticate(params[:password])
-      end
+      # this should sanitize our data for us
+      found_user = AdminUser.where(username: params[:username]).first
+      authorized_user = found_user.authenticate(params[:password]) if found_user
     end
 
     if authorized_user
       session[:user_id] = authorized_user.id
-      flash[:notice] = "You are now logged in"
+      flash[:notice] = 'You are now logged in'
       redirect_to(admin_path)
     else
-      flash.now[:danger] = "Invalid username/password combination"
+      flash.now[:danger] = 'Invalid username/password combination'
       render('login')
     end
-
-
   end
 
   def logout
@@ -39,6 +34,5 @@ class AccessController < ApplicationController
     redirect_to(access_login_path)
   end
 
-  def attempt_logout
-  end
+  def attempt_logout; end
 end
