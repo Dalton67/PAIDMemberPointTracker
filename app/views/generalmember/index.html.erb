@@ -1,6 +1,13 @@
 <div class="members index" style="width:100%">
   <h1 style="text-align:center">PAID Points</h1>
 
+
+  <%= form_tag members_path, :method => "get", id: "search-form" do %>
+    <%= label_tag(:search, "Search for a member:") %>
+    <%= text_field_tag :search, params[:search], placeholder: "Enter name or email" %>
+    <%= submit_tag("Search", :name => nil) %>
+  <% end %>
+  
   <table class="centertable" summary="Member list">
     <tr class="header">
       <th>First Name</th>

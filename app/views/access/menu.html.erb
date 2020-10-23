@@ -3,6 +3,7 @@
 <div class="menu">
   <h2>Admin Menu</h2>
   <div class="identity">Logged in as:</div>
+<<<<<<< HEAD
   <table class="centertable">
     <tr>
       <th><li><%= link_to("Manage Members", members_path) %></li></th>
@@ -17,5 +18,13 @@
       <th><li><%= link_to("Logout", access_logout_path) %></li></th>
     </tr>
   </table>
+=======
+  <ul>
+    <li><%= link_to("Manage Members", members_path) %></li>
+    <li><%= link_to("Manage Events", events_path) %></li>
+    <li><%= link_to("Manage Admin Users", admin_users_path) %></li>
+    <li><%= link_to("Logout", access_logout_path) %></li>
+  </ul>
+>>>>>>> development
 </div>
 
