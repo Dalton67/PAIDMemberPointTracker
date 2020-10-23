@@ -1,8 +1,10 @@
 <div class="events index">
-  <h2>Events</h2>
+  <h1>Events</h1>
 
-  <%= link_to("Add New Event", new_event_path, :class => 'action new') %>
-  <%= link_to("View Members", members_path, :class => 'action index') %>
+  <h2 style="text-align:center">
+    <%= link_to("Add New Event", new_event_path, :class => 'action new') %>
+    <%= link_to("View Members", members_path, :class => 'action index') %>
+  </h2>
   <table class="centertable" summary="Member list">
     <tr class="header">
       <th>ID</th>
