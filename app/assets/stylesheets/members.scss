@@ -37,6 +37,16 @@ a:hover { color: #003C71}
   width: 80%;
 }
 
+.button {
+  text-align: center;
+  background-color: $maroon;
+  color: $white;
+  border: none;
+  padding: 8px 16px;
+  font-weight: bold;
+}
+.button:hover {background-color: #003C71}
+
 .topright {
   position: absolute;
   top: 8px;

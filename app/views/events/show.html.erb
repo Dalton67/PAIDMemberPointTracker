@@ -1,9 +1,7 @@
-<%= link_to("<< Back to List", events_path, :class => 'back-link') %>
-
 <div class="members show">
   <h2>Show Event</h2>
 
-  <table summary="Event detail view">
+  <table summary="Event detail view" class="centertable">
     <tr>
       <th>ID</th>
       <td><%= @event.id %></td>
@@ -20,9 +18,15 @@
       <th>Semester</th>
       <td><%= @event.semester %></td>
     </tr>
+    <tr>
+        <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+        <td><%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester), multipart: true do, :class => "button"%>
+          <%=file_field_tag :file%>
+          <%= submit_tag "Import", :class => "button"%>
+        </td>
+      </tr>
   </table>
-<%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester), multipart: true do %>
-  <%=file_field_tag :file%>
-  <%= submit_tag "Import"%>
-<% end %>
+
+  <% end %>
+
 </div>
