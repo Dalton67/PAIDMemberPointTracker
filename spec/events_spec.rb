@@ -13,6 +13,31 @@ require 'capybara/rspec'
 #         expect(page).to have_content "Hi"
 #     end
 # end
+RSpec.describe "member crud functionality", type: :system do
+  before :each do
+    a = AdminUser.new(username: 'testing', password: 'testing')
+    a.save()
+  end
+  it "signs me in and updates created member" do
+    visit '/access/login'
+    fill_in 'username', with: 'testing'
+    fill_in 'password', with: 'testing'
+    click_on "Log In"
+    expect(page).to have_content 'Admin Menu'
+    click_on "Manage Events"
+    expect(page).to have_content 'Add New Event'
+    click_link('Add New Event')
+    expect(page).to have_content 'Create New Event'
+    fill_in('event_title', :with => 'New Event')
+    click_button('Create Event')
+    expect(page).to have_content 'New Event'
+    click_link('Edit')
+    fill_in('event_points_worth', :with => '1100')
+    click_button('Update Events')
+    click_link('<< Back to List')
+    expect(page).to have_content '1100'
+  end
+end
 RSpec.describe "routing to events", type: :routing do
     it "routes /events to events#index" do
       expect(get: "/events").to route_to(
