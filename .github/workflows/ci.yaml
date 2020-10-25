@@ -34,10 +34,10 @@ jobs:
       #     bin/stylelint
       #     bin/prettier
       #     bin/eslint
-      - name: Run security checks
-        run: |
-          bin/bundler-audit --update
-          bin/brakeman -q -w2
+      # - name: Run security checks
+      #   run: |
+      #     bin/bundler-audit --update
+      #     bin/brakeman -q -w2
 
   tests:
     name: Tests
@@ -46,9 +46,9 @@ jobs:
       postgres:
         image: postgres:11
         env:
-          POSTGRES_USER: myapp
-          POSTGRES_DB: myapp_test
-          POSTGRES_PASSWORD: ""
+          # POSTGRES_USER: myapp
+          POSTGRES_DB:   PAID_development
+          # POSTGRES_PASSWORD: ""
         ports: ["5433:5433"]
 
     steps:
