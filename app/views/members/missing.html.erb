@@ -1,12 +1,13 @@
   <table class="centertable" summary="Member list">
     <tr class="header">
+    <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
       <th>These Emails Do Not Belong To Members</th>
     </tr>
     <%= @missing_members.each do |email| %>
     <tr>
       <td><%= email %></td>
       <td class="actions">
-      <%= link_to("Create New Member", new_member_path(email: email), :class => 'back-link') %>
+      <%= link_to("Create New Member", new_member_path(email: email)) %>
       </td>
     </tr>
     <% end %>

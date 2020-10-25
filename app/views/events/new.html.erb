@@ -1,11 +1,9 @@
-<%= link_to("<< Back to All Events", members_path, :class => 'back-link') %>
-
 <div class="events new">
   <h2>Create New Event</h2>
 
   <%= form_for(Event.new) do |f| %>
 
-    <table summary="Member form fields">
+    <table summary="Member form fields" class="centertable">
       <tr>
         <th>Title</th>
         <td><%= f.text_field(:title) %></td>
@@ -22,11 +20,11 @@
         <th>Semester</th>
         <td><%= f.select :semester, ['Fall','Spring']%></td>
       </tr>
+      <tr>
+        <th><%= link_to("<< Back to All Events", members_path, :class => 'back-link') %></th>
+        <td><%= f.submit "Create Event", :class => "button" %></td>
+      </tr>
     </table>
-
-    <div class="form-buttons">
-      <%= f.submit("Create Events") %>
-    </div>
 
   <% end %>
 </div>

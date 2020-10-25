@@ -1,0 +1,31 @@
+
+<div class="events edit">
+  <h2>Update Event</h2>
+
+  <%= form_for(Event.find(params[:id])) do |f| %>
+
+    <table class="centertable" summary="Event form fields">
+      <tr> 
+        <th>ID</th>
+        <td><%= f.text_field(:id) %></td>
+      </tr>
+      <tr>
+        <th>Title</th>
+        <td><%= f.text_field(:title) %></td>
+      </tr>
+      <tr>
+        <th>Points</th>
+        <td><%= f.text_field(:points_worth) %></td>
+      </tr>
+      <tr>
+        <th>Semester</th>
+        <td><%= f.select :semester, ['Fall','Spring']%></td>
+      </tr>
+      <tr>
+        <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+        <td><%= f.submit "Update Events", :class => "button" %></td>
+      </tr>
+    </table>
+
+  <% end %>
+</div>
