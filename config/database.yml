@@ -24,8 +24,8 @@ default: &default
 #   username: tamucru
 #   password: password
 # =======
-  username: kade
-  password: password123
+  username: tamucru
+  password: password
 # >>>>>>> testing
 development:
   <<: *default

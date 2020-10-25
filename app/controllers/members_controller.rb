@@ -48,11 +48,11 @@ class MembersController < ApplicationController
 
     redirect_to missing_members_path
 
-#     if data.empty? 
+#     if data.empty?
 #       redirect_to(members_path)
-#     else 
-#       redirect_to missing_members_path 
-#     end 
+#     else
+#       redirect_to missing_members_path
+#     end
 
   end
 
@@ -68,12 +68,14 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(member_params)
     if @member.save
-      session[:data].delete(@member.email)
-      if session[:data] 
-        redirect_to missing_members_path 
-      else 
+      if @member.email != nil && @member != nil && session[:data] != nil
+        session[:data].delete(@member.email)
+      end
+      if session[:data]
+        redirect_to missing_members_path
+      else
         redirect_to(members_path)
-      end 
+      end
     else
       render('new')
     end
@@ -114,11 +116,11 @@ class MembersController < ApplicationController
 
   def export
     file = "#{Rails.root}/public/PAIDMemberData.csv"
-    
 
-    table = Member.all;0 
+
+    table = Member.all;0
     wanted_columns = [:id, :first_name, :last_name, :email, :fall_points, :spring_points, :total_points ]
-    
+
     columns = %w(id first_name last_name email fall_points spring_points total_points)
     CSV.open( file, 'w' ) do |writer|
       writer << wanted_columns
