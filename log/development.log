@@ -17267,3 +17267,118 @@ Processing by MembersController#index as HTML
 Completed 200 OK in 55ms (Views: 40.4ms | ActiveRecord: 7.4ms | Allocations: 14561)
 
 
+Started GET "/members/1/delete" for 127.0.0.1 at 2020-10-25 16:23:01 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#delete as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:98:in `delete'
+  Rendering members/delete.html.erb within layouts/application
+  Rendered members/delete.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1493)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 4.7ms | Allocations: 12297)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+
+<div class="members delete">
+  <h2>Delete Member</h2>
+
+  <%= form_for(@member, :method => 'delete') do |f| %>
+
+    <p>Are you sure you want to permanently delete this member?</p>
+
+    <p class="reference-name"><%= @member.first_name %> <%= @member.last_name %></p>
+
+    <div class="form-buttons">
+      <%= f.submit("Delete Member"), :class => "button" %>
+    </div>
+
+  <% end %>
+</div>
+
+):
+1:    <%= link_to("<< Back to List", members_path, :class => 'back-link') %>
+2:    
+3:    <div class="members delete">
+4:      <h2>Delete Member</h2>
+5:    
+6:      <%= form_for(@member, :method => 'delete') do |f| %>
+7:    
+8:        <p>Are you sure you want to permanently delete this member?</p>
+9:    
+10:        <p class="reference-name"><%= @member.first_name %> <%= @member.last_name %></p>
+11:    
+12:        <div class="form-buttons">
+13:          <%= f.submit("Delete Member"), :class => "button" %>
+14:        </div>
+15:    
+16:      <% end %>
+17:    </div>
+  
+app/views/members/delete.html.erb:13: syntax error, unexpected ',', expecting ')'
+app/views/members/delete.html.erb:13: syntax error, unexpected ',', expecting ')'
+app/views/members/delete.html.erb:13: syntax error, unexpected ',', expecting ')'
+app/views/members/delete.html.erb:13: syntax error, unexpected ',', expecting ')'
+app/views/members/delete.html.erb:13: syntax error, unexpected ',', expecting ')'
+app/views/members/delete.html.erb:13: syntax error, unexpected ',', expecting ')'
+Started GET "/members" for 127.0.0.1 at 2020-10-25 16:26:04 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.9ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  ↳ app/views/members/index.html.erb:43
+  Rendered members/index.html.erb within layouts/application (Duration: 21.0ms | Allocations: 8418)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 73ms (Views: 51.5ms | ActiveRecord: 4.5ms | Allocations: 25341)
+
+
+Started GET "/members/1/delete" for 127.0.0.1 at 2020-10-25 16:26:06 -0500
+Processing by MembersController#delete as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:98:in `delete'
+  Rendering members/delete.html.erb within layouts/application
+  Rendered members/delete.html.erb within layouts/application (Duration: 2.5ms | Allocations: 552)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 18.0ms | ActiveRecord: 0.6ms | Allocations: 6142)
+
+
+Started DELETE "/members/1" for 127.0.0.1 at 2020-10-25 16:26:12 -0500
+Processing by MembersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"0IH0ILGfbgwDuvYRO+d1W5LzCgtUTpiELgww5WhUNmEE8zI2IO+dxrHNr6PusJVeMNnxvQP9TXd3gYXQXtzA/Q==", "commit"=>"Delete Member", "id"=>"1"}
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:102:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:103:in `destroy'
+  [1m[36mMember::HABTM_Events Destroy (1.3ms)[0m  [1m[31mDELETE FROM "events_members" WHERE "events_members"."member_id" = $1[0m  [["member_id", 1]]
+  ↳ app/controllers/members_controller.rb:103:in `destroy'
+  [1m[36mMember Destroy (0.4ms)[0m  [1m[31mDELETE FROM "members" WHERE "members"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/members_controller.rb:103:in `destroy'
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:103:in `destroy'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 69ms (ActiveRecord: 5.9ms | Allocations: 11182)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-10-25 16:26:12 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  ↳ app/views/members/index.html.erb:43
+  Rendered members/index.html.erb within layouts/application (Duration: 7.9ms | Allocations: 1676)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 33.8ms | ActiveRecord: 0.4ms | Allocations: 6206)
+
+
+Started GET "/members/2/delete" for 127.0.0.1 at 2020-10-25 16:26:21 -0500
+Processing by MembersController#delete as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:98:in `delete'
+  Rendering members/delete.html.erb within layouts/application
+  Rendered members/delete.html.erb within layouts/application (Duration: 0.5ms | Allocations: 267)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.2ms | Allocations: 5311)
+
+

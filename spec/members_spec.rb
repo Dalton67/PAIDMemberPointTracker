@@ -20,7 +20,7 @@ RSpec.describe "member crud functionality", type: :system do
     a = AdminUser.new(username: 'testing', password: 'testing')
     a.save()
   end
-  it "signs me in and creates member" do
+  it "signs me in and deletes created member" do
     visit '/access/login'
     fill_in 'username', with: 'testing'
     fill_in 'password', with: 'testing'
@@ -30,11 +30,15 @@ RSpec.describe "member crud functionality", type: :system do
     expect(page).to have_content 'Add New Member'
     click_link('Add New Member')
     expect(page).to have_content 'Create Member'
-    fill_in('member_first_name', :with => 'First')
+    fill_in('member_first_name', :with => 'Firstname')
     fill_in('member_last_name', :with => 'Last')
     fill_in('member_email', :with => 'test@email.com')
     click_button('Create Member')
-    expect(page).to have_content 'First'
+    expect(page).to have_content 'Firstname'
+    click_link('Delete')
+    expect(page).to have_content 'Delete Member'
+    click_button('Delete Member')
+    expect(page).not_to have_content 'Firstname'
   end
 end
 
