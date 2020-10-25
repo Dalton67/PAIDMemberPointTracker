@@ -17382,3 +17382,45 @@ Processing by MembersController#delete as HTML
 Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.2ms | Allocations: 5311)
 
 
+Started GET "/members/2/edit" for 127.0.0.1 at 2020-10-25 16:33:23 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:85:in `edit'
+  Rendering members/edit.html.erb within layouts/application
+  Rendered members/edit.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1221)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 41.1ms | ActiveRecord: 4.6ms | Allocations: 24239)
+
+
+Started PATCH "/members/2" for 127.0.0.1 at 2020-10-25 16:36:09 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#update as HTML
+  Parameters: {"authenticity_token"=>"j6yTHVeeElkm1NengUbSUrzVZI6t4ToJqjRILN69UPFNUjSg6PV6g6eFc05Zpanef6p2YZiYV/u2RDZ+VrX9Zw==", "member"=>{"first_name"=>"a", "last_name"=>"b", "email"=>"c", "fall_points"=>"10", "spring_points"=>"0", "total_points"=>"0"}, "commit"=>"Update Member", "id"=>"2"}
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:89:in `update'
+DEPRECATION WARNING: update_attributes is deprecated and will be removed from Rails 6.1 (please, use update instead) (called from update at /home/tamucru/Documents/College/CSCE431/PAIDMemberPointTracker/app/controllers/members_controller.rb:90)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:90:in `update'
+  [1m[36mMember Update (0.4ms)[0m  [1m[33mUPDATE "members" SET "fall_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["fall_points", 10], ["updated_at", "2020-10-25 21:36:09.209387"], ["id", 2]]
+  ↳ app/controllers/members_controller.rb:90:in `update'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:90:in `update'
+Redirected to http://127.0.0.1:3000/members/2
+Completed 302 Found in 36ms (ActiveRecord: 6.7ms | Allocations: 12389)
+
+
+Started GET "/members/2" for 127.0.0.1 at 2020-10-25 16:36:09 -0500
+Processing by MembersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMember Load (10.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:60:in `show'
+  Rendering members/show.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "events"."id" FROM "events" INNER JOIN "events_members" ON "events"."id" = "events_members"."event_id" WHERE "events_members"."member_id" = $1[0m  [["member_id", 2]]
+  ↳ app/views/members/show.html.erb:36
+  Rendered members/show.html.erb within layouts/application (Duration: 23.1ms | Allocations: 9169)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 571ms (Views: 552.2ms | ActiveRecord: 15.7ms | Allocations: 24554)
+
+
