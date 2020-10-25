@@ -1590,3 +1590,74 @@ Completed 200 OK in 22ms (Views: 18.9ms | ActiveRecord: 1.2ms | Allocations: 429
   [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAdminUser Create (0.5ms)[0m  [1m[32mINSERT INTO "admin_users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "testing"], ["password_digest", "$2a$04$SpxC7XtLDWrf8KpePnpcfeZGbSZf6FCDk6ujeFSojMnmw2oVQAPNu"], ["created_at", "2020-10-25 21:17:34.870609"], ["updated_at", "2020-10-25 21:17:34.870609"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/access/login" for 127.0.0.1 at 2020-10-25 16:17:36 -0500
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/application
+  Rendered access/login.html.erb within layouts/application (Duration: 4.0ms | Allocations: 681)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 172ms (Views: 159.8ms | ActiveRecord: 0.0ms | Allocations: 35302)
+Started GET "/assets/application-a4a088387bf639e222836da738f3d2712f2f1d46f00cc0dd51eb9160c63c9d90.css" for 127.0.0.1 at 2020-10-25 16:17:36 -0500
+Started GET "/assets/PAID-logo-28ae29f837880b9001e17068c17b5868cb2ab2c8c7152bc7bf6f4d35b3399983.svg" for 127.0.0.1 at 2020-10-25 16:17:36 -0500
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-10-25 16:17:36 -0500
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"username"=>"testing", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "testing"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:37891/admin
+Completed 302 Found in 8ms (ActiveRecord: 1.0ms | Allocations: 726)
+Started GET "/admin" for 127.0.0.1 at 2020-10-25 16:17:36 -0500
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 1.2ms | Allocations: 271)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 3756)
+Started GET "/members" for 127.0.0.1 at 2020-10-25 16:17:37 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (1.8ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  Rendered members/index.html.erb within layouts/application (Duration: 12.8ms | Allocations: 2895)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 52ms (Views: 22.3ms | ActiveRecord: 6.0ms | Allocations: 10796)
+Started GET "/members/new" for 127.0.0.1 at 2020-10-25 16:17:37 -0500
+Processing by MembersController#new as HTML
+  Rendering members/new.html.erb within layouts/application
+  Rendered members/new.html.erb within layouts/application (Duration: 9.0ms | Allocations: 984)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 60ms (Views: 30.5ms | ActiveRecord: 4.7ms | Allocations: 10363)
+Started POST "/members" for 127.0.0.1 at 2020-10-25 16:17:38 -0500
+Processing by MembersController#create as HTML
+  Parameters: {"member"=>{"first_name"=>"First", "last_name"=>"Last", "email"=>"test@email.com", "fall_points"=>"0", "spring_points"=>"0", "total_points"=>"0"}, "commit"=>"Create Member"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMember Create (0.5ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "email", "fall_points", "spring_points", "total_points", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "First"], ["last_name", "Last"], ["email", "test@email.com"], ["fall_points", 0], ["spring_points", 0], ["total_points", 0], ["created_at", "2020-10-25 21:17:38.101436"], ["updated_at", "2020-10-25 21:17:38.101436"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:37891/members
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms | Allocations: 1085)
+Started GET "/members" for 127.0.0.1 at 2020-10-25 16:17:38 -0500
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  Rendered members/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 898)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 0.5ms | Allocations: 4290)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
