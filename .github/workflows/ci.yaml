@@ -49,7 +49,7 @@ jobs:
           POSTGRES_USER: myapp
           POSTGRES_DB: myapp_test
           POSTGRES_PASSWORD: ""
-        ports: ["5432:5432"]
+        ports: ["5433:5433"]
 
     steps:
       - name: Checkout code
