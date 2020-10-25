@@ -28,12 +28,12 @@ jobs:
         run: |
           yarn install --pure-lockfile
 
-      - name: Run linters
-        run: |
-          bin/rubocop --parallel
-          bin/stylelint
-          bin/prettier
-          bin/eslint
+      # - name: Run linters
+      #   run: |
+      #     bin/rubocop --parallel
+      #     bin/stylelint
+      #     bin/prettier
+      #     bin/eslint
       - name: Run security checks
         run: |
           bin/bundler-audit --update
@@ -57,6 +57,8 @@ jobs:
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
+        with: 
+          ruby-version: 2.7.1
       - name: Ruby gem cache
         uses: actions/cache@v1
         with:
@@ -91,7 +93,7 @@ jobs:
         env:
           RAILS_ENV: test
           PGHOST: localhost
-          PGUSER: myapp
+          # PGUSER: myapp
         run: |
           bin/rails db:setup
 
