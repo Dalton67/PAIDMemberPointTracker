@@ -44,10 +44,10 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:11
+        image: postgres:12.8
         env:
           # POSTGRES_USER: myapp
-          POSTGRES_DB:   PAID_development
+          POSTGRES_DB:   PAID_test
           # POSTGRES_PASSWORD: ""
         ports: ["5433:5433"]
 
@@ -88,15 +88,18 @@ jobs:
       - name: Install packages
         run: |
           yarn install --pure-lockfile
-
+      - name: Install PostgreSQL client
+      run: |
+        sudo apt-get -yqq install libpq-dev
       - name: Setup test database
         env:
           RAILS_ENV: test
           PGHOST: localhost
-          host: localhost
           port: 5432
           PGUSER: kade
         run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
           bin/rails db:setup
 
       - name: Run tests
