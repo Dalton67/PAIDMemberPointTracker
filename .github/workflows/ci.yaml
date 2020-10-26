@@ -7,7 +7,7 @@
         db:
           image: postgres:11
           ports: ['5432:5432']
-          POSTGRES_USER: postgres
+          PGUSER: postgres
           POSTGRES_PASSWORD: postgres
           POSTGRES_DB: postgres
           ports: ['5432:5432']
