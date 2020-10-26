@@ -49,7 +49,8 @@ jobs:
           # POSTGRES_USER: myapp
           POSTGRES_DB:   PAID_test
           # POSTGRES_PASSWORD: ""
-        ports: ["5433:5433"]
+          POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
+        ports: ["5432:5432"]
 
     steps:
       - name: Checkout code
