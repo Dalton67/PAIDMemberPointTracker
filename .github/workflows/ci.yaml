@@ -93,7 +93,9 @@ jobs:
         env:
           RAILS_ENV: test
           PGHOST: localhost
-          # PGUSER: myapp
+          host: localhost
+          port: 5432
+          PGUSER: kade
         run: |
           bin/rails db:setup
 
