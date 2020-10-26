@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:12.8
+        image: postgres:11
         env:
           # POSTGRES_USER: myapp
           POSTGRES_DB:   PAID_test
