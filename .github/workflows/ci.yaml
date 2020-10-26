@@ -7,6 +7,10 @@
         db:
           image: postgres:11
           ports: ['5432:5432']
+          POSTGRES\_USER: postgres
+          POSTGRES\_PASSWORD: postgres
+          POSTGRES\_DB: postgres
+          ports: ['5432:5432']
           options: >-
             --health-cmd pg_isready
             --health-interval 10s
@@ -21,9 +25,10 @@
           ruby-version: 2.7.1
       - name: Build and test with Rake
         env:
-          PGHOST: localhost
-          PGUSER: postgres
-          POSTGRES_PASSWORD: postgres
+          POSTGRES\_USER: postgres
+          POSTGRES\_PASSWORD: postgres
+          POSTGRES\_DB: postgres
+          ports: ['5432:5432']
           RAILS_ENV: test
         run: |
           sudo apt-get -yqq install libpq-dev
