@@ -90,7 +90,7 @@ jobs:
           yarn install --pure-lockfile
       - name: Install PostgreSQL client
         run: |
-        sudo apt-get -yqq install libpq-dev
+          sudo apt-get -yqq install libpq-dev
       - name: Setup test database
         env:
           RAILS_ENV: test
