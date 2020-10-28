@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   post 'access/attempt_login'
   get 'access/logout'
 
-  resources :events
+  resources :events do 
+    collection { get :getEvents }
+  end 
 
   get '/members/reset' => 'members#reset'
   get '/members/export' => 'members#export'

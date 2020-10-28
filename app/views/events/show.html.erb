@@ -25,5 +25,5 @@
   <%=file_field_tag :file%>
   <%= submit_tag "Import"%>
 <% end %>
-<%= button_to "Import Points from Sign Up", apimport_members_path,:method => :get %>
+<%= button_to "Import Points from Sign Up", apimport_members_path(@event.mapped_id),:method => :get %>
 </div>

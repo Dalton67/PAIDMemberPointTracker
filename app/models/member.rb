@@ -12,20 +12,6 @@ class Member < ApplicationRecord
     self.total_points ||= 0
   end
 
-#   def self.import(file,points,id)
-#     data = Array.new
-#     event = Event.find(id)
-#     CSV.foreach(file.path,headers:true) do |row|
-#       member = Member.find_by(email: row['email'])
-#       if member
-#         puts points
-#         member.update_attribute(:total_points, points.to_i+member.total_points)
-#         if  member.events.exclude? event
-#           member.events << event
-#         end 
-#         member.save()
-#end 
-
   def self.import(file, points, id, semester)
     data = []
     event = Event.find(id)
@@ -48,32 +34,33 @@ class Member < ApplicationRecord
     end
     return data
   end
-  
-  def self.api()
+  def self.api(id)
+    puts "******8888888***********"
     r = RestClient.new
     semester = "Fall"
-    result = r.event('9')
+    result = r.event(9)
+    puts result
     v = JSON.parse(result.body)
     points = v["points"].to_i
     data = []
     event = Event.find(1)
-    v["sign_ins"].each do |row|
-      member = Member.find_by(email: row['email'])
-      if member
-        if semester == 'Fall'
-          member.update_attribute(:fall_points, points.to_i + member.fall_points)
+      v["sign_ins"].each do |row|
+        member = Member.find_by(email: row['email'])
+        if member
+          if semester == 'Fall'
+            member.update_attribute(:fall_points, points.to_i + member.fall_points)
+          else
+            member.update_attribute(:spring_points, points.to_i + member.spring_points)
+          end
+          member.update_attribute(:total_points, member.fall_points + member.spring_points)
+          if  member.events.exclude? event
+            member.events << event
+          end 
+          member.save()
         else
-          member.update_attribute(:spring_points, points.to_i + member.spring_points)
+          data.push(row['email'])
         end
-        member.update_attribute(:total_points, member.fall_points + member.spring_points)
-        if  member.events.exclude? event
-          member.events << event
-        end 
-        member.save()
-      else
-        data.push(row['email'])
       end
-    end
     return data
   end 
   
