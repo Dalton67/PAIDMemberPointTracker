@@ -52,7 +52,7 @@ class Member < ApplicationRecord
   def self.api()
     r = RestClient.new
     semester = "Fall"
-    result = r.event('8')
+    result = r.event('9')
     v = JSON.parse(result.body)
     points = v["points"].to_i
     data = []
