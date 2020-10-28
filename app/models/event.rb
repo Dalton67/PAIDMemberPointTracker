@@ -10,7 +10,6 @@ class Event < ApplicationRecord
     self.mapped_id ||= -1
   end
   def self.apiEvents()
-    puts "hey"
     r = RestClient.new
     result = r.events()
     response = JSON.parse(result.body)
