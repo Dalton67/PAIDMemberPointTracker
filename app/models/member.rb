@@ -35,11 +35,9 @@ class Member < ApplicationRecord
     return data
   end
   def self.api(id)
-    puts "******8888888***********"
     r = RestClient.new
     semester = "Fall"
     result = r.event(9)
-    puts result
     v = JSON.parse(result.body)
     points = v["points"].to_i
     data = []
