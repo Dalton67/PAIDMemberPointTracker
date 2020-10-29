@@ -1,11 +1,19 @@
 <div class="events index">
   <h1>Events</h1>
 
+
+
+
   <h2 style="text-align:center">
-    <%= link_to '<button class="button">Add New Event</button>'.html_safe, new_event_path, :class => 'action new' %>
-    <%= link_to '<button class="button">View Members</button>'.html_safe, members_path, :class => 'action index' %>
+<!--     <%= link_to '<button class="button">Add New Event</button>'.html_safe, new_event_path, :class => 'action new' %>
+    <%= link_to '<button class="button">View Members</button>'.html_safe, members_path, :class => 'action index' %> -->
+    <%= link_to("Add New Event", new_event_path, :class => 'action new') %>
+    <%= link_to("View Members", members_path, :class => 'action index') %>
+    <%= link_to("Admin Users Menu", members_path, :class => 'action index') %>
+    <%= button_to "Refresh Events", getEvents_events_path,:method => :get %>
   </h2>
   <table class="centertable" summary="Member list">
+
     <tr class="header">
       <th>ID</th>
       <th>Title</th>
