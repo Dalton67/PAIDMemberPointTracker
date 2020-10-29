@@ -4,7 +4,6 @@ class Member < ApplicationRecord
   has_and_belongs_to_many :events
   after_initialize :init
   require 'csv'
-  require 'restclient.rb'
   require 'json'
   def init
     self.fall_points ||= 0
