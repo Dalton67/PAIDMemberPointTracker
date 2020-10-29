@@ -6,8 +6,8 @@
     <div>
       <%= label_tag("Search for a member:") %>
       <%= text_field_tag :search, params[:search], placeholder: "Enter name or email" %>
-      <%= submit_tag "Search", :name => nil %>
-      <%= link_to '<button type="button">Reset</button>'.html_safe, members_path(sort: 'total_points', search: '') %>
+      <%= submit_tag "Search", :name => nil, :class => "button" %>
+      <%= link_to '<button class="button">Reset</button>'.html_safe, members_path(sort: 'total_points', search: '') %>
     </div>
 
     <br>
@@ -16,9 +16,14 @@
       <%= label_tag("Sort by:") %>
       <%= select_tag(:sort, options_for_select(Member.SORTS_ALL.map { |s| [s[:name], s[:id]] }, params[:sort]), :onchange => ("this.form.submit();")) %>
     </div>
+
+    <br>
+
+    <%= link_to '<button class="button">Export Table</button>'.html_safe, :controller => :members, :action => :export %>
   <% end %>
 
     <br>
+
   
   <table class="centertable" summary="Member list">
     <tr class="header">

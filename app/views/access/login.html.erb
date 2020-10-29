@@ -2,7 +2,7 @@
 
 <div class="login">
   <%= form_tag(access_attempt_login_path, :method => :post) do %>
-  <table>
+  <table class="centertable">
     <tr>
       <td><%= label_tag(:username) %></td>
       <td><%= text_field_tag(:username, params[:username]) %></td>
@@ -13,7 +13,7 @@
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td><%= submit_tag("Log In") %></td>
+      <td><%= submit_tag "Log In", :class => "button" %></td>
     </tr>
   </table>
   <% end %>
