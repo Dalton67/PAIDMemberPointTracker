@@ -14,7 +14,6 @@ class Event < ApplicationRecord
     result = r.events()
     response = JSON.parse(result.body)
     response["events"].each do |mapped_event|
-      # event = 
       if !Event.where(mapped_id: mapped_event["id"]).exists? 
         e = Event.create(
           :mapped_id=>  mapped_event["id"],
