@@ -27,5 +27,7 @@
         </td>
       </tr>
   </table>
-
+<% if @event.mapped_id != -1 %>
+<%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post %>
+<% end %>
 </div>
