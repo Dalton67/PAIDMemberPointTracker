@@ -45,24 +45,17 @@ class MembersController < ApplicationController
   def import
     data = Member.import(params[:file],params[:points_worth],params[:id],params[:semester])
     session[:data] = data
-    if !data.empty?
-      redirect_to missing_members_path
-    else 
-      redirect_to(members_path)
-    end 
+
+    redirect_to missing_members_path
+
+#     if data.empty? 
+#       redirect_to(members_path)
+#     else 
+#       redirect_to missing_members_path 
+#     end 
+
   end
 
-  def apimport
-    data = Member.api(params[:mapped_id].to_i,params[:semester])
-    session[:data] = data
-    if !data.empty?
-      redirect_to missing_members_path
-    else 
-       redirect_to(members_path)
-    end 
-   
-  end 
-  
   def show
     @member = Member.find(params[:id])
   end

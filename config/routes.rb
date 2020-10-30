@@ -10,9 +10,7 @@ Rails.application.routes.draw do
   post 'access/attempt_login'
   get 'access/logout'
 
-  resources :events do 
-    collection { get :getEvents }
-  end 
+  resources :events
 
   get '/members/reset' => 'members#reset'
   get '/members/export' => 'members#export'
@@ -22,7 +20,6 @@ Rails.application.routes.draw do
   resources :members do
     collection { post :import }
     collection { get :missing }
-    collection { post :apimport }
     member do
       get :delete
     end
