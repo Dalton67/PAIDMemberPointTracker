@@ -99,11 +99,6 @@ class EventsController < ApplicationController
     redirect_to(events_path)
   end
 
-  def getEvents
-    Event.apiEvents()
-    redirect_to(events_path)
-  end 
-
   private
 
   def event_params
