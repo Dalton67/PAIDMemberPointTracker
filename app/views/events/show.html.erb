@@ -27,11 +27,7 @@
         </td>
       </tr>
   </table>
-
-<%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester), multipart: true do %>
-  <%=file_field_tag :file%>
-  <%= submit_tag "Import"%>
+<% if @event.mapped_id != -1 %>
+<%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post %>
 <% end %>
-<%= button_to "Import Points from Sign Up", apimport_members_path(@event.mapped_id),:method => :get %>
-
 </div>

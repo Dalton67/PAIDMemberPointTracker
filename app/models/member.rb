@@ -5,6 +5,7 @@ class Member < ApplicationRecord
   after_initialize :init
   require 'csv'
   require 'json'
+  require 'restclient.rb'
   def init
     self.fall_points ||= 0
     self.spring_points ||= 0
@@ -33,14 +34,14 @@ class Member < ApplicationRecord
     end
     return data
   end
-  def self.api(id)
+  def self.api(id,semester)
     r = RestClient.new
-    semester = "Fall"
-    result = r.event(9)
+    # semester = semester
+    result = r.event(id)
     v = JSON.parse(result.body)
     points = v["points"].to_i
     data = []
-    event = Event.find(1)
+    event = Event.find_by(mapped_id: 9)
       v["sign_ins"].each do |row|
         member = Member.find_by(email: row['email'])
         if member

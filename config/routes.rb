@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :members do
     collection { post :import }
     collection { get :missing }
-    collection { get :apimport }
+    collection { post :apimport }
     member do
       get :delete
     end
