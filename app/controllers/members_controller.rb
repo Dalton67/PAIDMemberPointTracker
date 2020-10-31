@@ -40,11 +40,17 @@ class MembersController < ApplicationController
 
   def missing
     @missing_members = session[:data]
+    @points = session[:points_worth]
+    @semester = session[:semester]
+    puts "&&&&&&&"
+    puts @semester
   end
 
   def import
     data = Member.import(params[:file],params[:points_worth],params[:id],params[:semester])
     session[:data] = data
+    session[:points_worth] = params[:points_worth]
+    session[:semester] = params[:semester]
     if !data.empty?
       redirect_to missing_members_path
     else 
@@ -55,6 +61,8 @@ class MembersController < ApplicationController
   def apimport
     data = Member.api(params[:mapped_id].to_i,params[:semester])
     session[:data] = data
+    session[:points_worth] = params[:points_worth]
+    session[:semester] = params[:search]
     if !data.empty?
       redirect_to missing_members_path
     else 
@@ -70,6 +78,11 @@ class MembersController < ApplicationController
   def new
     @member = Member.new
     @member.email = params[:email] if params[:email]
+    if params[:semester] == "Fall"
+      @member.fall_points = params[:points] if params[:points]
+    else 
+      @member.spring_points = params[:points] if params[:points]
+    end 
   end
 
   def create
