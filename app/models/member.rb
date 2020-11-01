@@ -36,7 +36,7 @@ class Member < ApplicationRecord
   end
 
   def self.import_members(file)
-    data = []
+    new_member_count = 0
     CSV.foreach(file.path, headers: true) do |row|
       member = Member.find_by(email: row['Email Address'])
       
@@ -49,8 +49,10 @@ class Member < ApplicationRecord
         new_member.update_attribute(:first_name, row['First Name: (Ex: Evan)'])
         new_member.update_attribute(:last_name, row['Last Name (Ex: Vestal)'])
         new_member.save()
+        new_member_count += 1
       end
     end
+    return new_member_count
   end
 
   def self.api(id,semester)

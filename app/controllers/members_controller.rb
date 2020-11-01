@@ -52,6 +52,12 @@ class MembersController < ApplicationController
     end 
   end
 
+  def import_members_from_csv
+    new_member_count = Member.import(params[:file])
+    redirect_to(members_path)
+    flash[:notice] = "#{new_member_count} new members users created successfully"
+  end
+
   def apimport
     data = Member.api(params[:mapped_id].to_i,params[:semester])
     session[:data] = data
