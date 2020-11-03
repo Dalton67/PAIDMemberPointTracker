@@ -1,5 +1,6 @@
 <div class="members show">
   <h2>Show Event</h2>
+
 <center>
   <table  class="centertable" summary="Event detail view">
     <tr>
@@ -16,13 +17,28 @@
     </tr>
     <tr>
       <th>Semester</th>
-      <td><%= @event.semester %></td>
+      <td>
+        <% if @event.semester == 'Fall' || @event.semester == 'Spring' %>
+        <%= @event.semester %>
+        <% else %>
+        <%= form_for(Event.find(params[:id])) do |f| %>
+        <%= f.select :semester, ['Fall','Spring']%><br>
+        <%= f.submit "Update Semester", :class => "button" %>
+        <% end %>
+        <% end %>
+      </td>
     </tr>
     <tr>
         <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
         <td><%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester), multipart: true do%>
+          <% if @event.semester == 'Fall' || @event.semester == 'Spring' %>
           <%=file_field_tag :file, :class => "button"%>
-          <%= submit_tag "Import", :class => "button"%>
+          <% if @event.semester == 'Fall' %>
+          <%= submit_tag "Import", :class => "button", data: { :confirm => 'This will add points to the Fall semester for all members who attended this event. Proceed?' }%>
+          <% else %>
+          <%= submit_tag "Import", :class => "button", data: { :confirm => 'This will add points to the Spring semester for all members who attended this event. Proceed?' }%>
+        <% end %>
+        <% end %>
         <% end %>
         <% flash.each do |type, msg| %>
           <div>
@@ -32,8 +48,14 @@
         </td>
       </tr>
   </table>
-<% if @event.mapped_id != -1 %>
-<%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post %>
+<% if @event.mapped_id != -1 && (@event.semester == 'Fall' || @event.semester == 'Spring')%>
+<% if @event.semester == 'Fall' %>
+<%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post, data: { :confirm => 'This will add points to the Fall semester for all members who attended this event. Proceed?' } %>
+<% else @event.semester == 'Spring' %>
+<%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post, data: { :confirm => 'This will add points to the Spring semester for all members who attended this event. Proceed?' } %>
+<% end %>
+<% else %>
+<h3>* To distribute points to atendees, select a semester. *</h3>
 <% end %>
 </center>
 </div>

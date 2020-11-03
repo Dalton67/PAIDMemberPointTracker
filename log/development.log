@@ -18868,3 +18868,2876 @@ Processing by MembersController#show as HTML
 Completed 200 OK in 14ms (Views: 11.0ms | ActiveRecord: 0.7ms | Allocations: 8026)
 
 
+Started GET "/members" for 127.0.0.1 at 2020-11-03 13:49:08 -0600
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#index as HTML
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 3455)
+
+
+  
+Zeitwerk::NameError (expected file /home/tamucru/Documents/College/CSCE431/PAIDMemberPointTracker/app/models/restclient.rb to define constant Restclient, but didn't):
+  
+app/models/member.rb:8:in `<class:Member>'
+app/models/member.rb:3:in `<main>'
+app/controllers/members_controller.rb:8:in `index'
+Started GET "/members" for 127.0.0.1 at 2020-11-03 13:49:10 -0600
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.7ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  ↳ app/views/members/index.html.erb:43
+  Rendered members/index.html.erb within layouts/application (Duration: 19.3ms | Allocations: 8071)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 55ms (Views: 45.8ms | ActiveRecord: 5.0ms | Allocations: 23010)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 13:49:18 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 12.7ms | Allocations: 5357)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 17.7ms | ActiveRecord: 3.2ms | Allocations: 12480)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 13:49:19 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 795)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 8.9ms | ActiveRecord: 0.5ms | Allocations: 6417)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 13:50:15 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 329.8ms | Allocations: 135726)
+Completed 500 Internal Server Error in 334ms (ActiveRecord: 0.3ms | Allocations: 137503)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x00007fde88e67738>:0x00007fde88e65de8>):
+    16:     </tr>
+    17:     <tr>
+    18:       <th>Semester</th>
+    19:       <td><%= f.select :semester, ['Fall','Spring']%></td>
+    20:     </tr>
+    21:     <tr>
+    22:       <th>Semester</th>
+  
+app/views/events/show.html.erb:19
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 13:51:05 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1366)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms | Allocations: 3145)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="members show">
+  <h2>Show Event</h2>
+
+  <%= form_for(Event.find(params[:id])) do |f| %>
+
+    <table class="centertable" summary="Event form fields">
+      <tr>
+        <th>ID</th>
+        <td><%= f.text_field(:id) %></td>
+      </tr>
+      <tr>
+        <th>Title</th>
+        <td><%= f.text_field(:title) %></td>
+      </tr>
+      <tr>
+        <th>Points</th>
+        <td><%= f.text_field(:points_worth) %></td>
+      </tr>
+      <tr>
+        <th>Semester</th>
+        <td><%= f.select :semester, ['Fall','Spring']%></td>
+      </tr>
+      <tr>
+        <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+        <td><%= f.submit "Update Events", :class => "button" %></td>
+      </tr>
+    </table>
+    
+<center>
+  <table  class="centertable" summary="Event detail view">
+    <tr>
+      <th>ID</th>
+      <td><%= @event.id %></td>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <td><%= @event.title %></td>
+    </tr>
+    <tr>
+      <th>Points</th>
+      <td><%= @event.points_worth %></td>
+    </tr>
+    <tr>
+      <th>Semester</th>
+      <td><%= @event.semester %></td>
+    </tr>
+    <tr>
+        <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+        <td><%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester), multipart: true do%>
+          <%=file_field_tag :file, :class => "button"%>
+          <%= submit_tag "Import", :class => "button"%>
+        <% end %>
+        <% flash.each do |type, msg| %>
+          <div>
+            <%= msg %>
+          </div>
+        <% end %>
+        </td>
+      </tr>
+  </table>
+<% if @event.mapped_id != -1 %>
+<%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post %>
+<% end %>
+</center>
+</div>
+
+):
+1:    <div class="members show">
+2:      <h2>Show Event</h2>
+3:    
+4:      <%= form_for(Event.find(params[:id])) do |f| %>
+5:    
+6:        <table class="centertable" summary="Event form fields">
+7:          <tr>
+8:            <th>ID</th>
+9:            <td><%= f.text_field(:id) %></td>
+10:          </tr>
+11:          <tr>
+12:            <th>Title</th>
+13:            <td><%= f.text_field(:title) %></td>
+14:          </tr>
+15:          <tr>
+16:            <th>Points</th>
+17:            <td><%= f.text_field(:points_worth) %></td>
+18:          </tr>
+19:          <tr>
+20:            <th>Semester</th>
+21:            <td><%= f.select :semester, ['Fall','Spring']%></td>
+22:          </tr>
+23:          <tr>
+24:            <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+25:            <td><%= f.submit "Update Events", :class => "button" %></td>
+26:          </tr>
+27:        </table>
+28:        
+29:    <center>
+30:      <table  class="centertable" summary="Event detail view">
+31:        <tr>
+32:          <th>ID</th>
+33:          <td><%= @event.id %></td>
+34:        </tr>
+35:        <tr>
+36:          <th>Title</th>
+37:          <td><%= @event.title %></td>
+38:        </tr>
+39:        <tr>
+40:          <th>Points</th>
+41:          <td><%= @event.points_worth %></td>
+42:        </tr>
+43:        <tr>
+44:          <th>Semester</th>
+45:          <td><%= @event.semester %></td>
+46:        </tr>
+47:        <tr>
+48:            <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+49:            <td><%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester), multipart: true do%>
+50:              <%=file_field_tag :file, :class => "button"%>
+51:              <%= submit_tag "Import", :class => "button"%>
+52:            <% end %>
+53:            <% flash.each do |type, msg| %>
+54:              <div>
+55:                <%= msg %>
+56:              </div>
+57:            <% end %>
+58:            </td>
+59:          </tr>
+60:      </table>
+61:    <% if @event.mapped_id != -1 %>
+62:    <%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post %>
+63:    <% end %>
+64:    </center>
+65:    </div>
+  
+app/views/events/show.html.erb:68: syntax error, unexpected end-of-input, expecting `end'
+app/views/events/show.html.erb:68: syntax error, unexpected end-of-input, expecting `end'
+app/views/events/show.html.erb:68: syntax error, unexpected end-of-input, expecting `end'
+app/views/events/show.html.erb:68: syntax error, unexpected end-of-input, expecting `end'
+app/views/events/show.html.erb:68: syntax error, unexpected end-of-input, expecting `end'
+app/views/events/show.html.erb:68: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 13:51:21 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:4
+  Rendered events/show.html.erb within layouts/application (Duration: 16.6ms | Allocations: 4802)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 24.1ms | ActiveRecord: 0.3ms | Allocations: 10798)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 13:53:49 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:4
+  Rendered events/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1440)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.3ms | Allocations: 6484)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 13:54:30 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1384)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms | Allocations: 3154)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="members show">
+  <h2>Show Event</h2>
+
+  <%= form_for(Event.find(params[:id])) do |f| %>
+
+    <table class="centertable" summary="Event form fields">
+      <tr>
+        <th>ID</th>
+        <td><%= f.text_field(:id) %></td>
+      </tr>
+      <tr>
+        <th>Title</th>
+        <td><%= f.text_field(:title) %></td>
+      </tr>
+      <tr>
+        <th>Points</th>
+        <td><%= f.text_field(:points_worth) %></td>
+      </tr>
+      <tr>
+        <th>Semester</th>
+        <td><%= f.select :semester, ['Fall','Spring']%></td>
+      </tr>
+      <tr>
+        <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+        <td><%= f.submit "Update Events", :class => "button" %></td>
+      </tr>
+    </table>
+    <% end %>
+
+<center>
+  <table  class="centertable" summary="Event detail view">
+    <tr>
+      <th>ID</th>
+      <td><%= @event.id %></td>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <td><%= @event.title %></td>
+    </tr>
+    <tr>
+      <th>Points</th>
+      <td><%= @event.points_worth %></td>
+    </tr>
+    <tr>
+      <th>Semester</th>
+      <td><%= if @event.semester is nil %></td>
+    </tr>
+    <tr>
+        <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+        <td><%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester), multipart: true do%>
+          <%=file_field_tag :file, :class => "button"%>
+          <%= submit_tag "Import", :class => "button"%>
+        <% end %>
+        <% flash.each do |type, msg| %>
+          <div>
+            <%= msg %>
+          </div>
+        <% end %>
+        </td>
+      </tr>
+  </table>
+<% if @event.mapped_id != -1 %>
+<%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post %>
+<% end %>
+</center>
+</div>
+
+):
+1:    <div class="members show">
+2:      <h2>Show Event</h2>
+3:    
+4:      <%= form_for(Event.find(params[:id])) do |f| %>
+5:    
+6:        <table class="centertable" summary="Event form fields">
+7:          <tr>
+8:            <th>ID</th>
+9:            <td><%= f.text_field(:id) %></td>
+10:          </tr>
+11:          <tr>
+12:            <th>Title</th>
+13:            <td><%= f.text_field(:title) %></td>
+14:          </tr>
+15:          <tr>
+16:            <th>Points</th>
+17:            <td><%= f.text_field(:points_worth) %></td>
+18:          </tr>
+19:          <tr>
+20:            <th>Semester</th>
+21:            <td><%= f.select :semester, ['Fall','Spring']%></td>
+22:          </tr>
+23:          <tr>
+24:            <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+25:            <td><%= f.submit "Update Events", :class => "button" %></td>
+26:          </tr>
+27:        </table>
+28:        <% end %>
+29:    
+30:    <center>
+31:      <table  class="centertable" summary="Event detail view">
+32:        <tr>
+33:          <th>ID</th>
+34:          <td><%= @event.id %></td>
+35:        </tr>
+36:        <tr>
+37:          <th>Title</th>
+38:          <td><%= @event.title %></td>
+39:        </tr>
+40:        <tr>
+41:          <th>Points</th>
+42:          <td><%= @event.points_worth %></td>
+43:        </tr>
+44:        <tr>
+45:          <th>Semester</th>
+46:          <td><%= if @event.semester is nil %></td>
+47:        </tr>
+48:        <tr>
+49:            <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+50:            <td><%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester), multipart: true do%>
+51:              <%=file_field_tag :file, :class => "button"%>
+52:              <%= submit_tag "Import", :class => "button"%>
+53:            <% end %>
+54:            <% flash.each do |type, msg| %>
+55:              <div>
+56:                <%= msg %>
+57:              </div>
+58:            <% end %>
+59:            </td>
+60:          </tr>
+61:      </table>
+62:    <% if @event.mapped_id != -1 %>
+63:    <%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post %>
+64:    <% end %>
+65:    </center>
+66:    </div>
+  
+app/views/events/show.html.erb:46: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/events/show.html.erb:69: syntax error, unexpected `end', expecting ')'
+app/views/events/show.html.erb:46: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/events/show.html.erb:69: syntax error, unexpected `end', expecting ')'
+app/views/events/show.html.erb:46: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/events/show.html.erb:69: syntax error, unexpected `end', expecting ')'
+app/views/events/show.html.erb:46: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/events/show.html.erb:69: syntax error, unexpected `end', expecting ')'
+app/views/events/show.html.erb:46: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/events/show.html.erb:69: syntax error, unexpected `end', expecting ')'
+app/views/events/show.html.erb:46: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/events/show.html.erb:69: syntax error, unexpected `end', expecting ')'
+Started GET "/events" for 127.0.0.1 at 2020-11-03 13:57:52 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1370)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.4ms | Allocations: 6890)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 13:57:54 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1391)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms | Allocations: 2557)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="members show">
+  <h2>Show Event</h2>
+
+  <%= form_for(Event.find(params[:id])) do |f| %>
+
+    <table class="centertable" summary="Event form fields">
+      <tr>
+        <th>ID</th>
+        <td><%= f.text_field(:id) %></td>
+      </tr>
+      <tr>
+        <th>Title</th>
+        <td><%= f.text_field(:title) %></td>
+      </tr>
+      <tr>
+        <th>Points</th>
+        <td><%= f.text_field(:points_worth) %></td>
+      </tr>
+      <tr>
+        <th>Semester</th>
+        <td><%= f.select :semester, ['Fall','Spring']%></td>
+      </tr>
+      <tr>
+        <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+        <td><%= f.submit "Update Events", :class => "button" %></td>
+      </tr>
+    </table>
+    <% end %>
+
+<center>
+  <table  class="centertable" summary="Event detail view">
+    <tr>
+      <th>ID</th>
+      <td><%= @event.id %></td>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <td><%= @event.title %></td>
+    </tr>
+    <tr>
+      <th>Points</th>
+      <td><%= @event.points_worth %></td>
+    </tr>
+    <tr>
+      <th>Semester</th>
+      <td><%= if @event.semester == 'Fall' || @event.semester == 'Spring' puts "Hello"%></td>
+    </tr>
+    <tr>
+        <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+        <td><%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester), multipart: true do%>
+          <%=file_field_tag :file, :class => "button"%>
+          <%= submit_tag "Import", :class => "button"%>
+        <% end %>
+        <% flash.each do |type, msg| %>
+          <div>
+            <%= msg %>
+          </div>
+        <% end %>
+        </td>
+      </tr>
+  </table>
+<% if @event.mapped_id != -1 %>
+<%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post %>
+<% end %>
+</center>
+</div>
+
+):
+1:    <div class="members show">
+2:      <h2>Show Event</h2>
+3:    
+4:      <%= form_for(Event.find(params[:id])) do |f| %>
+5:    
+6:        <table class="centertable" summary="Event form fields">
+7:          <tr>
+8:            <th>ID</th>
+9:            <td><%= f.text_field(:id) %></td>
+10:          </tr>
+11:          <tr>
+12:            <th>Title</th>
+13:            <td><%= f.text_field(:title) %></td>
+14:          </tr>
+15:          <tr>
+16:            <th>Points</th>
+17:            <td><%= f.text_field(:points_worth) %></td>
+18:          </tr>
+19:          <tr>
+20:            <th>Semester</th>
+21:            <td><%= f.select :semester, ['Fall','Spring']%></td>
+22:          </tr>
+23:          <tr>
+24:            <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+25:            <td><%= f.submit "Update Events", :class => "button" %></td>
+26:          </tr>
+27:        </table>
+28:        <% end %>
+29:    
+30:    <center>
+31:      <table  class="centertable" summary="Event detail view">
+32:        <tr>
+33:          <th>ID</th>
+34:          <td><%= @event.id %></td>
+35:        </tr>
+36:        <tr>
+37:          <th>Title</th>
+38:          <td><%= @event.title %></td>
+39:        </tr>
+40:        <tr>
+41:          <th>Points</th>
+42:          <td><%= @event.points_worth %></td>
+43:        </tr>
+44:        <tr>
+45:          <th>Semester</th>
+46:          <td><%= if @event.semester == 'Fall' || @event.semester == 'Spring' puts "Hello"%></td>
+47:        </tr>
+48:        <tr>
+49:            <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+50:            <td><%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester), multipart: true do%>
+51:              <%=file_field_tag :file, :class => "button"%>
+52:              <%= submit_tag "Import", :class => "button"%>
+53:            <% end %>
+54:            <% flash.each do |type, msg| %>
+55:              <div>
+56:                <%= msg %>
+57:              </div>
+58:            <% end %>
+59:            </td>
+60:          </tr>
+61:      </table>
+62:    <% if @event.mapped_id != -1 %>
+63:    <%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post %>
+64:    <% end %>
+65:    </center>
+66:    </div>
+  
+app/views/events/show.html.erb:46: syntax error, unexpected local variable or method, expecting `then' or ';' or '\n'
+app/views/events/show.html.erb:46: syntax error, unexpected local variable or method, expecting `then' or ';' or '\n'
+app/views/events/show.html.erb:46: syntax error, unexpected local variable or method, expecting `then' or ';' or '\n'
+app/views/events/show.html.erb:46: syntax error, unexpected local variable or method, expecting `then' or ';' or '\n'
+app/views/events/show.html.erb:46: syntax error, unexpected local variable or method, expecting `then' or ';' or '\n'
+app/views/events/show.html.erb:46: syntax error, unexpected local variable or method, expecting `then' or ';' or '\n'
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 13:58:02 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1392)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 3173)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="members show">
+  <h2>Show Event</h2>
+
+  <%= form_for(Event.find(params[:id])) do |f| %>
+
+    <table class="centertable" summary="Event form fields">
+      <tr>
+        <th>ID</th>
+        <td><%= f.text_field(:id) %></td>
+      </tr>
+      <tr>
+        <th>Title</th>
+        <td><%= f.text_field(:title) %></td>
+      </tr>
+      <tr>
+        <th>Points</th>
+        <td><%= f.text_field(:points_worth) %></td>
+      </tr>
+      <tr>
+        <th>Semester</th>
+        <td><%= f.select :semester, ['Fall','Spring']%></td>
+      </tr>
+      <tr>
+        <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+        <td><%= f.submit "Update Events", :class => "button" %></td>
+      </tr>
+    </table>
+    <% end %>
+
+<center>
+  <table  class="centertable" summary="Event detail view">
+    <tr>
+      <th>ID</th>
+      <td><%= @event.id %></td>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <td><%= @event.title %></td>
+    </tr>
+    <tr>
+      <th>Points</th>
+      <td><%= @event.points_worth %></td>
+    </tr>
+    <tr>
+      <th>Semester</th>
+      <td><%= if @event.semester == 'Fall' || @event.semester == 'Spring' puts "Hello" end %></td>
+    </tr>
+    <tr>
+        <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+        <td><%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester), multipart: true do%>
+          <%=file_field_tag :file, :class => "button"%>
+          <%= submit_tag "Import", :class => "button"%>
+        <% end %>
+        <% flash.each do |type, msg| %>
+          <div>
+            <%= msg %>
+          </div>
+        <% end %>
+        </td>
+      </tr>
+  </table>
+<% if @event.mapped_id != -1 %>
+<%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post %>
+<% end %>
+</center>
+</div>
+
+):
+1:    <div class="members show">
+2:      <h2>Show Event</h2>
+3:    
+4:      <%= form_for(Event.find(params[:id])) do |f| %>
+5:    
+6:        <table class="centertable" summary="Event form fields">
+7:          <tr>
+8:            <th>ID</th>
+9:            <td><%= f.text_field(:id) %></td>
+10:          </tr>
+11:          <tr>
+12:            <th>Title</th>
+13:            <td><%= f.text_field(:title) %></td>
+14:          </tr>
+15:          <tr>
+16:            <th>Points</th>
+17:            <td><%= f.text_field(:points_worth) %></td>
+18:          </tr>
+19:          <tr>
+20:            <th>Semester</th>
+21:            <td><%= f.select :semester, ['Fall','Spring']%></td>
+22:          </tr>
+23:          <tr>
+24:            <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+25:            <td><%= f.submit "Update Events", :class => "button" %></td>
+26:          </tr>
+27:        </table>
+28:        <% end %>
+29:    
+30:    <center>
+31:      <table  class="centertable" summary="Event detail view">
+32:        <tr>
+33:          <th>ID</th>
+34:          <td><%= @event.id %></td>
+35:        </tr>
+36:        <tr>
+37:          <th>Title</th>
+38:          <td><%= @event.title %></td>
+39:        </tr>
+40:        <tr>
+41:          <th>Points</th>
+42:          <td><%= @event.points_worth %></td>
+43:        </tr>
+44:        <tr>
+45:          <th>Semester</th>
+46:          <td><%= if @event.semester == 'Fall' || @event.semester == 'Spring' puts "Hello" end %></td>
+47:        </tr>
+48:        <tr>
+49:            <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+50:            <td><%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester), multipart: true do%>
+51:              <%=file_field_tag :file, :class => "button"%>
+52:              <%= submit_tag "Import", :class => "button"%>
+53:            <% end %>
+54:            <% flash.each do |type, msg| %>
+55:              <div>
+56:                <%= msg %>
+57:              </div>
+58:            <% end %>
+59:            </td>
+60:          </tr>
+61:      </table>
+62:    <% if @event.mapped_id != -1 %>
+63:    <%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post %>
+64:    <% end %>
+65:    </center>
+66:    </div>
+  
+app/views/events/show.html.erb:46: syntax error, unexpected local variable or method, expecting `then' or ';' or '\n'
+app/views/events/show.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/events/show.html.erb:69: syntax error, unexpected `end', expecting ')'
+app/views/events/show.html.erb:46: syntax error, unexpected local variable or method, expecting `then' or ';' or '\n'
+app/views/events/show.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/events/show.html.erb:69: syntax error, unexpected `end', expecting ')'
+app/views/events/show.html.erb:46: syntax error, unexpected local variable or method, expecting `then' or ';' or '\n'
+app/views/events/show.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/events/show.html.erb:69: syntax error, unexpected `end', expecting ')'
+app/views/events/show.html.erb:46: syntax error, unexpected local variable or method, expecting `then' or ';' or '\n'
+app/views/events/show.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/events/show.html.erb:69: syntax error, unexpected `end', expecting ')'
+app/views/events/show.html.erb:46: syntax error, unexpected local variable or method, expecting `then' or ';' or '\n'
+app/views/events/show.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/events/show.html.erb:69: syntax error, unexpected `end', expecting ')'
+app/views/events/show.html.erb:46: syntax error, unexpected local variable or method, expecting `then' or ';' or '\n'
+app/views/events/show.html.erb:46: syntax error, unexpected `end', expecting ')'
+app/views/events/show.html.erb:69: syntax error, unexpected `end', expecting ')'
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:03:51 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1476)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.5ms | Allocations: 3361)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="members show">
+  <h2>Show Event</h2>
+
+  <%= form_for(Event.find(params[:id])) do |f| %>
+
+    <table class="centertable" summary="Event form fields">
+      <tr>
+        <th>ID</th>
+        <td><%= f.text_field(:id) %></td>
+      </tr>
+      <tr>
+        <th>Title</th>
+        <td><%= f.text_field(:title) %></td>
+      </tr>
+      <tr>
+        <th>Points</th>
+        <td><%= f.text_field(:points_worth) %></td>
+      </tr>
+      <tr>
+        <th>Semester</th>
+        <td><%= f.select :semester, ['Fall','Spring']%></td>
+      </tr>
+      <tr>
+        <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+        <td><%= f.submit "Update Events", :class => "button" %></td>
+      </tr>
+    </table>
+    <% end %>
+
+<center>
+  <table  class="centertable" summary="Event detail view">
+    <tr>
+      <th>ID</th>
+      <td><%= @event.id %></td>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <td><%= @event.title %></td>
+    </tr>
+    <tr>
+      <th>Points</th>
+      <td><%= @event.points_worth %></td>
+    </tr>
+    <tr>
+      <th>Semester</th>
+      <td>
+        <% if @event.semester == 'Fall' || @event.semester %>
+        <%= @event.semester %>
+        <% else %>
+        <%= form_for(Event.find(params[:id])) do |f| %>
+        <%= f.select :semester, ['Fall','Spring']%>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+        <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+        <td><%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester), multipart: true do%>
+          <%=file_field_tag :file, :class => "button"%>
+          <%= submit_tag "Import", :class => "button"%>
+        <% end %>
+        <% flash.each do |type, msg| %>
+          <div>
+            <%= msg %>
+          </div>
+        <% end %>
+        </td>
+      </tr>
+  </table>
+<% if @event.mapped_id != -1 %>
+<%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post %>
+<% end %>
+</center>
+</div>
+
+):
+1:    <div class="members show">
+2:      <h2>Show Event</h2>
+3:    
+4:      <%= form_for(Event.find(params[:id])) do |f| %>
+5:    
+6:        <table class="centertable" summary="Event form fields">
+7:          <tr>
+8:            <th>ID</th>
+9:            <td><%= f.text_field(:id) %></td>
+10:          </tr>
+11:          <tr>
+12:            <th>Title</th>
+13:            <td><%= f.text_field(:title) %></td>
+14:          </tr>
+15:          <tr>
+16:            <th>Points</th>
+17:            <td><%= f.text_field(:points_worth) %></td>
+18:          </tr>
+19:          <tr>
+20:            <th>Semester</th>
+21:            <td><%= f.select :semester, ['Fall','Spring']%></td>
+22:          </tr>
+23:          <tr>
+24:            <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+25:            <td><%= f.submit "Update Events", :class => "button" %></td>
+26:          </tr>
+27:        </table>
+28:        <% end %>
+29:    
+30:    <center>
+31:      <table  class="centertable" summary="Event detail view">
+32:        <tr>
+33:          <th>ID</th>
+34:          <td><%= @event.id %></td>
+35:        </tr>
+36:        <tr>
+37:          <th>Title</th>
+38:          <td><%= @event.title %></td>
+39:        </tr>
+40:        <tr>
+41:          <th>Points</th>
+42:          <td><%= @event.points_worth %></td>
+43:        </tr>
+44:        <tr>
+45:          <th>Semester</th>
+46:          <td>
+47:            <% if @event.semester == 'Fall' || @event.semester %>
+48:            <%= @event.semester %>
+49:            <% else %>
+50:            <%= form_for(Event.find(params[:id])) do |f| %>
+51:            <%= f.select :semester, ['Fall','Spring']%>
+52:            <% end %>
+53:          </td>
+54:        </tr>
+55:        <tr>
+56:            <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+57:            <td><%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester), multipart: true do%>
+58:              <%=file_field_tag :file, :class => "button"%>
+59:              <%= submit_tag "Import", :class => "button"%>
+60:            <% end %>
+61:            <% flash.each do |type, msg| %>
+62:              <div>
+63:                <%= msg %>
+64:              </div>
+65:            <% end %>
+66:            </td>
+67:          </tr>
+68:      </table>
+69:    <% if @event.mapped_id != -1 %>
+70:    <%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post %>
+71:    <% end %>
+72:    </center>
+73:    </div>
+  
+app/views/events/show.html.erb:76: syntax error, unexpected end-of-input, expecting `end'
+app/views/events/show.html.erb:76: syntax error, unexpected end-of-input, expecting `end'
+app/views/events/show.html.erb:76: syntax error, unexpected end-of-input, expecting `end'
+app/views/events/show.html.erb:76: syntax error, unexpected end-of-input, expecting `end'
+app/views/events/show.html.erb:76: syntax error, unexpected end-of-input, expecting `end'
+app/views/events/show.html.erb:76: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:04:02 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:4
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:50
+  Rendered events/show.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2841)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.4ms | Allocations: 8919)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:04:07 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1374)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.5ms | Allocations: 5994)
+
+
+Started GET "/events/1/edit" for 127.0.0.1 at 2020-11-03 14:04:10 -0600
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:80:in `edit'
+  Rendering events/edit.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/edit.html.erb:5
+  Rendered events/edit.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1268)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.2ms | ActiveRecord: 0.4ms | Allocations: 6425)
+
+
+Started PATCH "/events/1" for 127.0.0.1 at 2020-11-03 14:04:11 -0600
+Processing by EventsController#update as HTML
+  Parameters: {"authenticity_token"=>"y5uKIo9dbb47j68p5s6PQk7EENrRq38sXWITNOQ1db9rl+x/oQWGJTyh7fOFc9Icevs05NwcfgJNY/G5zyWpwA==", "event"=>{"id"=>"1", "title"=>"Event Ongoing", "points_worth"=>"2", "semester"=>"Fall"}, "commit"=>"Update Events", "id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:84:in `update'
+DEPRECATION WARNING: update_attributes is deprecated and will be removed from Rails 6.1 (please, use update instead) (called from update at /home/tamucru/Documents/College/CSCE431/PAIDMemberPointTracker/app/controllers/events_controller.rb:85)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:85:in `update'
+  [1m[36mEvent Update (0.4ms)[0m  [1m[33mUPDATE "events" SET "semester" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["semester", "Fall"], ["updated_at", "2020-11-03 20:04:11.798070"], ["id", 1]]
+  ↳ app/controllers/events_controller.rb:85:in `update'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:85:in `update'
+Redirected to http://127.0.0.1:3000/events/1
+Completed 302 Found in 15ms (ActiveRecord: 3.6ms | Allocations: 3866)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:04:11 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:4
+  Rendered events/show.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1451)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.2ms | ActiveRecord: 0.4ms | Allocations: 6486)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:04:30 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:4
+  Rendered events/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1449)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 17.9ms | ActiveRecord: 0.4ms | Allocations: 6481)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:04:46 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 893)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 16.1ms | ActiveRecord: 0.3ms | Allocations: 6964)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:04:47 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1372)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.4ms | Allocations: 5986)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:04:49 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 441)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.7ms | ActiveRecord: 0.4ms | Allocations: 5476)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:04:52 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:24
+  Rendered events/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1215)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.3ms | Allocations: 6254)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:05:45 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:24
+  Rendered events/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1729)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.3ms | Allocations: 7775)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:06:08 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:24
+  Rendered events/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1729)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.6ms | ActiveRecord: 0.3ms | Allocations: 7773)
+
+
+Started PATCH "/events/2" for 127.0.0.1 at 2020-11-03 14:07:08 -0600
+Processing by EventsController#update as HTML
+  Parameters: {"authenticity_token"=>"KlPzIT+lR1UeypaukyulCTpj7994vMtwPGFLrIXiHrBQ+9zGlnDSy2F4BUZ5F17UyLc3r9MvHbEzOCsC9Pt6nQ==", "event"=>{"semester"=>"Fall"}, "commit"=>"Update Semester", "id"=>"2"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:84:in `update'
+DEPRECATION WARNING: update_attributes is deprecated and will be removed from Rails 6.1 (please, use update instead) (called from update at /home/tamucru/Documents/College/CSCE431/PAIDMemberPointTracker/app/controllers/events_controller.rb:85)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:85:in `update'
+  [1m[36mEvent Update (0.4ms)[0m  [1m[33mUPDATE "events" SET "semester" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["semester", "Fall"], ["updated_at", "2020-11-03 20:07:08.942978"], ["id", 2]]
+  ↳ app/controllers/events_controller.rb:85:in `update'
+  [1m[35m (6.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:85:in `update'
+Redirected to http://127.0.0.1:3000/events/2
+Completed 302 Found in 14ms (ActiveRecord: 7.8ms | Allocations: 3536)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:07:08 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 441)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.3ms | Allocations: 5504)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:11:59 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1373)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.3ms | Allocations: 6859)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:12:03 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 920)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.1ms | ActiveRecord: 0.2ms | Allocations: 6106)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:13:53 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 920)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.1ms | Allocations: 6971)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:15:13 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1376)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.5ms | Allocations: 6909)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2020-11-03 14:15:18 -0600
+Processing by EventsController#new as HTML
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/new.html.erb within layouts/application (Duration: 14.1ms | Allocations: 3563)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.0ms | Allocations: 8094)
+
+
+Started POST "/events" for 127.0.0.1 at 2020-11-03 14:15:33 -0600
+Processing by EventsController#create as HTML
+  Parameters: {"authenticity_token"=>"TNWlmCiqfq1rN4AFs9ODF+QrKGvLVDhFO5kS70o2TOn3xg3WP+MU53Z64p5HsNYUr6BsJkYpnLdBZTsYN+Odug==", "event"=>{"title"=>"asd", "date"=>"2020-11-12", "points_worth"=>"5", "semester"=>"Spring"}, "commit"=>"Create Event"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:21:in `create'
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("title", "date", "semester", "points_worth", "created_at", "updated_at", "mapped_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "asd"], ["date", "2020-11-12"], ["semester", "Spring"], ["points_worth", 5], ["created_at", "2020-11-03 20:15:33.076225"], ["updated_at", "2020-11-03 20:15:33.076225"], ["mapped_id", -1]]
+  ↳ app/controllers/events_controller.rb:21:in `create'
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:21:in `create'
+Redirected to http://127.0.0.1:3000/events
+Completed 302 Found in 8ms (ActiveRecord: 2.2ms | Allocations: 2939)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:15:33 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1123)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.3ms | Allocations: 5584)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1120682413551588615)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAmountToItems (20201028212301)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "events" DROP COLUMN "mapped_id"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20201028212301"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAdminUsersTable (20200922151823)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "admin_users"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200922151823"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEventsMembers (20200918230922)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "events_members"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200918230922"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEvents (20200918224457)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "events"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200918224457"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMembers (20200918224407)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "members"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200918224407"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(1120682413551588615)[0m
+  [1m[35m (18.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1120682413551588615)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMembers (20200918224407)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (23.3ms)[0m  [1m[35mCREATE TABLE "members" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "fall_points" integer, "spring_points" integer, "total_points" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200918224407"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEvents (20200918224457)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "title" character varying, "date" character varying, "semester" character varying, "points_worth" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200918224457"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEventsMembers (20200918230922)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "events_members" ("event_id" integer, "member_id" integer)[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE  INDEX  "index_events_members_on_event_id_and_member_id" ON "events_members"  ("event_id", "member_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200918230922"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAdminUsersTable (20200922151823)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "admin_users" ("id" bigserial primary key, "first_name" character varying(25), "last_name" character varying(50), "email" character varying(100) DEFAULT '' NOT NULL, "username" character varying(25), "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "index_admin" ON "admin_users"  ("username")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200922151823"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAmountToItems (20201028212301)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "events" ADD "mapped_id" integer[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201028212301"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1120682413551588615)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:16:35 -0600
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1404)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 28.1ms | ActiveRecord: 2.3ms | Allocations: 18622)
+
+
+Started GET "/events/getEvents" for 127.0.0.1 at 2020-11-03 14:16:39 -0600
+Processing by EventsController#getEvents as HTML
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 3036)
+
+
+  
+NameError (uninitialized constant #<Class:0x00007f12f8ac6f68>::RestClient
+Did you mean?  Restclient):
+  
+app/models/event.rb:13:in `apiEvents'
+app/controllers/events_controller.rb:103:in `getEvents'
+Started GET "/events/getEvents" for 127.0.0.1 at 2020-11-03 14:16:40 -0600
+Processing by EventsController#getEvents as HTML
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 2997)
+
+
+  
+NameError (uninitialized constant #<Class:0x00007f12f8ac6f68>::RestClient
+Did you mean?  Restclient):
+  
+app/models/event.rb:13:in `apiEvents'
+app/controllers/events_controller.rb:103:in `getEvents'
+Started GET "/events/getEvents" for 127.0.0.1 at 2020-11-03 14:16:42 -0600
+Processing by EventsController#getEvents as HTML
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 2991)
+
+
+  
+NameError (uninitialized constant #<Class:0x00007f12f8ac6f68>::RestClient
+Did you mean?  Restclient):
+  
+app/models/event.rb:13:in `apiEvents'
+app/controllers/events_controller.rb:103:in `getEvents'
+Started GET "/members" for 127.0.0.1 at 2020-11-03 14:16:47 -0600
+Processing by MembersController#index as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2553)
+
+
+  
+Zeitwerk::NameError (expected file /home/tamucru/Documents/College/CSCE431/PAIDMemberPointTracker/app/models/restclient.rb to define constant Restclient, but didn't):
+  
+app/models/member.rb:8:in `<class:Member>'
+app/models/member.rb:3:in `<main>'
+app/controllers/members_controller.rb:8:in `index'
+Started GET "/members" for 127.0.0.1 at 2020-11-03 14:16:49 -0600
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.7ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  ↳ app/views/members/index.html.erb:43
+  Rendered members/index.html.erb within layouts/application (Duration: 9.2ms | Allocations: 2893)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 13.0ms | ActiveRecord: 3.2ms | Allocations: 9340)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:16:51 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 845)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.2ms | Allocations: 5344)
+
+
+Started GET "/events/getEvents" for 127.0.0.1 at 2020-11-03 14:16:51 -0600
+Processing by EventsController#getEvents as HTML
+  [1m[36mEvent Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."mapped_id" = $1 LIMIT $2[0m  [["mapped_id", 9], ["LIMIT", 1]]
+  ↳ app/models/event.rb:17:in `block in apiEvents'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/event.rb:18:in `block in apiEvents'
+  [1m[36mEvent Create (0.7ms)[0m  [1m[32mINSERT INTO "events" ("title", "points_worth", "created_at", "updated_at", "mapped_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Event Ongoing"], ["points_worth", 2], ["created_at", "2020-11-03 20:16:52.275237"], ["updated_at", "2020-11-03 20:16:52.275237"], ["mapped_id", 9]]
+  ↳ app/models/event.rb:18:in `block in apiEvents'
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/event.rb:18:in `block in apiEvents'
+  [1m[36mEvent Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."mapped_id" = $1 LIMIT $2[0m  [["mapped_id", 10], ["LIMIT", 1]]
+  ↳ app/models/event.rb:17:in `block in apiEvents'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/event.rb:18:in `block in apiEvents'
+  [1m[36mEvent Create (0.3ms)[0m  [1m[32mINSERT INTO "events" ("title", "points_worth", "created_at", "updated_at", "mapped_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Future"], ["points_worth", 1], ["created_at", "2020-11-03 20:16:52.288928"], ["updated_at", "2020-11-03 20:16:52.288928"], ["mapped_id", 10]]
+  ↳ app/models/event.rb:18:in `block in apiEvents'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/event.rb:18:in `block in apiEvents'
+Redirected to http://127.0.0.1:3000/events
+Completed 302 Found in 400ms (ActiveRecord: 11.8ms | Allocations: 12374)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:16:52 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1039)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.3ms | Allocations: 5500)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:17:18 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:24
+  Rendered events/show.html.erb within layouts/application (Duration: 13.0ms | Allocations: 4514)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 19.3ms | ActiveRecord: 4.1ms | Allocations: 14194)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:18:52 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1394)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 3168)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="members show">
+  <h2>Show Event</h2>
+
+<center>
+  <table  class="centertable" summary="Event detail view">
+    <tr>
+      <th>ID</th>
+      <td><%= @event.id %></td>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <td><%= @event.title %></td>
+    </tr>
+    <tr>
+      <th>Points</th>
+      <td><%= @event.points_worth %></td>
+    </tr>
+    <tr>
+      <th>Semester</th>
+      <td>
+        <% if @event.semester == 'Fall' || @event.semester == 'Spring' %>
+        <%= @event.semester %>
+        <% else %>
+        <%= form_for(Event.find(params[:id])) do |f| %>
+        <%= f.select :semester, ['Fall','Spring']%><br>
+        <%= f.submit "Update Semester", :class => "button" %>
+        <% end %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+        <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+        <td><%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester), multipart: true do%>
+          <%=file_field_tag :file, :class => "button"%>
+          <%= submit_tag "Import", :class => "button"%>
+        <% end %>
+        <% flash.each do |type, msg| %>
+          <div>
+            <%= msg %>
+          </div>
+        <% end %>
+        </td>
+      </tr>
+  </table>
+<% if @event.mapped_id != -1 %>
+<% if @event.semester == 'Fall' %>
+<%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post, data: { :confirm => 'This will add points to the Fall semester for all members who attended this event. Proceed?' } %>
+<% elsif @event.semester == 'Spring' %>
+<%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post, data: { :confirm => 'This will add points to the Spring semester for all members who attended this event. Proceed?' } %>
+<% end %>
+</center>
+</div>
+
+):
+1:    <div class="members show">
+2:      <h2>Show Event</h2>
+3:    
+4:    <center>
+5:      <table  class="centertable" summary="Event detail view">
+6:        <tr>
+7:          <th>ID</th>
+8:          <td><%= @event.id %></td>
+9:        </tr>
+10:        <tr>
+11:          <th>Title</th>
+12:          <td><%= @event.title %></td>
+13:        </tr>
+14:        <tr>
+15:          <th>Points</th>
+16:          <td><%= @event.points_worth %></td>
+17:        </tr>
+18:        <tr>
+19:          <th>Semester</th>
+20:          <td>
+21:            <% if @event.semester == 'Fall' || @event.semester == 'Spring' %>
+22:            <%= @event.semester %>
+23:            <% else %>
+24:            <%= form_for(Event.find(params[:id])) do |f| %>
+25:            <%= f.select :semester, ['Fall','Spring']%><br>
+26:            <%= f.submit "Update Semester", :class => "button" %>
+27:            <% end %>
+28:            <% end %>
+29:          </td>
+30:        </tr>
+31:        <tr>
+32:            <th><%= link_to("<< Back to List", events_path, :class => 'back-link') %></th>
+33:            <td><%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester), multipart: true do%>
+34:              <%=file_field_tag :file, :class => "button"%>
+35:              <%= submit_tag "Import", :class => "button"%>
+36:            <% end %>
+37:            <% flash.each do |type, msg| %>
+38:              <div>
+39:                <%= msg %>
+40:              </div>
+41:            <% end %>
+42:            </td>
+43:          </tr>
+44:      </table>
+45:    <% if @event.mapped_id != -1 %>
+46:    <% if @event.semester == 'Fall' %>
+47:    <%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post, data: { :confirm => 'This will add points to the Fall semester for all members who attended this event. Proceed?' } %>
+48:    <% elsif @event.semester == 'Spring' %>
+49:    <%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post, data: { :confirm => 'This will add points to the Spring semester for all members who attended this event. Proceed?' } %>
+50:    <% end %>
+51:    </center>
+52:    </div>
+  
+app/views/events/show.html.erb:55: syntax error, unexpected end-of-input, expecting `end'
+app/views/events/show.html.erb:55: syntax error, unexpected end-of-input, expecting `end'
+app/views/events/show.html.erb:55: syntax error, unexpected end-of-input, expecting `end'
+app/views/events/show.html.erb:55: syntax error, unexpected end-of-input, expecting `end'
+app/views/events/show.html.erb:55: syntax error, unexpected end-of-input, expecting `end'
+app/views/events/show.html.erb:55: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:19:22 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:24
+  Rendered events/show.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1791)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 13.8ms | ActiveRecord: 0.3ms | Allocations: 7877)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:19:59 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:24
+  Rendered events/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1636)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 17.0ms | ActiveRecord: 0.4ms | Allocations: 7673)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:21:31 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:24
+  Rendered events/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1656)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.9ms | ActiveRecord: 0.4ms | Allocations: 7722)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:21:34 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:24
+  Rendered events/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1117)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 0.3ms | Allocations: 6161)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:21:59 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:24
+  Rendered events/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1653)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.1ms | Allocations: 7697)
+
+
+Started PATCH "/events/1" for 127.0.0.1 at 2020-11-03 14:22:02 -0600
+Processing by EventsController#update as HTML
+  Parameters: {"authenticity_token"=>"8Vnq7m3hpT05Bxj5nToWgS2dnbIh5Lq+/C1FVAoHXCtRVYyzQ7lOpj4pWiP+h0vfGaK5jCxTu5DsLKfZIReAVA==", "event"=>{"semester"=>"Fall"}, "commit"=>"Update Semester", "id"=>"1"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:84:in `update'
+DEPRECATION WARNING: update_attributes is deprecated and will be removed from Rails 6.1 (please, use update instead) (called from update at /home/tamucru/Documents/College/CSCE431/PAIDMemberPointTracker/app/controllers/events_controller.rb:85)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:85:in `update'
+  [1m[36mEvent Update (0.2ms)[0m  [1m[33mUPDATE "events" SET "semester" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["semester", "Fall"], ["updated_at", "2020-11-03 20:22:02.770723"], ["id", 1]]
+  ↳ app/controllers/events_controller.rb:85:in `update'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:85:in `update'
+Redirected to http://127.0.0.1:3000/events/1
+Completed 302 Found in 9ms (ActiveRecord: 2.3ms | Allocations: 3572)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:22:02 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 454)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.2ms | Allocations: 5481)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:22:07 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:24
+  Rendered events/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1115)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.2ms | Allocations: 6146)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:22:33 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:24
+  Rendered events/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1653)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.5ms | ActiveRecord: 0.2ms | Allocations: 7685)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:22:42 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:24
+  Rendered events/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1653)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.2ms | Allocations: 7705)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:23:36 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:24
+  Rendered events/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1470)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 0.4ms | Allocations: 7504)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:24:19 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:24
+  Rendered events/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1606)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 15.8ms | ActiveRecord: 0.4ms | Allocations: 7666)
+
+
+Started PATCH "/events/2" for 127.0.0.1 at 2020-11-03 14:24:22 -0600
+Processing by EventsController#update as HTML
+  Parameters: {"authenticity_token"=>"3S3/vhI/Aaint4dlWfaBanDcIKnf4+QzZ6OZ5nqX4i2nhdBZu+qUNtgFFI2zynq3ggj42XRwMvJo+vlIC46GAA==", "event"=>{"semester"=>"Fall"}, "commit"=>"Update Semester", "id"=>"2"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:84:in `update'
+DEPRECATION WARNING: update_attributes is deprecated and will be removed from Rails 6.1 (please, use update instead) (called from update at /home/tamucru/Documents/College/CSCE431/PAIDMemberPointTracker/app/controllers/events_controller.rb:85)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:85:in `update'
+  [1m[36mEvent Update (0.4ms)[0m  [1m[33mUPDATE "events" SET "semester" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["semester", "Fall"], ["updated_at", "2020-11-03 20:24:22.417591"], ["id", 2]]
+  ↳ app/controllers/events_controller.rb:85:in `update'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:85:in `update'
+Redirected to http://127.0.0.1:3000/events/2
+Completed 302 Found in 9ms (ActiveRecord: 2.6ms | Allocations: 3524)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:24:22 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 455)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 21.6ms | ActiveRecord: 0.2ms | Allocations: 5514)
+
+
+Started PATCH "/events/2" for 127.0.0.1 at 2020-11-03 14:25:09 -0600
+Processing by EventsController#update as HTML
+  Parameters: {"authenticity_token"=>"3S3/vhI/Aaint4dlWfaBanDcIKnf4+QzZ6OZ5nqX4i2nhdBZu+qUNtgFFI2zynq3ggj42XRwMvJo+vlIC46GAA==", "event"=>{"semester"=>"Fall"}, "commit"=>"Update Semester", "id"=>"2"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:84:in `update'
+DEPRECATION WARNING: update_attributes is deprecated and will be removed from Rails 6.1 (please, use update instead) (called from update at /home/tamucru/Documents/College/CSCE431/PAIDMemberPointTracker/app/controllers/events_controller.rb:85)
+Redirected to http://127.0.0.1:3000/events/2
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 1289)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:25:09 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 452)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.1ms | Allocations: 5511)
+
+
+Started POST "/members/import?id=2&points_worth=1&semester=Fall" for 127.0.0.1 at 2020-11-03 14:25:24 -0600
+Processing by MembersController#import as HTML
+  Parameters: {"authenticity_token"=>"xPKgNLnZqaS0QP0wszpWLq8L2KwiIu+ZGDowyTAee8CX6C5yYpVM061+0ymT5g3XJnvoVR/iTJDs0XQR21Bt3w==", "commit"=>"Import", "id"=>"2", "points_worth"=>"1", "semester"=>"Fall"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/member.rb:17:in `import'
+Redirected to http://127.0.0.1:3000/events/2
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms | Allocations: 1213)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:25:24 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 453)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.2ms | Allocations: 5524)
+
+
+Started POST "/members/import?id=2&points_worth=1&semester=Fall" for 127.0.0.1 at 2020-11-03 14:25:31 -0600
+Processing by MembersController#import as HTML
+  Parameters: {"authenticity_token"=>"U4XAsMO+xXjcPkv+g2cCDhBfx4a6ILQDMeXfN3qSb2IAn072GPIgD8UAZeeju1n3mS/3f4fgFwrFDpvvkdx5fQ==", "commit"=>"Import", "id"=>"2", "points_worth"=>"1", "semester"=>"Fall"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/member.rb:17:in `import'
+Redirected to http://127.0.0.1:3000/events/2
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms | Allocations: 1206)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:25:31 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 453)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 13.3ms | ActiveRecord: 0.3ms | Allocations: 5503)
+
+
+Started GET "/events/getEvents" for 127.0.0.1 at 2020-11-03 14:25:40 -0600
+Processing by EventsController#getEvents as HTML
+  [1m[36mEvent Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."mapped_id" = $1 LIMIT $2[0m  [["mapped_id", 9], ["LIMIT", 1]]
+  ↳ app/models/event.rb:17:in `block in apiEvents'
+  [1m[36mEvent Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."mapped_id" = $1 LIMIT $2[0m  [["mapped_id", 10], ["LIMIT", 1]]
+  ↳ app/models/event.rb:17:in `block in apiEvents'
+Redirected to http://127.0.0.1:3000/events
+Completed 302 Found in 207ms (ActiveRecord: 0.6ms | Allocations: 2453)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:25:40 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1378)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.3ms | Allocations: 5985)
+
+
+Started GET "/events/1/edit" for 127.0.0.1 at 2020-11-03 14:25:44 -0600
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:80:in `edit'
+  Rendering events/edit.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/edit.html.erb:5
+  Rendered events/edit.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1393)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.5ms | ActiveRecord: 0.3ms | Allocations: 6540)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:25:50 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 454)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.1ms | Allocations: 5489)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:25:56 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (1.9ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 452)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 8.2ms | ActiveRecord: 1.9ms | Allocations: 5482)
+
+
+Started POST "/members/import?id=2&points_worth=1&semester=Fall" for 127.0.0.1 at 2020-11-03 14:26:20 -0600
+Processing by MembersController#import as HTML
+  Parameters: {"authenticity_token"=>"g3q908NbmjAJmF9v7tUzE/5ZH1bv33BzCd9RXQ6C62jQYDOVGBd/RxCmcXbOCWjqdykvr9If03r9NBWF5cz9dw==", "commit"=>"Import", "id"=>"2", "points_worth"=>"1", "semester"=>"Fall"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/member.rb:17:in `import'
+Redirected to http://127.0.0.1:3000/events/2
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1200)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:26:20 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 453)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.7ms | Allocations: 5522)
+
+
+Started POST "/members/apimport?mapped_id=10&points_worth=1&semester=Fall" for 127.0.0.1 at 2020-11-03 14:26:33 -0600
+Processing by MembersController#apimport as HTML
+  Parameters: {"authenticity_token"=>"51fdQ+mN149GNFK0AaK1Mq9PHw3GKAQnQUzz3Qpr5tH8h0RBl6PaZSe8US5iA2qJBaC/Du4MVqfchmHF1/Zjdw==", "mapped_id"=>"10", "points_worth"=>"1", "semester"=>"Fall"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."mapped_id" = $1 LIMIT $2[0m  [["mapped_id", 9], ["LIMIT", 1]]
+  ↳ app/models/member.rb:44:in `api'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 159ms (ActiveRecord: 0.3ms | Allocations: 1880)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-11-03 14:26:33 -0600
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  ↳ app/views/members/index.html.erb:43
+  Rendered members/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1803)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.3ms | Allocations: 6908)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-11-03 14:26:41 -0600
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.6ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  ↳ app/views/members/index.html.erb:43
+  Rendered members/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1259)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.6ms | Allocations: 5795)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:26:53 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1030)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.4ms | Allocations: 5496)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:26:54 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 455)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 8.2ms | ActiveRecord: 0.3ms | Allocations: 5490)
+
+
+Started POST "/members/apimport?mapped_id=9&points_worth=2&semester=Fall" for 127.0.0.1 at 2020-11-03 14:27:41 -0600
+Processing by MembersController#apimport as HTML
+  Parameters: {"authenticity_token"=>"PtcUiFgiy5YIqaoojCqAUIaN7LAsk09WWIuJM0SDq0clB42KJgzGfGkhqbLvi1/rLGJMswS3HdbFQRsrmR4u4Q==", "mapped_id"=>"9", "points_worth"=>"2", "semester"=>"Fall"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."mapped_id" = $1 LIMIT $2[0m  [["mapped_id", 9], ["LIMIT", 1]]
+  ↳ app/models/member.rb:44:in `api'
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "jack@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:46:in `block in api'
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "jack2@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:46:in `block in api'
+Redirected to http://127.0.0.1:3000/members/missing
+Completed 302 Found in 173ms (ActiveRecord: 1.1ms | Allocations: 3006)
+
+
+Started GET "/members/missing" for 127.0.0.1 at 2020-11-03 14:27:41 -0600
+Processing by MembersController#missing as HTML
+  Rendering members/missing.html.erb within layouts/application
+  Rendered members/missing.html.erb within layouts/application (Duration: 0.7ms | Allocations: 329)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 4945)
+
+
+Started POST "/members/apimport?mapped_id=9&points_worth=2&semester=Fall" for 127.0.0.1 at 2020-11-03 14:27:54 -0600
+Processing by MembersController#apimport as HTML
+  Parameters: {"authenticity_token"=>"PtcUiFgiy5YIqaoojCqAUIaN7LAsk09WWIuJM0SDq0clB42KJgzGfGkhqbLvi1/rLGJMswS3HdbFQRsrmR4u4Q==", "mapped_id"=>"9", "points_worth"=>"2", "semester"=>"Fall"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."mapped_id" = $1 LIMIT $2[0m  [["mapped_id", 9], ["LIMIT", 1]]
+  ↳ app/models/member.rb:44:in `api'
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "jack@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:46:in `block in api'
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "jack2@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:46:in `block in api'
+Redirected to http://127.0.0.1:3000/members/missing
+Completed 302 Found in 169ms (ActiveRecord: 0.9ms | Allocations: 2910)
+
+
+Started GET "/members/missing" for 127.0.0.1 at 2020-11-03 14:27:55 -0600
+Processing by MembersController#missing as HTML
+  Rendering members/missing.html.erb within layouts/application
+  Rendered members/missing.html.erb within layouts/application (Duration: 0.4ms | Allocations: 137)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 4620)
+
+
+Started GET "/members/new?email=jack%40tamu.edu" for 127.0.0.1 at 2020-11-03 14:27:57 -0600
+Processing by MembersController#new as HTML
+  Parameters: {"email"=>"jack@tamu.edu"}
+  Rendering members/new.html.erb within layouts/application
+  Rendered members/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 885)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.0ms | Allocations: 5519)
+
+
+Started POST "/members" for 127.0.0.1 at 2020-11-03 14:28:06 -0600
+Processing by MembersController#create as HTML
+  Parameters: {"authenticity_token"=>"l/z47P9S/78j8NEBkBgXHYy3Tu11lD2YEBbWz6SM+yP9ZpqXUSZcEdkj0h3PZq9rPvfPa+LujMjErvSWK2i7Pw==", "member"=>{"first_name"=>"Jackie", "last_name"=>"Lee", "email"=>"jack@tamu.edu", "fall_points"=>"0", "spring_points"=>"0", "total_points"=>"0"}, "commit"=>"Create Member"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:83:in `create'
+  [1m[36mMember Create (0.7ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "email", "fall_points", "spring_points", "total_points", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Jackie"], ["last_name", "Lee"], ["email", "jack@tamu.edu"], ["fall_points", 0], ["spring_points", 0], ["total_points", 0], ["created_at", "2020-11-03 20:28:06.944390"], ["updated_at", "2020-11-03 20:28:06.944390"]]
+  ↳ app/controllers/members_controller.rb:83:in `create'
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:83:in `create'
+Redirected to http://127.0.0.1:3000/members/missing
+Completed 302 Found in 9ms (ActiveRecord: 2.5ms | Allocations: 3043)
+
+
+Started GET "/members/missing" for 127.0.0.1 at 2020-11-03 14:28:06 -0600
+Processing by MembersController#missing as HTML
+  Rendering members/missing.html.erb within layouts/application
+  Rendered members/missing.html.erb within layouts/application (Duration: 0.2ms | Allocations: 92)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 4535)
+
+
+Started GET "/members/new?email=jack2%40tamu.edu" for 127.0.0.1 at 2020-11-03 14:28:08 -0600
+Processing by MembersController#new as HTML
+  Parameters: {"email"=>"jack2@tamu.edu"}
+  Rendering members/new.html.erb within layouts/application
+  Rendered members/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 539)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 5026)
+
+
+Started POST "/members" for 127.0.0.1 at 2020-11-03 14:28:15 -0600
+Processing by MembersController#create as HTML
+  Parameters: {"authenticity_token"=>"8kiESnv6SyXemPM/BOlzZrYSPQGamwEqBc9u1HEKL8qY0uYx1Y7oiyRL8CNbl8sQBFK8hw3hsHrRd0yN/u5v1g==", "member"=>{"first_name"=>"Tom", "last_name"=>"Smith", "email"=>"jack2@tamu.edu", "fall_points"=>"0", "spring_points"=>"0", "total_points"=>"0"}, "commit"=>"Create Member"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:83:in `create'
+  [1m[36mMember Create (0.5ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "email", "fall_points", "spring_points", "total_points", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Tom"], ["last_name", "Smith"], ["email", "jack2@tamu.edu"], ["fall_points", 0], ["spring_points", 0], ["total_points", 0], ["created_at", "2020-11-03 20:28:15.508284"], ["updated_at", "2020-11-03 20:28:15.508284"]]
+  ↳ app/controllers/members_controller.rb:83:in `create'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:83:in `create'
+Redirected to http://127.0.0.1:3000/members/missing
+Completed 302 Found in 8ms (ActiveRecord: 2.5ms | Allocations: 2926)
+
+
+Started GET "/members/missing" for 127.0.0.1 at 2020-11-03 14:28:15 -0600
+Processing by MembersController#missing as HTML
+  Rendering members/missing.html.erb within layouts/application
+  Rendered members/missing.html.erb within layouts/application (Duration: 0.1ms | Allocations: 46)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 4493)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-11-03 14:28:18 -0600
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  ↳ app/views/members/index.html.erb:43
+  Rendered members/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1549)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.4ms | Allocations: 6083)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:28:25 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1030)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.2ms | Allocations: 5492)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:28:28 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 455)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 13.5ms | ActiveRecord: 0.3ms | Allocations: 5495)
+
+
+Started POST "/members/apimport?mapped_id=9&points_worth=2&semester=Fall" for 127.0.0.1 at 2020-11-03 14:28:30 -0600
+Processing by MembersController#apimport as HTML
+  Parameters: {"authenticity_token"=>"8BZAhZt4ZyEh0MPI9yT5SclEZ5TqW/upIOGSC/fFDk3rxtmH5VZqy0BYwFKUhSbyY6vHl8J/qSm9KwATKliL6w==", "mapped_id"=>"9", "points_worth"=>"2", "semester"=>"Fall"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."mapped_id" = $1 LIMIT $2[0m  [["mapped_id", 9], ["LIMIT", 1]]
+  ↳ app/models/member.rb:44:in `api'
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "jack@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:46:in `block in api'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:49:in `block in api'
+  [1m[36mMember Update (0.4ms)[0m  [1m[33mUPDATE "members" SET "fall_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["fall_points", 2], ["updated_at", "2020-11-03 20:28:30.682852"], ["id", 1]]
+  ↳ app/models/member.rb:49:in `block in api'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:49:in `block in api'
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mMember Update (0.4ms)[0m  [1m[33mUPDATE "members" SET "total_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["total_points", 2], ["updated_at", "2020-11-03 20:28:30.688272"], ["id", 1]]
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mEvent Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "events" INNER JOIN "events_members" ON "events"."id" = "events_members"."event_id" WHERE "events_members"."member_id" = $1 AND "events"."id" = $2 LIMIT $3[0m  [["member_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/member.rb:54:in `block in api'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:55:in `block in api'
+  [1m[36mMember::HABTM_Events Create (0.4ms)[0m  [1m[32mINSERT INTO "events_members" ("event_id", "member_id") VALUES ($1, $2)[0m  [["event_id", 1], ["member_id", 1]]
+  ↳ app/models/member.rb:55:in `block in api'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:55:in `block in api'
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "jack2@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:46:in `block in api'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:49:in `block in api'
+  [1m[36mMember Update (0.4ms)[0m  [1m[33mUPDATE "members" SET "fall_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["fall_points", 2], ["updated_at", "2020-11-03 20:28:30.734799"], ["id", 2]]
+  ↳ app/models/member.rb:49:in `block in api'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:49:in `block in api'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mMember Update (0.3ms)[0m  [1m[33mUPDATE "members" SET "total_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["total_points", 2], ["updated_at", "2020-11-03 20:28:30.741738"], ["id", 2]]
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mEvent Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "events" INNER JOIN "events_members" ON "events"."id" = "events_members"."event_id" WHERE "events_members"."member_id" = $1 AND "events"."id" = $2 LIMIT $3[0m  [["member_id", 2], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/member.rb:54:in `block in api'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:55:in `block in api'
+  [1m[36mMember::HABTM_Events Create (0.2ms)[0m  [1m[32mINSERT INTO "events_members" ("event_id", "member_id") VALUES ($1, $2)[0m  [["event_id", 1], ["member_id", 2]]
+  ↳ app/models/member.rb:55:in `block in api'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:55:in `block in api'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 237ms (ActiveRecord: 18.4ms | Allocations: 27603)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-11-03 14:28:30 -0600
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  ↳ app/views/members/index.html.erb:43
+  Rendered members/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1528)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.4ms | Allocations: 6063)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:28:45 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1021)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.5ms | Allocations: 5489)
+
+
+Started GET "/events/2/edit" for 127.0.0.1 at 2020-11-03 14:28:47 -0600
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:80:in `edit'
+  Rendering events/edit.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/edit.html.erb:5
+  Rendered events/edit.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1027)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 8.4ms | ActiveRecord: 0.5ms | Allocations: 6072)
+
+
+Started PATCH "/events/2" for 127.0.0.1 at 2020-11-03 14:28:52 -0600
+Processing by EventsController#update as HTML
+  Parameters: {"authenticity_token"=>"NMGsjEUMOxN5vbdn5HOlYvNNQlJKXgfMe6D2PR6XlpROaYNr7NmujQYPJI8OT16/AZmaIuHN0Q10+ZaTb47yuQ==", "event"=>{"id"=>"2", "title"=>"Future", "points_worth"=>"1", "semester"=>"Spring"}, "commit"=>"Update Events", "id"=>"2"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:84:in `update'
+DEPRECATION WARNING: update_attributes is deprecated and will be removed from Rails 6.1 (please, use update instead) (called from update at /home/tamucru/Documents/College/CSCE431/PAIDMemberPointTracker/app/controllers/events_controller.rb:85)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:85:in `update'
+  [1m[36mEvent Update (0.4ms)[0m  [1m[33mUPDATE "events" SET "semester" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["semester", "Spring"], ["updated_at", "2020-11-03 20:28:52.284933"], ["id", 2]]
+  ↳ app/controllers/events_controller.rb:85:in `update'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:85:in `update'
+Redirected to http://127.0.0.1:3000/events/2
+Completed 302 Found in 8ms (ActiveRecord: 2.1ms | Allocations: 3576)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:28:52 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 456)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.2ms | Allocations: 5507)
+
+
+Started POST "/members/apimport?mapped_id=10&points_worth=1&semester=Spring" for 127.0.0.1 at 2020-11-03 14:29:02 -0600
+Processing by MembersController#apimport as HTML
+  Parameters: {"authenticity_token"=>"1OECSYV/5ZMtfgRWPR+LpEZkn9JHb7dR1uEn3QPma3vPMZtL+1HoeUz2B8xevlQf7Is/0W9L5dFLK7XF3nvu3Q==", "mapped_id"=>"10", "points_worth"=>"1", "semester"=>"Spring"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."mapped_id" = $1 LIMIT $2[0m  [["mapped_id", 9], ["LIMIT", 1]]
+  ↳ app/models/member.rb:44:in `api'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 165ms (ActiveRecord: 0.5ms | Allocations: 1773)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-11-03 14:29:03 -0600
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  ↳ app/views/members/index.html.erb:43
+  Rendered members/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1525)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.3ms | Allocations: 6069)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-11-03 14:29:15 -0600
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  ↳ app/views/members/index.html.erb:43
+  Rendered members/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1525)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.3ms | Allocations: 6050)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:29:21 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1021)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.4ms | Allocations: 5493)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:29:22 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 456)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 6.6ms | ActiveRecord: 0.3ms | Allocations: 5498)
+
+
+Started POST "/members/apimport?mapped_id=10&points_worth=1&semester=Spring" for 127.0.0.1 at 2020-11-03 14:29:28 -0600
+Processing by MembersController#apimport as HTML
+  Parameters: {"authenticity_token"=>"q28ipcBnXY8RQiCFhuuNck1TUf9kxi22L3I1MKhmh+Kwv7unvklQZXDKIx/lSlLJ57zx/EzifzayuKcodfsCRA==", "mapped_id"=>"10", "points_worth"=>"1", "semester"=>"Spring"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."mapped_id" = $1 LIMIT $2[0m  [["mapped_id", 9], ["LIMIT", 1]]
+  ↳ app/models/member.rb:44:in `api'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 164ms (ActiveRecord: 0.3ms | Allocations: 1753)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-11-03 14:29:28 -0600
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.8ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  ↳ app/views/members/index.html.erb:43
+  Rendered members/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1526)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.8ms | Allocations: 6049)
+
+
+Started GET "/members/1/edit" for 127.0.0.1 at 2020-11-03 14:29:33 -0600
+Processing by MembersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/members_controller.rb:96:in `edit'
+  Rendering members/edit.html.erb within layouts/application
+  Rendered members/edit.html.erb within layouts/application (Duration: 1.5ms | Allocations: 854)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.3ms | ActiveRecord: 0.3ms | Allocations: 6111)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:29:37 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (1.9ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1030)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.2ms | ActiveRecord: 1.9ms | Allocations: 5498)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:29:40 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 455)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.2ms | Allocations: 5491)
+
+
+Started POST "/members/apimport?mapped_id=9&points_worth=2&semester=Fall" for 127.0.0.1 at 2020-11-03 14:29:47 -0600
+Processing by MembersController#apimport as HTML
+  Parameters: {"authenticity_token"=>"/s9SOMvyZKv4CHU1O5r1ihRLAkB4tNjVvcvERZwQdkTlH8s6tdxpQZmAdq9YOyoxvqSiQ1CQilUgAVZdQY3z4g==", "mapped_id"=>"9", "points_worth"=>"2", "semester"=>"Fall"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."mapped_id" = $1 LIMIT $2[0m  [["mapped_id", 9], ["LIMIT", 1]]
+  ↳ app/models/member.rb:44:in `api'
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "jack@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:46:in `block in api'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:49:in `block in api'
+  [1m[36mMember Update (0.3ms)[0m  [1m[33mUPDATE "members" SET "fall_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["fall_points", 4], ["updated_at", "2020-11-03 20:29:47.796027"], ["id", 1]]
+  ↳ app/models/member.rb:49:in `block in api'
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:49:in `block in api'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mMember Update (0.3ms)[0m  [1m[33mUPDATE "members" SET "total_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["total_points", 4], ["updated_at", "2020-11-03 20:29:47.804359"], ["id", 1]]
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mEvent Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "events" INNER JOIN "events_members" ON "events"."id" = "events_members"."event_id" WHERE "events_members"."member_id" = $1 AND "events"."id" = $2 LIMIT $3[0m  [["member_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/member.rb:54:in `block in api'
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "jack2@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:46:in `block in api'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:49:in `block in api'
+  [1m[36mMember Update (0.3ms)[0m  [1m[33mUPDATE "members" SET "fall_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["fall_points", 4], ["updated_at", "2020-11-03 20:29:47.815071"], ["id", 2]]
+  ↳ app/models/member.rb:49:in `block in api'
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:49:in `block in api'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mMember Update (0.2ms)[0m  [1m[33mUPDATE "members" SET "total_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["total_points", 4], ["updated_at", "2020-11-03 20:29:47.822012"], ["id", 2]]
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mEvent Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "events" INNER JOIN "events_members" ON "events"."id" = "events_members"."event_id" WHERE "events_members"."member_id" = $1 AND "events"."id" = $2 LIMIT $3[0m  [["member_id", 2], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/member.rb:54:in `block in api'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 259ms (ActiveRecord: 13.8ms | Allocations: 14280)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-11-03 14:29:47 -0600
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  ↳ app/views/members/index.html.erb:43
+  Rendered members/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1536)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.3ms | Allocations: 6081)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:29:50 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1021)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.4ms | Allocations: 5486)
+
+
+Started GET "/events/1/edit" for 127.0.0.1 at 2020-11-03 14:29:51 -0600
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:80:in `edit'
+  Rendering events/edit.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/edit.html.erb:5
+  Rendered events/edit.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1027)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.5ms | ActiveRecord: 0.2ms | Allocations: 6065)
+
+
+Started PATCH "/events/1" for 127.0.0.1 at 2020-11-03 14:29:53 -0600
+Processing by EventsController#update as HTML
+  Parameters: {"authenticity_token"=>"x9g9kTMLP+Bcsw7lgXiv5/NbwH94SOlKmc5OdE/1PzFn1FvMHVPUe1udTD/ixfK5x2TkQXX/6GSJz6z5ZOXjTg==", "event"=>{"id"=>"1", "title"=>"Event Ongoing", "points_worth"=>"2", "semester"=>"Spring"}, "commit"=>"Update Events", "id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:84:in `update'
+DEPRECATION WARNING: update_attributes is deprecated and will be removed from Rails 6.1 (please, use update instead) (called from update at /home/tamucru/Documents/College/CSCE431/PAIDMemberPointTracker/app/controllers/events_controller.rb:85)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:85:in `update'
+  [1m[36mEvent Update (0.4ms)[0m  [1m[33mUPDATE "events" SET "semester" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["semester", "Spring"], ["updated_at", "2020-11-03 20:29:53.885777"], ["id", 1]]
+  ↳ app/controllers/events_controller.rb:85:in `update'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:85:in `update'
+Redirected to http://127.0.0.1:3000/events/1
+Completed 302 Found in 9ms (ActiveRecord: 2.7ms | Allocations: 3574)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:29:53 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 456)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.2ms | Allocations: 5507)
+
+
+Started POST "/members/apimport?mapped_id=9&points_worth=2&semester=Spring" for 127.0.0.1 at 2020-11-03 14:29:57 -0600
+Processing by MembersController#apimport as HTML
+  Parameters: {"authenticity_token"=>"A1Q6HxAtvBhYudghGtlhYf45y+MGKDwV9eU4J6Jo0cEYhKMdbgOx8jkx27t5eL7aVNZr4C4MbpVoL6o/f/VUZw==", "mapped_id"=>"9", "points_worth"=>"2", "semester"=>"Spring"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."mapped_id" = $1 LIMIT $2[0m  [["mapped_id", 9], ["LIMIT", 1]]
+  ↳ app/models/member.rb:44:in `api'
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "jack@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:46:in `block in api'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:51:in `block in api'
+  [1m[36mMember Update (0.4ms)[0m  [1m[33mUPDATE "members" SET "spring_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["spring_points", 2], ["updated_at", "2020-11-03 20:29:57.760088"], ["id", 1]]
+  ↳ app/models/member.rb:51:in `block in api'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:51:in `block in api'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mMember Update (0.3ms)[0m  [1m[33mUPDATE "members" SET "total_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["total_points", 6], ["updated_at", "2020-11-03 20:29:57.765638"], ["id", 1]]
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mEvent Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "events" INNER JOIN "events_members" ON "events"."id" = "events_members"."event_id" WHERE "events_members"."member_id" = $1 AND "events"."id" = $2 LIMIT $3[0m  [["member_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/member.rb:54:in `block in api'
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "jack2@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:46:in `block in api'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:51:in `block in api'
+  [1m[36mMember Update (0.3ms)[0m  [1m[33mUPDATE "members" SET "spring_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["spring_points", 2], ["updated_at", "2020-11-03 20:29:57.774535"], ["id", 2]]
+  ↳ app/models/member.rb:51:in `block in api'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:51:in `block in api'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mMember Update (0.4ms)[0m  [1m[33mUPDATE "members" SET "total_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["total_points", 6], ["updated_at", "2020-11-03 20:29:57.779822"], ["id", 2]]
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mEvent Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "events" INNER JOIN "events_members" ON "events"."id" = "events_members"."event_id" WHERE "events_members"."member_id" = $1 AND "events"."id" = $2 LIMIT $3[0m  [["member_id", 2], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/member.rb:54:in `block in api'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 219ms (ActiveRecord: 15.4ms | Allocations: 14267)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-11-03 14:29:57 -0600
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  ↳ app/views/members/index.html.erb:43
+  Rendered members/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1525)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.4ms | Allocations: 6055)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1120682413551588615)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAmountToItems (20201028212301)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "events" DROP COLUMN "mapped_id"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20201028212301"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAdminUsersTable (20200922151823)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "admin_users"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200922151823"]]
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEventsMembers (20200918230922)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "events_members"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200918230922"]]
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEvents (20200918224457)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "events"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200918224457"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMembers (20200918224407)
+  [1m[35m (2.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "members"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200918224407"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1120682413551588615)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1120682413551588615)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMembers (20200918224407)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (13.7ms)[0m  [1m[35mCREATE TABLE "members" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "fall_points" integer, "spring_points" integer, "total_points" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200918224407"]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEvents (20200918224457)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "title" character varying, "date" character varying, "semester" character varying, "points_worth" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200918224457"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEventsMembers (20200918230922)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "events_members" ("event_id" integer, "member_id" integer)[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE  INDEX  "index_events_members_on_event_id_and_member_id" ON "events_members"  ("event_id", "member_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200918230922"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAdminUsersTable (20200922151823)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "admin_users" ("id" bigserial primary key, "first_name" character varying(25), "last_name" character varying(50), "email" character varying(100) DEFAULT '' NOT NULL, "username" character varying(25), "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE  INDEX  "index_admin" ON "admin_users"  ("username")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200922151823"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAmountToItems (20201028212301)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "events" ADD "mapped_id" integer[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201028212301"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1120682413551588615)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/members" for 127.0.0.1 at 2020-11-03 14:30:53 -0600
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MembersController#index as HTML
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 3451)
+
+
+  
+Zeitwerk::NameError (expected file /home/tamucru/Documents/College/CSCE431/PAIDMemberPointTracker/app/models/restclient.rb to define constant Restclient, but didn't):
+  
+app/models/member.rb:8:in `<class:Member>'
+app/models/member.rb:3:in `<main>'
+app/controllers/members_controller.rb:8:in `index'
+Started GET "/members" for 127.0.0.1 at 2020-11-03 14:30:56 -0600
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.7ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  ↳ app/views/members/index.html.erb:43
+  Rendered members/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3095)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 25.0ms | ActiveRecord: 2.1ms | Allocations: 18025)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:31:02 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1207)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 10.2ms | ActiveRecord: 1.8ms | Allocations: 8412)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:31:04 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 841)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.3ms | Allocations: 5320)
+
+
+Started GET "/events/getEvents" for 127.0.0.1 at 2020-11-03 14:31:06 -0600
+Processing by EventsController#getEvents as HTML
+  [1m[36mEvent Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."mapped_id" = $1 LIMIT $2[0m  [["mapped_id", 9], ["LIMIT", 1]]
+  ↳ app/models/event.rb:17:in `block in apiEvents'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/event.rb:18:in `block in apiEvents'
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("title", "points_worth", "created_at", "updated_at", "mapped_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Event Ongoing"], ["points_worth", 2], ["created_at", "2020-11-03 20:31:06.575926"], ["updated_at", "2020-11-03 20:31:06.575926"], ["mapped_id", 9]]
+  ↳ app/models/event.rb:18:in `block in apiEvents'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/event.rb:18:in `block in apiEvents'
+  [1m[36mEvent Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "events" WHERE "events"."mapped_id" = $1 LIMIT $2[0m  [["mapped_id", 10], ["LIMIT", 1]]
+  ↳ app/models/event.rb:17:in `block in apiEvents'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/event.rb:18:in `block in apiEvents'
+  [1m[36mEvent Create (0.3ms)[0m  [1m[32mINSERT INTO "events" ("title", "points_worth", "created_at", "updated_at", "mapped_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Future"], ["points_worth", 1], ["created_at", "2020-11-03 20:31:06.585053"], ["updated_at", "2020-11-03 20:31:06.585053"], ["mapped_id", 10]]
+  ↳ app/models/event.rb:18:in `block in apiEvents'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/event.rb:18:in `block in apiEvents'
+Redirected to http://127.0.0.1:3000/events
+Completed 302 Found in 225ms (ActiveRecord: 7.7ms | Allocations: 12435)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:31:06 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1040)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.3ms | Allocations: 5510)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:31:14 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:24
+  Rendered events/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1806)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 10.3ms | ActiveRecord: 2.4ms | Allocations: 11569)
+
+
+Started PATCH "/events/1" for 127.0.0.1 at 2020-11-03 14:31:17 -0600
+Processing by EventsController#update as HTML
+  Parameters: {"authenticity_token"=>"q6HXDZ84hE6hDGbKrQTmWF2oMYh/eCv/DRtMcPBKBN8LrbFQsWBv1aYiJBDOubsGaZcVtnLPKtEdGq7921rYoA==", "event"=>{"semester"=>"Fall"}, "commit"=>"Update Semester", "id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:84:in `update'
+DEPRECATION WARNING: update_attributes is deprecated and will be removed from Rails 6.1 (please, use update instead) (called from update at /home/tamucru/Documents/College/CSCE431/PAIDMemberPointTracker/app/controllers/events_controller.rb:85)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:85:in `update'
+  [1m[36mEvent Update (0.2ms)[0m  [1m[33mUPDATE "events" SET "semester" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["semester", "Fall"], ["updated_at", "2020-11-03 20:31:17.803847"], ["id", 1]]
+  ↳ app/controllers/events_controller.rb:85:in `update'
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:85:in `update'
+Redirected to http://127.0.0.1:3000/events/1
+Completed 302 Found in 14ms (ActiveRecord: 6.5ms | Allocations: 3580)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:31:17 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 456)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.2ms | Allocations: 5491)
+
+
+Started POST "/members/apimport?mapped_id=9&points_worth=2&semester=Fall" for 127.0.0.1 at 2020-11-03 14:31:26 -0600
+Processing by MembersController#apimport as HTML
+  Parameters: {"authenticity_token"=>"oQPChntG+hsaukSj/rRouIaq0b3iWcLKwXt14Ikg7D6601uEBWj38XsyRzmdFbcDLEVxvsp9kEpcsef4VL1pmA==", "mapped_id"=>"9", "points_worth"=>"2", "semester"=>"Fall"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."mapped_id" = $1 LIMIT $2[0m  [["mapped_id", 9], ["LIMIT", 1]]
+  ↳ app/models/member.rb:44:in `api'
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "jack@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:46:in `block in api'
+  [1m[36mMember Load (0.1ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "jack2@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:46:in `block in api'
+Redirected to http://127.0.0.1:3000/members/missing
+Completed 302 Found in 162ms (ActiveRecord: 0.4ms | Allocations: 3128)
+
+
+Started GET "/members/missing" for 127.0.0.1 at 2020-11-03 14:31:26 -0600
+Processing by MembersController#missing as HTML
+  Rendering members/missing.html.erb within layouts/application
+  Rendered members/missing.html.erb within layouts/application (Duration: 0.6ms | Allocations: 326)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms | Allocations: 4911)
+
+
+Started GET "/members/new?email=jack%40tamu.edu" for 127.0.0.1 at 2020-11-03 14:31:27 -0600
+Processing by MembersController#new as HTML
+  Parameters: {"email"=>"jack@tamu.edu"}
+  Rendering members/new.html.erb within layouts/application
+  Rendered members/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 999)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 5617)
+
+
+Started POST "/members" for 127.0.0.1 at 2020-11-03 14:31:32 -0600
+Processing by MembersController#create as HTML
+  Parameters: {"authenticity_token"=>"PE0fRPOxXplzRRS5iSBxASfamPKAZ5dLS45vO6K2z5JW130/XcX9N4mWF6XWXsl3lZoZdBcdJhufNk1iLVKPjg==", "member"=>{"first_name"=>"Jack", "last_name"=>"Smith", "email"=>"jack@tamu.edu", "fall_points"=>"0", "spring_points"=>"0", "total_points"=>"0"}, "commit"=>"Create Member"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:83:in `create'
+  [1m[36mMember Create (0.5ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "email", "fall_points", "spring_points", "total_points", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Jack"], ["last_name", "Smith"], ["email", "jack@tamu.edu"], ["fall_points", 0], ["spring_points", 0], ["total_points", 0], ["created_at", "2020-11-03 20:31:32.867690"], ["updated_at", "2020-11-03 20:31:32.867690"]]
+  ↳ app/controllers/members_controller.rb:83:in `create'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:83:in `create'
+Redirected to http://127.0.0.1:3000/members/missing
+Completed 302 Found in 8ms (ActiveRecord: 2.7ms | Allocations: 3031)
+
+
+Started GET "/members/missing" for 127.0.0.1 at 2020-11-03 14:31:32 -0600
+Processing by MembersController#missing as HTML
+  Rendering members/missing.html.erb within layouts/application
+  Rendered members/missing.html.erb within layouts/application (Duration: 0.2ms | Allocations: 92)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.0ms | Allocations: 4535)
+
+
+Started GET "/members/new?email=jack2%40tamu.edu" for 127.0.0.1 at 2020-11-03 14:31:34 -0600
+Processing by MembersController#new as HTML
+  Parameters: {"email"=>"jack2@tamu.edu"}
+  Rendering members/new.html.erb within layouts/application
+  Rendered members/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 539)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms | Allocations: 5024)
+
+
+Started POST "/members" for 127.0.0.1 at 2020-11-03 14:31:42 -0600
+Processing by MembersController#create as HTML
+  Parameters: {"authenticity_token"=>"qV1B6KXk8IDcw+m5vYHjp1Fj00ClWbXm91Dg3DZjMEzDxyOTC5BTLiYQ6qXi/1vR4yNSxjIjBLYj6MKFuYdwUA==", "member"=>{"first_name"=>"Tom", "last_name"=>"Lee", "email"=>"jack2@tamu.edu", "fall_points"=>"0", "spring_points"=>"0", "total_points"=>"0"}, "commit"=>"Create Member"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/members_controller.rb:83:in `create'
+  [1m[36mMember Create (0.3ms)[0m  [1m[32mINSERT INTO "members" ("first_name", "last_name", "email", "fall_points", "spring_points", "total_points", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["first_name", "Tom"], ["last_name", "Lee"], ["email", "jack2@tamu.edu"], ["fall_points", 0], ["spring_points", 0], ["total_points", 0], ["created_at", "2020-11-03 20:31:42.829413"], ["updated_at", "2020-11-03 20:31:42.829413"]]
+  ↳ app/controllers/members_controller.rb:83:in `create'
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/members_controller.rb:83:in `create'
+Redirected to http://127.0.0.1:3000/members/missing
+Completed 302 Found in 8ms (ActiveRecord: 2.6ms | Allocations: 2920)
+
+
+Started GET "/members/missing" for 127.0.0.1 at 2020-11-03 14:31:42 -0600
+Processing by MembersController#missing as HTML
+  Rendering members/missing.html.erb within layouts/application
+  Rendered members/missing.html.erb within layouts/application (Duration: 0.1ms | Allocations: 46)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 4477)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-11-03 14:31:44 -0600
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  ↳ app/views/members/index.html.erb:43
+  Rendered members/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1550)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.3ms | Allocations: 6135)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:31:47 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1029)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.3ms | Allocations: 5499)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:31:48 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 455)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.3ms | Allocations: 5526)
+
+
+Started POST "/members/apimport?mapped_id=9&points_worth=2&semester=Fall" for 127.0.0.1 at 2020-11-03 14:31:52 -0600
+Processing by MembersController#apimport as HTML
+  Parameters: {"authenticity_token"=>"59CS1UPWwDhGTCCy6K8XzUTNZOz0pSucBYeZSEd592n8AAvXPfjN0ifEIyiLDsh27iLE79yBeRyYTQtQmuRyzw==", "mapped_id"=>"9", "points_worth"=>"2", "semester"=>"Fall"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."mapped_id" = $1 LIMIT $2[0m  [["mapped_id", 9], ["LIMIT", 1]]
+  ↳ app/models/member.rb:44:in `api'
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "jack@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:46:in `block in api'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:49:in `block in api'
+  [1m[36mMember Update (0.3ms)[0m  [1m[33mUPDATE "members" SET "fall_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["fall_points", 2], ["updated_at", "2020-11-03 20:31:52.550320"], ["id", 1]]
+  ↳ app/models/member.rb:49:in `block in api'
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:49:in `block in api'
+  [1m[35m (2.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mMember Update (0.4ms)[0m  [1m[33mUPDATE "members" SET "total_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["total_points", 2], ["updated_at", "2020-11-03 20:31:52.560960"], ["id", 1]]
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mEvent Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "events" INNER JOIN "events_members" ON "events"."id" = "events_members"."event_id" WHERE "events_members"."member_id" = $1 AND "events"."id" = $2 LIMIT $3[0m  [["member_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/member.rb:54:in `block in api'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:55:in `block in api'
+  [1m[36mMember::HABTM_Events Create (0.3ms)[0m  [1m[32mINSERT INTO "events_members" ("event_id", "member_id") VALUES ($1, $2)[0m  [["event_id", 1], ["member_id", 1]]
+  ↳ app/models/member.rb:55:in `block in api'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:55:in `block in api'
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "jack2@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:46:in `block in api'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:49:in `block in api'
+  [1m[36mMember Update (0.3ms)[0m  [1m[33mUPDATE "members" SET "fall_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["fall_points", 2], ["updated_at", "2020-11-03 20:31:52.603351"], ["id", 2]]
+  ↳ app/models/member.rb:49:in `block in api'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:49:in `block in api'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mMember Update (0.4ms)[0m  [1m[33mUPDATE "members" SET "total_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["total_points", 2], ["updated_at", "2020-11-03 20:31:52.611357"], ["id", 2]]
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mEvent Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "events" INNER JOIN "events_members" ON "events"."id" = "events_members"."event_id" WHERE "events_members"."member_id" = $1 AND "events"."id" = $2 LIMIT $3[0m  [["member_id", 2], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/member.rb:54:in `block in api'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:55:in `block in api'
+  [1m[36mMember::HABTM_Events Create (0.2ms)[0m  [1m[32mINSERT INTO "events_members" ("event_id", "member_id") VALUES ($1, $2)[0m  [["event_id", 1], ["member_id", 2]]
+  ↳ app/models/member.rb:55:in `block in api'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:55:in `block in api'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 250ms (ActiveRecord: 25.0ms | Allocations: 27620)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-11-03 14:31:52 -0600
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.4ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  ↳ app/views/members/index.html.erb:43
+  Rendered members/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1528)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.4ms | Allocations: 6080)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:32:14 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1020)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.5ms | Allocations: 5484)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:32:19 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 452)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.3ms | Allocations: 5482)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:35:52 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1043)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.2ms | ActiveRecord: 0.2ms | Allocations: 7093)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:37:11 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1103)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.3ms | Allocations: 7140)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:37:14 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1372)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.4ms | Allocations: 5976)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:37:15 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/events/show.html.erb:24
+  Rendered events/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1038)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.3ms | Allocations: 6066)
+
+
+Started PATCH "/events/2" for 127.0.0.1 at 2020-11-03 14:37:17 -0600
+Processing by EventsController#update as HTML
+  Parameters: {"authenticity_token"=>"b/ChHPOobq5HqcvGuT1Ky3od8RUjRUKcIwuH0UbbcyIVWI77Wn37MDgbWC5TAbEWiMkpZYjWlF0sUud/N8IXDw==", "event"=>{"semester"=>"Fall"}, "commit"=>"Update Semester", "id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:84:in `update'
+DEPRECATION WARNING: update_attributes is deprecated and will be removed from Rails 6.1 (please, use update instead) (called from update at /home/tamucru/Documents/College/CSCE431/PAIDMemberPointTracker/app/controllers/events_controller.rb:85)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:85:in `update'
+  [1m[36mEvent Update (0.3ms)[0m  [1m[33mUPDATE "events" SET "semester" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["semester", "Fall"], ["updated_at", "2020-11-03 20:37:17.576487"], ["id", 2]]
+  ↳ app/controllers/events_controller.rb:85:in `update'
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:85:in `update'
+Redirected to http://127.0.0.1:3000/events/2
+Completed 302 Found in 13ms (ActiveRecord: 6.6ms | Allocations: 3518)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2020-11-03 14:37:17 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 470)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.3ms | Allocations: 5508)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-11-03 14:37:23 -0600
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  ↳ app/views/members/index.html.erb:43
+  Rendered members/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2073)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.5ms | Allocations: 7177)
+
+
+Started GET "/events" for 127.0.0.1 at 2020-11-03 14:37:25 -0600
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" ORDER BY "events"."id" ASC[0m
+  ↳ app/views/events/index.html.erb:24
+  Rendered events/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1030)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.4ms | Allocations: 5538)
+
+
+Started GET "/events/1/edit" for 127.0.0.1 at 2020-11-03 14:37:28 -0600
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:80:in `edit'
+  Rendering events/edit.html.erb within layouts/application
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/events/edit.html.erb:5
+  Rendered events/edit.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1281)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 0.4ms | Allocations: 6454)
+
+
+Started PATCH "/events/1" for 127.0.0.1 at 2020-11-03 14:37:30 -0600
+Processing by EventsController#update as HTML
+  Parameters: {"authenticity_token"=>"0JBKwy+tWkfC8BJTsgmc5TZdpNxe3fwp7mzN3g2wAhRwnCyeAfWx3MXeUInRtMG7AmKA4lNq/Qf+bS9TJqDeaw==", "event"=>{"id"=>"1", "title"=>"Event Ongoing", "points_worth"=>"2", "semester"=>"Spring"}, "commit"=>"Update Events", "id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:84:in `update'
+DEPRECATION WARNING: update_attributes is deprecated and will be removed from Rails 6.1 (please, use update instead) (called from update at /home/tamucru/Documents/College/CSCE431/PAIDMemberPointTracker/app/controllers/events_controller.rb:85)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:85:in `update'
+  [1m[36mEvent Update (0.4ms)[0m  [1m[33mUPDATE "events" SET "semester" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["semester", "Spring"], ["updated_at", "2020-11-03 20:37:30.049653"], ["id", 1]]
+  ↳ app/controllers/events_controller.rb:85:in `update'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:85:in `update'
+Redirected to http://127.0.0.1:3000/events/1
+Completed 302 Found in 9ms (ActiveRecord: 2.3ms | Allocations: 3577)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2020-11-03 14:37:30 -0600
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:11:in `show'
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 475)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.3ms | Allocations: 5514)
+
+
+Started POST "/members/apimport?mapped_id=9&points_worth=2&semester=Spring" for 127.0.0.1 at 2020-11-03 14:38:42 -0600
+Processing by MembersController#apimport as HTML
+  Parameters: {"authenticity_token"=>"1AqXbPQht4+5QafVKBpGDXF/22cA6BaiCqOo8SuXgYLP2g5uig+6ZdjJpE9Lu5m225B7ZCjMRCKXaTrp9goEJA==", "mapped_id"=>"9", "points_worth"=>"2", "semester"=>"Spring"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."mapped_id" = $1 LIMIT $2[0m  [["mapped_id", 9], ["LIMIT", 1]]
+  ↳ app/models/member.rb:44:in `api'
+  [1m[36mMember Load (0.3ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "jack@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:46:in `block in api'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:51:in `block in api'
+  [1m[36mMember Update (0.3ms)[0m  [1m[33mUPDATE "members" SET "spring_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["spring_points", 2], ["updated_at", "2020-11-03 20:38:42.698518"], ["id", 1]]
+  ↳ app/models/member.rb:51:in `block in api'
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:51:in `block in api'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mMember Update (0.7ms)[0m  [1m[33mUPDATE "members" SET "total_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["total_points", 4], ["updated_at", "2020-11-03 20:38:42.704861"], ["id", 1]]
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mEvent Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "events" INNER JOIN "events_members" ON "events"."id" = "events_members"."event_id" WHERE "events_members"."member_id" = $1 AND "events"."id" = $2 LIMIT $3[0m  [["member_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/member.rb:54:in `block in api'
+  [1m[36mMember Load (0.2ms)[0m  [1m[34mSELECT "members".* FROM "members" WHERE "members"."email" = $1 LIMIT $2[0m  [["email", "jack2@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/member.rb:46:in `block in api'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:51:in `block in api'
+  [1m[36mMember Update (0.3ms)[0m  [1m[33mUPDATE "members" SET "spring_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["spring_points", 2], ["updated_at", "2020-11-03 20:38:42.714842"], ["id", 2]]
+  ↳ app/models/member.rb:51:in `block in api'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:51:in `block in api'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mMember Update (0.3ms)[0m  [1m[33mUPDATE "members" SET "total_points" = $1, "updated_at" = $2 WHERE "members"."id" = $3[0m  [["total_points", 4], ["updated_at", "2020-11-03 20:38:42.720948"], ["id", 2]]
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/member.rb:53:in `block in api'
+  [1m[36mEvent Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "events" INNER JOIN "events_members" ON "events"."id" = "events_members"."event_id" WHERE "events_members"."member_id" = $1 AND "events"."id" = $2 LIMIT $3[0m  [["member_id", 2], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/member.rb:54:in `block in api'
+Redirected to http://127.0.0.1:3000/members
+Completed 302 Found in 245ms (ActiveRecord: 10.8ms | Allocations: 14270)
+
+
+Started GET "/members" for 127.0.0.1 at 2020-11-03 14:38:42 -0600
+Processing by MembersController#index as HTML
+  Rendering members/index.html.erb within layouts/application
+  [1m[36mMember Load (0.5ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY total_points DESC[0m
+  ↳ app/views/members/index.html.erb:43
+  Rendered members/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1541)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.5ms | Allocations: 6112)
+
+
