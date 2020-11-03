@@ -24,6 +24,11 @@
           <%=file_field_tag :file, :class => "button"%>
           <%= submit_tag "Import", :class => "button"%>
         <% end %>
+        <% flash.each do |type, msg| %>
+          <div>
+            <%= msg %>
+          </div>
+        <% end %>
         </td>
       </tr>
   </table>
