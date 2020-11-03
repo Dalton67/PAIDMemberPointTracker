@@ -16773,3 +16773,326 @@ Processing by MembersController#index as HTML
 Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.2ms | Allocations: 5486)
 
 
+Started GET "/" for 127.0.0.1 at 2020-11-03 12:06:36 -0600
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (6.0.3.3) lib/active_record/migration.rb:586:in `check_pending!'
+activerecord (6.0.3.3) lib/active_record/migration.rb:564:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.3) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1120682413551588615)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAdminUsersTable (20200922151823)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.5ms)[0m  [1m[35mDROP TABLE "admin_users"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200922151823"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEventsMembers (20200918230922)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "events_members"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200918230922"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEvents (20200918224457)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mDROP TABLE "events"[0m
+  [1m[36mprimary::SchemaMigration Destroy (3.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200918224457"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMembers (20200918224407)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "members"[0m
+  [1m[36mprimary::SchemaMigration Destroy (3.9ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200918224407"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1120682413551588615)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1120682413551588615)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMembers (20200918224407)
+  [1m[35m (3.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (34.2ms)[0m  [1m[35mCREATE TABLE "members" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "fall_points" integer, "spring_points" integer, "total_points" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (3.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200918224407"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEvents (20200918224457)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "title" character varying, "date" character varying, "semester" character varying, "points_worth" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200918224457"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEventsMembers (20200918230922)
+  [1m[35m (4.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "events_members" ("event_id" integer, "member_id" integer)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_events_members_on_event_id_and_member_id" ON "events_members"  ("event_id", "member_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200918230922"]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAdminUsersTable (20200922151823)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "admin_users" ("id" bigserial primary key, "first_name" character varying(25), "last_name" character varying(50), "email" character varying(100) DEFAULT '' NOT NULL, "username" character varying(25), "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_admin" ON "admin_users"  ("username")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200922151823"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAmountToItems (20201028212301)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "events" ADD "mapped_id" integer[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201028212301"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1120682413551588615)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2020-11-03 12:07:36 -0600
+  [1m[35m (5.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GeneralmemberController#index as HTML
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.0ms | Allocations: 3566)
+
+
+  
+Zeitwerk::NameError (expected file /home/tamucru/Desktop/RailsApps/PAIDMemberPointTracker/app/models/restclient.rb to define constant Restclient, but didn't):
+  
+app/models/member.rb:8:in `<class:Member>'
+app/models/member.rb:3:in `<main>'
+app/controllers/generalmember_controller.rb:5:in `index'
+Started GET "/" for 127.0.0.1 at 2020-11-03 12:08:03 -0600
+Processing by GeneralmemberController#index as HTML
+  Rendering generalmember/index.html.erb within layouts/application
+  [1m[36mMember Load (10.5ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY "members"."id" ASC[0m
+  ↳ app/views/generalmember/index.html.erb:37
+  Rendered generalmember/index.html.erb within layouts/application (Duration: 14.5ms | Allocations: 2284)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 378ms (Views: 344.0ms | ActiveRecord: 14.9ms | Allocations: 59135)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-11-03 12:17:03 -0600
+Processing by AccessController#menu as HTML
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 400)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-11-03 12:17:03 -0600
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/application
+  Rendered access/login.html.erb within layouts/application (Duration: 1.8ms | Allocations: 530)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 32.7ms | ActiveRecord: 0.0ms | Allocations: 5533)
+
+
+Started GET "/members?search=a&sort=total_points" for 127.0.0.1 at 2020-11-03 12:17:09 -0600
+Processing by MembersController#index as HTML
+  Parameters: {"search"=>"a", "sort"=>"total_points"}
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms | Allocations: 362)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-11-03 12:17:09 -0600
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/application
+  Rendered access/login.html.erb within layouts/application (Duration: 0.5ms | Allocations: 298)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.0ms | Allocations: 4728)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-11-03 12:17:14 -0600
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"n1SDnSVG/+ZX/T3cNR1MW5tADf/n7pax8UGh9ei0voR1X6v0V254CUt87IHfpJ8/ZDgckStdyyh6VWdTPqR5bQ==", "username"=>"test", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.4ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:17:in `attempt_login'
+  Rendering access/login.html.erb within layouts/application
+  Rendered access/login.html.erb within layouts/application (Duration: 2.7ms | Allocations: 288)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 19.9ms | ActiveRecord: 20.1ms | Allocations: 7063)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-11-03 12:17:16 -0600
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"SsM+ek8Ykq3J0xb1VEofTnx6hPZ2wiczkSXtM+oTY5SgyBYTPTAVQtVSx6i+88wqgwKVmLpxeqoaMSuVPAOkfQ==", "username"=>"test", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.4ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:17:in `attempt_login'
+  Rendering access/login.html.erb within layouts/application
+  Rendered access/login.html.erb within layouts/application (Duration: 0.4ms | Allocations: 287)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 27.0ms | ActiveRecord: 0.4ms | Allocations: 5462)
+
+
+  [1m[35m (4.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Create (0.9ms)[0m  [1m[32mINSERT INTO "admin_users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "test"], ["password_digest", "$2a$12$O30zprLwv0L6Hx1icr9Rge0ZN0HjSbqCu24Gq4ZIsVZ/ScTL/5nn2"], ["created_at", "2020-11-03 18:18:03.390922"], ["updated_at", "2020-11-03 18:18:03.390922"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2020-11-03 12:18:19 -0600
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GeneralmemberController#index as HTML
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.0ms | Allocations: 3432)
+
+
+  
+Zeitwerk::NameError (expected file /home/tamucru/Desktop/RailsApps/PAIDMemberPointTracker/app/models/restclient.rb to define constant Restclient, but didn't):
+  
+app/models/member.rb:8:in `<class:Member>'
+app/models/member.rb:3:in `<main>'
+app/controllers/generalmember_controller.rb:5:in `index'
+Started GET "/" for 127.0.0.1 at 2020-11-03 12:18:35 -0600
+Processing by GeneralmemberController#index as HTML
+  Rendering generalmember/index.html.erb within layouts/application
+  [1m[36mMember Load (4.1ms)[0m  [1m[34mSELECT "members".* FROM "members" ORDER BY "members"."id" ASC[0m
+  ↳ app/views/generalmember/index.html.erb:37
+  Rendered generalmember/index.html.erb within layouts/application (Duration: 22.1ms | Allocations: 2284)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 167ms (Views: 118.5ms | ActiveRecord: 22.1ms | Allocations: 17589)
+
+
+Started GET "/members?search=a&sort=total_points" for 127.0.0.1 at 2020-11-03 12:18:43 -0600
+Processing by MembersController#index as HTML
+  Parameters: {"search"=>"a", "sort"=>"total_points"}
+Redirected to http://127.0.0.1:3000/access/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 378)
+
+
+Started GET "/access/login" for 127.0.0.1 at 2020-11-03 12:18:43 -0600
+Processing by AccessController#login as HTML
+  Rendering access/login.html.erb within layouts/application
+  Rendered access/login.html.erb within layouts/application (Duration: 1.2ms | Allocations: 527)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 26.2ms | ActiveRecord: 0.0ms | Allocations: 5596)
+
+
+Started POST "/access/attempt_login" for 127.0.0.1 at 2020-11-03 12:18:44 -0600
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"authenticity_token"=>"RxeB6hiPCvvMaG+vk6OcWFokAMpfnsUb/Aw5lOWVdDWtHKmDaqeNFNDpvvJ5Gk88pVwRpJMtmIJ3GP8yM4Wz3A==", "username"=>"test", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mAdminUser Load (0.4ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = $1 ORDER BY "admin_users"."id" ASC LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/access_controller.rb:17:in `attempt_login'
+Redirected to http://127.0.0.1:3000/admin
+Completed 302 Found in 825ms (ActiveRecord: 13.9ms | Allocations: 6671)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-11-03 12:18:45 -0600
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 2.1ms | Allocations: 274)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.0ms | Allocations: 4893)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-11-03 12:18:54 -0600
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 0.2ms | Allocations: 92)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.0ms | Allocations: 4518)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-11-03 12:21:46 -0600
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 0.6ms | Allocations: 267)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 33.4ms | ActiveRecord: 0.0ms | Allocations: 5706)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-11-03 12:21:49 -0600
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 0.2ms | Allocations: 103)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 25.6ms | ActiveRecord: 0.0ms | Allocations: 4523)
+
+
+Started GET "/admin_users" for 127.0.0.1 at 2020-11-03 12:21:51 -0600
+Processing by AdminUsersController#index as HTML
+  Rendering admin_users/index.html.erb within layouts/application
+  [1m[36mAdminUser Load (1.2ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" ORDER BY last_name ASC, first_name ASC[0m
+  ↳ app/views/admin_users/index.html.erb:14
+  Rendered admin_users/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1096)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 28.3ms | ActiveRecord: 1.2ms | Allocations: 6148)
+
+
+Started GET "/admin_users/new" for 127.0.0.1 at 2020-11-03 12:22:00 -0600
+Processing by AdminUsersController#new as HTML
+  Rendering admin_users/new.html.erb within layouts/application
+  Rendered admin_users/new.html.erb within layouts/application (Duration: 12.7ms | Allocations: 1079)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 58ms (Views: 55.6ms | ActiveRecord: 0.0ms | Allocations: 5670)
+
+
+Started POST "/admin_users" for 127.0.0.1 at 2020-11-03 12:22:24 -0600
+Processing by AdminUsersController#create as HTML
+  Parameters: {"authenticity_token"=>"0+xf7s5DcqYj+8W4DuuwQskygqRzLHHnPsxrnp3zgipwjZpiWZdKxJans2AS8NKs1KXyNkGcffvmqUZ7JU38wQ==", "admin_user"=>{"first_name"=>"paid", "last_name"=>"paid", "email"=>"paid@paid.com", "username"=>"paid", "password"=>"[FILTERED]"}, "commit"=>"Create Admin User"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admin_users_controller.rb:16:in `create'
+  [1m[36mAdminUser Create (0.3ms)[0m  [1m[32mINSERT INTO "admin_users" ("first_name", "last_name", "email", "username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "paid"], ["last_name", "paid"], ["email", "paid@paid.com"], ["username", "paid"], ["password_digest", "$2a$12$J8rWYD2PYR.ldmU2bND4WueArjzdus/UYtBABaZv6kQLlST5pyzlG"], ["created_at", "2020-11-03 18:22:25.002730"], ["updated_at", "2020-11-03 18:22:25.002730"]]
+  ↳ app/controllers/admin_users_controller.rb:16:in `create'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admin_users_controller.rb:16:in `create'
+Redirected to http://127.0.0.1:3000/admin_users
+Completed 302 Found in 674ms (ActiveRecord: 3.0ms | Allocations: 3056)
+
+
+Started GET "/admin_users" for 127.0.0.1 at 2020-11-03 12:22:25 -0600
+Processing by AdminUsersController#index as HTML
+  Rendering admin_users/index.html.erb within layouts/application
+  [1m[36mAdminUser Load (1.7ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" ORDER BY last_name ASC, first_name ASC[0m
+  ↳ app/views/admin_users/index.html.erb:14
+  Rendered admin_users/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 926)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 24.8ms | ActiveRecord: 1.7ms | Allocations: 5451)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-11-03 12:27:21 -0600
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AccessController#menu as HTML
+  Rendering access/menu.html.erb within layouts/application
+  Rendered access/menu.html.erb within layouts/application (Duration: 1.0ms | Allocations: 413)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 115ms (Views: 86.0ms | ActiveRecord: 0.0ms | Allocations: 14524)
+
+
+Started GET "/admin_users" for 127.0.0.1 at 2020-11-03 12:27:23 -0600
+Processing by AdminUsersController#index as HTML
+  Rendering admin_users/index.html.erb within layouts/application
+  [1m[36mAdminUser Load (4.4ms)[0m  [1m[34mSELECT "admin_users".* FROM "admin_users" ORDER BY last_name ASC, first_name ASC[0m
+  ↳ app/views/admin_users/index.html.erb:14
+  Rendered admin_users/index.html.erb within layouts/application (Duration: 49.8ms | Allocations: 6006)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 82ms (Views: 57.0ms | ActiveRecord: 15.7ms | Allocations: 11695)
+
+
