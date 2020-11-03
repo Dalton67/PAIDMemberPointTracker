@@ -1,6 +1,6 @@
 <div class="members show">
   <h2>Show Event</h2>
-
+<center>
   <table  class="centertable" summary="Event detail view">
     <tr>
       <th>ID</th>
@@ -35,4 +35,5 @@
 <% if @event.mapped_id != -1 %>
 <%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post %>
 <% end %>
+</center>
 </div>
