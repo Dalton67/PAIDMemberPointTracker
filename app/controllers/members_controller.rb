@@ -53,9 +53,14 @@ class MembersController < ApplicationController
   end
 
   def import_members_from_csv
-    new_member_count = Member.import_members(params[:file])
-    redirect_to(members_path)
-    flash[:notice] = "#{new_member_count} new members users created successfully"
+    if !params[:file] 
+      redirect_to(members_bulk_create_path)
+      flash[:notice] = "No file specified - please add csv"
+    else
+      new_member_count = Member.import_members(params[:file])
+      redirect_to(members_path)
+      flash[:notice] = "#{new_member_count} new members users created successfully"
+    end
   end
 
   def apimport
