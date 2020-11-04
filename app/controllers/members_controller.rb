@@ -53,7 +53,7 @@ class MembersController < ApplicationController
   end
 
   def import_members_from_csv
-    new_member_count = Member.import(params[:file])
+    new_member_count = Member.import_members(params[:file])
     redirect_to(members_path)
     flash[:notice] = "#{new_member_count} new members users created successfully"
   end
@@ -77,6 +77,19 @@ class MembersController < ApplicationController
     @member = Member.new
     @member.email = params[:email] if params[:email]
   end
+
+  def bulk_create
+    #flash[:notice] = "Creating members..."
+  end
+
+
+        # <td>
+        #   <%=file_field_tag :file, :class => "button"%>
+        #   <%= submit_tag "Import", :class => "button"%>
+        #   <%= submit_tag "Import", :class => "button", {:controller => "member", :action => "import_members_from_csv", :file => } , :method=>:post  %>
+        # </td>
+
+
 
   def create
     @member = Member.new(member_params)
