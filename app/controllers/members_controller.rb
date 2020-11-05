@@ -47,15 +47,19 @@ class MembersController < ApplicationController
   end
 
   def import
-    data = Member.import(params[:file],params[:points_worth],params[:id],params[:semester])
-    session[:data] = data
-    session[:points_worth] = params[:points_worth]
-    session[:semester] = params[:semester]
-    if !data.empty?
-      redirect_to missing_members_path
-    else 
-      redirect_to(members_path)
-    end 
+    session[:return_to] ||= request.referer
+    begin
+      data = Member.import(params[:file],params[:points_worth],params[:id],params[:semester])
+      session[:data] = data
+      if !data.empty?
+        redirect_to missing_members_path
+      else
+        redirect_to(members_path)
+      end
+    rescue Exception => exc
+      flash[:error] = "You must upload a csv."
+      redirect_to session.delete(:return_to)
+    end
   end
 
   def import_members_from_csv
@@ -76,12 +80,12 @@ class MembersController < ApplicationController
     session[:semester] = params[:search]
     if !data.empty?
       redirect_to missing_members_path
-    else 
+    else
        redirect_to(members_path)
-    end 
-   
-  end 
-  
+    end
+
+  end
+
   def show
     @member = Member.find(params[:id])
   end
@@ -113,11 +117,11 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
     if @member.save
       session[:data].delete(@member.email)
-      if session[:data] 
-        redirect_to missing_members_path 
-      else 
+      if session[:data]
+        redirect_to missing_members_path
+      else
         redirect_to(members_path)
-      end 
+      end
     else
       render('new')
     end
@@ -158,11 +162,11 @@ class MembersController < ApplicationController
 
   def export
     file = "#{Rails.root}/public/PAIDMemberData.csv"
-    
 
-    table = Member.all;0 
+
+    table = Member.all;0
     wanted_columns = [:id, :first_name, :last_name, :email, :fall_points, :spring_points, :total_points ]
-    
+
     columns = %w(id first_name last_name email fall_points spring_points total_points)
     CSV.open( file, 'w' ) do |writer|
       writer << wanted_columns

@@ -26,7 +26,7 @@ class Member < ApplicationRecord
         member.update_attribute(:total_points, member.fall_points + member.spring_points)
         if  member.events.exclude? event
           member.events << event
-        end 
+        end
         member.save()
       else
         data.push(row['email'])
@@ -74,15 +74,15 @@ class Member < ApplicationRecord
           member.update_attribute(:total_points, member.fall_points + member.spring_points)
           if  member.events.exclude? event
             member.events << event
-          end 
+          end
           member.save()
         else
           data.push(row['email'])
         end
       end
     return data
-  end 
-  
+  end
+
 
   def self.search(search)
     if search
