@@ -10,11 +10,9 @@ class MembersController < ApplicationController
 
     if params[:search] != ''
       @searched_members = Member.search(params[:search]) if params[:search]
-      # puts "search"
       puts params[:search]
     else
       @searched_members = Member.all
-      # puts "non-search"
     end
 
     if params[:sort] == 'total_points'
@@ -42,7 +40,6 @@ class MembersController < ApplicationController
     @missing_members = session[:data]
     @points = session[:points_worth]
     @semester = session[:semester]
-    puts "&&&&&&&"
     puts @semester
   end
 
