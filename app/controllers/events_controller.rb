@@ -2,8 +2,7 @@
 
 class EventsController < ApplicationController
   before_action :confirm_logged_in
-  config.load_defaults 6.0
-  config.autoloader = :classic
+
   def index
     @events = Event.order(:id)
   end
@@ -14,6 +13,7 @@ class EventsController < ApplicationController
   end
 
   def new
+    @events = Event.new
   end
 
   def create
@@ -98,6 +98,11 @@ class EventsController < ApplicationController
     @events.destroy
     redirect_to(events_path)
   end
+
+  def getEvents
+    Event.apiEvents()
+    redirect_to(events_path)
+  end 
 
   private
 
