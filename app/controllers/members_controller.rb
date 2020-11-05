@@ -40,7 +40,6 @@ class MembersController < ApplicationController
     @missing_members = session[:data]
     @points = session[:points_worth]
     @semester = session[:semester]
-    puts @semester
   end
 
   def import
@@ -48,6 +47,8 @@ class MembersController < ApplicationController
     begin
       data = Member.import(params[:file],params[:points_worth],params[:id],params[:semester])
       session[:data] = data
+      session[:points_worth] = params[:points_worth]
+      session[:semester] = params[:semester]
       if !data.empty?
         redirect_to missing_members_path
       else
