@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   resources :events do 
     collection { get :getEvents }
   end 
+  
+  event do
+      get :delete
+  end
 
   get '/members/reset' => 'members#reset'
   get '/members/export' => 'members#export'
