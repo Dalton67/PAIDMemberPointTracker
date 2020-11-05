@@ -40,6 +40,10 @@ class MembersController < ApplicationController
 
   def missing
     @missing_members = session[:data]
+    @points = session[:points_worth]
+    @semester = session[:semester]
+    puts "&&&&&&&"
+    puts @semester
   end
 
   def import
@@ -58,9 +62,22 @@ class MembersController < ApplicationController
     end
   end
 
+  def import_members_from_csv
+    if !params[:file] 
+      redirect_to(members_bulk_create_path)
+      flash[:notice] = "No file specified - please add csv"
+    else
+      new_member_count = Member.import_members(params[:file])
+      redirect_to(members_path)
+      flash[:notice] = "#{new_member_count} new members created successfully"
+    end
+  end
+
   def apimport
     data = Member.api(params[:mapped_id].to_i,params[:semester])
     session[:data] = data
+    session[:points_worth] = params[:points_worth]
+    session[:semester] = params[:search]
     if !data.empty?
       redirect_to missing_members_path
     else
@@ -76,7 +93,25 @@ class MembersController < ApplicationController
   def new
     @member = Member.new
     @member.email = params[:email] if params[:email]
+    if params[:semester] == "Fall"
+      @member.fall_points = params[:points] if params[:points]
+    else 
+      @member.spring_points = params[:points] if params[:points]
+    end 
   end
+
+  def bulk_create
+    #flash[:notice] = "Creating members..."
+  end
+
+
+        # <td>
+        #   <%=file_field_tag :file, :class => "button"%>
+        #   <%= submit_tag "Import", :class => "button"%>
+        #   <%= submit_tag "Import", :class => "button", {:controller => "member", :action => "import_members_from_csv", :file => } , :method=>:post  %>
+        # </td>
+
+
 
   def create
     @member = Member.new(member_params)

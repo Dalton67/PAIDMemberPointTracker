@@ -7,7 +7,7 @@
     <tr>
       <td><%= email %></td>
       <td class="actions">
-      <%= link_to("Create New Member", new_member_path(email: email)) %>
+      <%= link_to("Create New Member", new_member_path(email: email, points: @points, semester: @semester)) %>
       </td>
     </tr>
     <% end %>

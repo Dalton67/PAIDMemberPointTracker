@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'admin', to: 'access#menu'
   post 'access/attempt_login'
   get 'access/logout'
+  get 'members/bulk_create'
 
   resources :events do 
     collection { get :getEvents }
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :members do
     collection { post :import }
+    collection { post :import_members_from_csv }
     collection { get :missing }
     collection { post :apimport }
     member do
