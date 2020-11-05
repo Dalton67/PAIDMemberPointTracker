@@ -48,7 +48,6 @@
         </td>
       </tr>
   </table>
-
 <% if @event.mapped_id != -1 && (@event.semester == 'Fall' || @event.semester == 'Spring')%>
 <% if @event.semester == 'Fall' %>
 <%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post, data: { :confirm => 'This will add points to the Fall semester for all members who attended this event. Proceed?' } %>
