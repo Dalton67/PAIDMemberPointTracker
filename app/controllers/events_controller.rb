@@ -90,7 +90,7 @@ class EventsController < ApplicationController
   end
 
   def delete
-    @events = Event.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def destroy
@@ -98,6 +98,11 @@ class EventsController < ApplicationController
     @events.destroy
     redirect_to(events_path)
   end
+
+  def getEvents
+    Event.apiEvents()
+    redirect_to(events_path)
+  end 
 
   private
 
