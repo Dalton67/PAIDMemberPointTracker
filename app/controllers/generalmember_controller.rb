@@ -4,7 +4,7 @@ class GeneralmemberController < ApplicationController
 
   def index
     @searched_members = Member.all
-    @members = Member.all
+    @members = Member.paginate(:page => params[:page], :per_page => 50)
 
     if params[:search] != ''
       @searched_members = Member.search(params[:search]) if params[:search]

@@ -26,7 +26,6 @@ gem 'bcrypt', '~> 3.1.7'
 # jquery
 gem "jquery-rails"
 
-gem "httparty"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -50,12 +49,11 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'simplecov'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
-  gem 'rspec-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'will_paginate', '~> 3.0'
