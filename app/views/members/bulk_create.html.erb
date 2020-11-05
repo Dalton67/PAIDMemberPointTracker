@@ -1,0 +1,28 @@
+<div class="members show">
+  <h2>Bulk Add Members</h2>
+
+  <table  class="centertable" summary="Bulk Add Members">
+  <center>
+  <p >
+  Required Columns (Exact Name Necessary): <br>
+  Email Address
+  <br>
+  First Name: (Ex: Evan)
+  <br>
+  Last Name (Ex: Vestal)
+
+  <br> <br>
+  If members aren't added when you think they should be, check column formatting first - and ensure file is csv format
+  </p>
+  
+    <tr>
+        <th><%= link_to("<< Back to List", members_path, :class => 'back-link') %></th>
+        <td><%=form_tag import_members_from_csv_members_path(:file), multipart: true do%>
+          <%=file_field_tag :file, :class => "button"%>
+          <%= submit_tag "Import", :class => "button"%>
+        <% end %>
+        </td>
+    </tr>
+  </table>
+  <center>
+</div>

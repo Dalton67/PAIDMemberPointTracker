@@ -34,6 +34,27 @@ class Member < ApplicationRecord
     end
     return data
   end
+
+  def self.import_members(file)
+    new_member_count = 0
+    CSV.foreach(file.path, headers: true) do |row|
+      member = Member.find_by(email: row['Email Address'])
+      
+      # if member is already in DB, no need to add
+      if member
+        next  
+      else
+        new_member = Member.new
+        new_member.update_attribute(:email, row['Email Address'])
+        new_member.update_attribute(:first_name, row['First Name: (Ex: Evan)'])
+        new_member.update_attribute(:last_name, row['Last Name (Ex: Vestal)'])
+        new_member.save()
+        new_member_count += 1
+      end
+    end
+    return new_member_count
+  end
+
   def self.api(id,semester)
     r = RestClient.new
     # semester = semester

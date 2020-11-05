@@ -58,6 +58,17 @@ class MembersController < ApplicationController
     end 
   end
 
+  def import_members_from_csv
+    if !params[:file] 
+      redirect_to(members_bulk_create_path)
+      flash[:notice] = "No file specified - please add csv"
+    else
+      new_member_count = Member.import_members(params[:file])
+      redirect_to(members_path)
+      flash[:notice] = "#{new_member_count} new members created successfully"
+    end
+  end
+
   def apimport
     data = Member.api(params[:mapped_id].to_i,params[:semester])
     session[:data] = data
@@ -84,6 +95,19 @@ class MembersController < ApplicationController
       @member.spring_points = params[:points] if params[:points]
     end 
   end
+
+  def bulk_create
+    #flash[:notice] = "Creating members..."
+  end
+
+
+        # <td>
+        #   <%=file_field_tag :file, :class => "button"%>
+        #   <%= submit_tag "Import", :class => "button"%>
+        #   <%= submit_tag "Import", :class => "button", {:controller => "member", :action => "import_members_from_csv", :file => } , :method=>:post  %>
+        # </td>
+
+
 
   def create
     @member = Member.new(member_params)
