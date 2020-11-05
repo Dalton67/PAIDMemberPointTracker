@@ -11,8 +11,12 @@ Rails.application.routes.draw do
   get 'access/logout'
   get 'members/bulk_create'
 
+  delete '/events/:id' => 'events#destroy'
   resources :events do 
     collection { get :getEvents }
+    member do
+      get :delete
+    end
   end 
 
   get '/members/reset' => 'members#reset'
