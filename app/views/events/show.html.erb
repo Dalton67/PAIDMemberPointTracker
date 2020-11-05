@@ -55,7 +55,7 @@
 <%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post, data: { :confirm => 'This will add points to the Spring semester for all members who attended this event. Proceed?' } %>
 <% end %>
 <% else %>
-<h3>* To distribute points to atendees, select a semester. *</h3>
+<h3>* To distribute points to attendees, select a semester. *</h3>
 <% end %>
 </center>
 </div>
