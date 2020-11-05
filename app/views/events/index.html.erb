@@ -5,12 +5,10 @@
 
 
   <h2 style="text-align:center">
-<!--     <%= link_to '<button class="button">Add New Event</button>'.html_safe, new_event_path, :class => 'action new' %>
-    <%= link_to '<button class="button">View Members</button>'.html_safe, members_path, :class => 'action index' %> -->
-    <%= link_to("Add New Event", new_event_path, :class => 'action new') %>
-    <%= link_to("View Members", members_path, :class => 'action index') %>
-    <%= link_to("Admin Users Menu", members_path, :class => 'action index') %>
-    <%= button_to "Refresh Events", getEvents_events_path,:method => :get %>
+    <%= link_to '<button class="button">Refresh</button>'.html_safe, getEvents_events_path, :class => 'action get' %>
+    <%= link_to '<button class="button">View Members</button>'.html_safe, members_path, :class => 'action index' %>
+    <%= link_to '<button class="button">Add New Event</button>'.html_safe, new_event_path, :class => 'action new' %>
+    <%= link_to '<button class="button">Admin Users Menu</button>'.html_safe, members_path, :class => 'action index' %>
   </h2>
   <table class="centertable" summary="Member list">
 
