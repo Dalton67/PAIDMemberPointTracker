@@ -59,7 +59,7 @@ class MembersController < ApplicationController
     else
       new_member_count = Member.import_members(params[:file])
       redirect_to(members_path)
-      flash[:notice] = "#{new_member_count} new members users created successfully"
+      flash[:notice] = "#{new_member_count} new members created successfully"
     end
   end
 
