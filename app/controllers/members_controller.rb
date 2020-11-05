@@ -40,6 +40,8 @@ class MembersController < ApplicationController
     @missing_members = session[:data]
     @points = session[:points_worth]
     @semester = session[:semester]
+    puts "$$$$$$$$$$$$$$$$$"
+    puts @semester
   end
 
   def import
@@ -49,6 +51,8 @@ class MembersController < ApplicationController
       session[:data] = data
       session[:points_worth] = params[:points_worth]
       session[:semester] = params[:semester]
+      puts "%%%%%%%%%%%%%%%"
+      puts  params[:semester]
       if !data.empty?
         redirect_to missing_members_path
       else
@@ -75,7 +79,9 @@ class MembersController < ApplicationController
     data = Member.api(params[:mapped_id].to_i,params[:semester])
     session[:data] = data
     session[:points_worth] = params[:points_worth]
-    session[:semester] = params[:search]
+    session[:semester] = params[:semester]
+    puts "%%%%%%%%%%%%%%%"
+    puts  session[:semester]
     if !data.empty?
       redirect_to missing_members_path
     else
@@ -101,16 +107,6 @@ class MembersController < ApplicationController
   def bulk_create
     #flash[:notice] = "Creating members..."
   end
-
-
-        # <td>
-        #   <%=file_field_tag :file, :class => "button"%>
-        #   <%= submit_tag "Import", :class => "button"%>
-        #   <%= submit_tag "Import", :class => "button", {:controller => "member", :action => "import_members_from_csv", :file => } , :method=>:post  %>
-        # </td>
-
-
-
   def create
     @member = Member.new(member_params)
     if @member.save
