@@ -3,6 +3,7 @@
 class GeneralmemberController < ApplicationController
   def index
     @members = Member.order(:id)
+    @members = Member.paginate(:page => params[:page], :per_page => 50)
   end
 
   private
