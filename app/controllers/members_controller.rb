@@ -102,6 +102,8 @@ class MembersController < ApplicationController
     else 
       @member.spring_points = params[:points] if params[:points]
     end 
+    @member.total_points = @member.fall_points+@member.spring_points
+    @member.save()
   end
 
   def bulk_create
@@ -128,6 +130,8 @@ class MembersController < ApplicationController
   def update
     @member = Member.find(params[:id])
     if @member.update_attributes(member_params)
+      @member.total_points = @member.fall_points+@member.spring_points
+      @member.save()
       redirect_to(member_path(@member))
     else
       render('new')

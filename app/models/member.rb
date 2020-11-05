@@ -9,7 +9,7 @@ class Member < ApplicationRecord
   def init
     self.fall_points ||= 0
     self.spring_points ||= 0
-    self.total_points ||= 0
+    self.total_points ||=  self.fall_points + self.spring_points
   end
 
   def self.import(file, points, id, semester)
