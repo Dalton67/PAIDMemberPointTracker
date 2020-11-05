@@ -2,12 +2,12 @@
   <h1 style="text-align:center">PAID Points</h1>
 
 
-  <%= form_tag members_path, :method => "get", id: "search-form" do %>
+  <%= form_tag generalmember_index_path, :method => "get", id: "search-form" do %>
     <div>
       <%= label_tag("Search for a member:") %>
       <%= text_field_tag :search, params[:search], placeholder: "Enter name or email" %>
       <%= submit_tag "Search", :name => nil, :class => "button" %>
-      <%= link_to '<button class="button">Reset</button>'.html_safe, members_path(sort: 'total_points', search: '') %>
+      <%= link_to '<button class="button">Reset</button>'.html_safe, generalmember_index_path(sort: 'total_points', search: '') %>
     </div>
 
     <br>
@@ -19,7 +19,7 @@
 
     <br>
 
-    <%= link_to '<button class="button">Export Table</button>'.html_safe, :controller => :members, :action => :export %>
+    <%# <%= link_to '<button class="button">Export Table</button>'.html_safe, :controller => :members, :action => :export %>
   <% end %>
 
     <br>
