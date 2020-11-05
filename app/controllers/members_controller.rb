@@ -6,7 +6,8 @@ class MembersController < ApplicationController
 
   def index
     @searched_members = Member.all
-    @members = Member.paginate(:page => params[:page], :per_page => 50)
+    @members = Member.all
+
     if params[:search] != ''
       @searched_members = Member.search(params[:search]) if params[:search]
       # puts "search"
@@ -46,7 +47,6 @@ class MembersController < ApplicationController
   end
 
   def import
-
     session[:return_to] ||= request.referer
     begin
       data = Member.import(params[:file],params[:points_worth],params[:id],params[:semester])
@@ -85,7 +85,7 @@ class MembersController < ApplicationController
     end
 
   end
-  
+
   def show
     @member = Member.find(params[:id])
   end

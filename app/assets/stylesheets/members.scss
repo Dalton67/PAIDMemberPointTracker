@@ -56,39 +56,6 @@ a:hover { color: #003C71}
   a:hover { color: #003C71}
 }
 
-.button_pagination {
-  text-align: center;
-  padding: 0.3em;
-  cursor: default; }
-  .button_pagination a, .button_pagination span, .button_pagination em {
-    padding: 0.2em 0.5em; }
-  .button_pagination .disabled {
-    color: $grey; }
-  .button_pagination .current {
-    font-style: normal;
-    font-weight: bold;
-    color: #003C71; }
-  .button_pagination a {
-    border: 1px outset $maroon;
-    color: $white;
-    background: $maroon;
-    text-decoration: none; }
-    .button_pagination a:hover, .button_pagination a:focus {
-      border: 1px inset #003C71;
-      background: #003C71;
-      color: $white; }
-  .button_pagination .page_info {
-    color: $grey;
-    padding-top: 0.8em; }
-  .button_pagination .previous_page, .button_pagination .next_page {
-    border-width: 2px; }
-  .button_pagination .previous_page {
-    margin-right: 1em; }
-  .button_pagination .next_page {
-    margin-left: 1em; }
-
-
-
 /* Structure */
 #header {
   height: 10%;

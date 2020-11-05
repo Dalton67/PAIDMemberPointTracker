@@ -5,7 +5,6 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.order(:id)
-    @events = Event.paginate(:page => params[:page], :per_page => 50)
   end
 
   def show
@@ -99,6 +98,11 @@ class EventsController < ApplicationController
     @events.destroy
     redirect_to(events_path)
   end
+
+  def getEvents
+    Event.apiEvents()
+    redirect_to(events_path)
+  end 
 
   private
 
