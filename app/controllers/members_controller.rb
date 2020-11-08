@@ -10,11 +10,9 @@ class MembersController < ApplicationController
 
     if params[:search] != ''
       @searched_members = Member.search(params[:search]) if params[:search]
-      # puts "search"
       puts params[:search]
     else
       @searched_members = Member.all
-      # puts "non-search"
     end
 
     if params[:sort] == 'total_points'
@@ -40,19 +38,55 @@ class MembersController < ApplicationController
 
   def missing
     @missing_members = session[:data]
+    @points = session[:points_worth]
+    @semester = session[:semester]
+    puts "$$$$$$$$$$$$$$$$$"
+    puts @semester
   end
 
   def import
-    data = Member.import(params[:file],params[:points_worth],params[:id],params[:semester])
+    session[:return_to] ||= request.referer
+    begin
+      data = Member.import(params[:file],params[:points_worth],params[:id],params[:semester])
+      session[:data] = data
+      session[:points_worth] = params[:points_worth]
+      session[:semester] = params[:semester]
+      puts "%%%%%%%%%%%%%%%"
+      puts  params[:semester]
+      if !data.empty?
+        redirect_to missing_members_path
+      else
+        redirect_to(members_path)
+      end
+    rescue Exception => exc
+      flash[:error] = "You must upload a csv."
+      redirect_to session.delete(:return_to)
+    end
+  end
+
+  def import_members_from_csv
+    if !params[:file] 
+      redirect_to(members_bulk_create_path)
+      flash[:notice] = "No file specified - please add csv"
+    else
+      new_member_count = Member.import_members(params[:file])
+      redirect_to(members_path)
+      flash[:notice] = "#{new_member_count} new members created successfully"
+    end
+  end
+
+  def apimport
+    data = Member.api(params[:mapped_id].to_i,params[:semester])
     session[:data] = data
-
-    redirect_to missing_members_path
-
-#     if data.empty?
-#       redirect_to(members_path)
-#     else
-#       redirect_to missing_members_path
-#     end
+    session[:points_worth] = params[:points_worth]
+    session[:semester] = params[:semester]
+    puts "%%%%%%%%%%%%%%%"
+    puts  session[:semester]
+    if !data.empty?
+      redirect_to missing_members_path
+    else
+       redirect_to(members_path)
+    end
 
   end
 
@@ -63,14 +97,22 @@ class MembersController < ApplicationController
   def new
     @member = Member.new
     @member.email = params[:email] if params[:email]
+    if params[:semester] == "Fall"
+      @member.fall_points = params[:points] if params[:points]
+    else 
+      @member.spring_points = params[:points] if params[:points]
+    end 
+    @member.total_points = @member.fall_points+@member.spring_points
+    @member.save()
   end
 
+  def bulk_create
+    #flash[:notice] = "Creating members..."
+  end
   def create
     @member = Member.new(member_params)
     if @member.save
-      if @member.email != nil && @member != nil && session[:data] != nil
-        session[:data].delete(@member.email)
-      end
+      session[:data].delete(@member.email)
       if session[:data]
         redirect_to missing_members_path
       else
@@ -88,6 +130,8 @@ class MembersController < ApplicationController
   def update
     @member = Member.find(params[:id])
     if @member.update_attributes(member_params)
+      @member.total_points = @member.fall_points+@member.spring_points
+      @member.save()
       redirect_to(member_path(@member))
     else
       render('new')

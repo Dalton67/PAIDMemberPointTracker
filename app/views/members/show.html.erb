@@ -1,6 +1,8 @@
 <div class="centertable">
+<th><%= link_to("<< Back to List", members_path, :class => 'back-link') %></th>
   <h2>Member Details</h2>
 
+  <center>
   <table summary="Member detail view">
     <tr>
       <th>ID</th>
@@ -16,10 +18,6 @@
     </tr>
     <tr>
       <th>Fall Points</th>
-      <td><%= @member.total_points %></td>
-    </tr>
-    <tr>
-      <th>Fall Points</th>
       <td><%= @member.fall_points %></td>
     </tr>
     <tr>
@@ -28,24 +26,19 @@
     </tr>
     <tr>
       <th>Total Points</th>
-      <td><%= @member.total_points %></td>
+      <td><%= @member.total_points = @member.fall_points+@member.spring_points %>
+          <% @member.save%>
+      </td>
     </tr>
     <tr>
-      <th><%= link_to("<< Back to List", members_path, :class => 'back-link') %></th>
-    <th>Events Attended</th>
-     <% Event.find(@member.event_ids).each do |event| %>
-      <td><%= event.title %>
-      <% end %>
-      </td>
-      
-    </tr>    
+    </tr>
   </table>
+  </center>
 
   <h2>Events Attended</h2>
   <table summary="Events view" class="centertable">
   <% Event.find(@member.event_ids).each do |event| %>
   <tr>
-    <th>Event Name</th>
     <td><%= event.title %>
     <% end %>
   </tr>

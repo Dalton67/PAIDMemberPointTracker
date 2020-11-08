@@ -23,10 +23,6 @@ default: &default
 # <<<<<<< development
 #   username: tamucru
 #   password: password
-# =======
-  username: tamucru
-  password: password
-# >>>>>>> testing
 development:
   <<: *default
   database: PAID_development

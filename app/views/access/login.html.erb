@@ -1,12 +1,12 @@
 <% @page_title = "Admin Login" %>
-
+<%= link_to("<< Back to General Member Menu", generalmember_index_path, :class => 'back-link') %>
 <div class="login">
   <%= form_tag(access_attempt_login_path, :method => :post) do %>
   <table class="centertable">
     <tr>
       <td><%= label_tag(:username) %></td>
       <td><%= text_field_tag(:username, params[:username]) %></td>
-    </tr>
+    </tr>s
     <tr>
       <td><%= label_tag(:password) %></td>
       <td><%= password_field_tag(:password) %></td>

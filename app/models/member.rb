@@ -4,31 +4,20 @@ class Member < ApplicationRecord
   has_and_belongs_to_many :events
   after_initialize :init
   require 'csv'
+  require 'json'
+  require 'restclient.rb'
   def init
     self.fall_points ||= 0
     self.spring_points ||= 0
-    self.total_points ||= 0
+    self.total_points ||=  self.fall_points + self.spring_points
   end
-
-#   def self.import(file,points,id)
-#     data = Array.new
-#     event = Event.find(id)
-#     CSV.foreach(file.path,headers:true) do |row|
-#       member = Member.find_by(email: row['email'])
-#       if member
-#         puts points
-#         member.update_attribute(:total_points, points.to_i+member.total_points)
-#         if  member.events.exclude? event
-#           member.events << event
-#         end 
-#         member.save()
 
   def self.import(file, points, id, semester)
     data = []
+    event = Event.find(id)
     CSV.foreach(file.path, headers: true) do |row|
       member = Member.find_by(email: row['email'])
       if member
-        puts points
         if semester == 'Fall'
           member.update_attribute(:fall_points, points.to_i + member.fall_points)
         else
@@ -37,14 +26,63 @@ class Member < ApplicationRecord
         member.update_attribute(:total_points, member.fall_points + member.spring_points)
         if  member.events.exclude? event
           member.events << event
-        end 
+        end
         member.save()
       else
         data.push(row['email'])
       end
     end
-    data
+    return data
   end
+
+  def self.import_members(file)
+    new_member_count = 0
+    CSV.foreach(file.path, headers: true) do |row|
+      member = Member.find_by(email: row['Email Address'])
+      
+      # if member is already in DB, no need to add
+      if member
+        next  
+      else
+        new_member = Member.new
+        new_member.update_attribute(:email, row['Email Address'])
+        new_member.update_attribute(:first_name, row['First Name: (Ex: Evan)'])
+        new_member.update_attribute(:last_name, row['Last Name (Ex: Vestal)'])
+        new_member.save()
+        new_member_count += 1
+      end
+    end
+    return new_member_count
+  end
+
+  def self.api(id,semester)
+    r = RestClient.new
+    # semester = semester
+    result = r.event(id)
+    v = JSON.parse(result.body)
+    points = v["points"].to_i
+    data = []
+    event = Event.find_by(mapped_id: 9)
+      v["sign_ins"].each do |row|
+        member = Member.find_by(email: row['email'])
+        if member
+          if semester == 'Fall'
+            member.update_attribute(:fall_points, points.to_i + member.fall_points)
+          else
+            member.update_attribute(:spring_points, points.to_i + member.spring_points)
+          end
+          member.update_attribute(:total_points, member.fall_points + member.spring_points)
+          if  member.events.exclude? event
+            member.events << event
+          end
+          member.save()
+        else
+          data.push(row['email'])
+        end
+      end
+    return data
+  end
+
 
   def self.search(search)
     if search

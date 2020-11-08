@@ -6,6 +6,7 @@
   <%= link_to '<button class="button">View Events</button>'.html_safe, events_path, :class => 'action index' %>
   <%= link_to '<button class="button">Admin Users Menu</button>'.html_safe, admin_path, :class => 'action index' %>
   <%= link_to '<button class="button">Reset Members</button>'.html_safe, members_reset_path, :class => 'action index' %>
+  <%= link_to '<button class="button">Bulk Add New Members</button>'.html_safe, members_bulk_create_path, :class => 'action new' %>
   </h2>
 
   <%= form_tag members_path, :method => "get", id: "search-form" do %>
@@ -46,7 +47,7 @@
       <td><%= member.last_name %></td>
       <td class="center"><%= member.fall_points %></td>
       <td class="center"><%= member.spring_points %></td>
-      <td class="center"><%= member.total_points %></td>
+      <td class="center"><%= member.total_points = member.fall_points+member.spring_points %></td>
       <td class="actions">
         <%= link_to "Show", member_path(member), :class => 'action show' %>
         <%= link_to "Edit", edit_member_path(member), :class => 'action edit' %>

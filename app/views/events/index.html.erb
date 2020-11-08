@@ -1,11 +1,17 @@
 <div class="events index">
-  <h1>Events</h1>
+  <h1 style="text-align:center">PAID Events</h1>
+
+
+
 
   <h2 style="text-align:center">
-    <%= link_to '<button class="button">Add New Event</button>'.html_safe, new_event_path, :class => 'action new' %>
+    <%= link_to '<button class="button">Refresh</button>'.html_safe, getEvents_events_path, :class => 'action get' %>
     <%= link_to '<button class="button">View Members</button>'.html_safe, members_path, :class => 'action index' %>
+    <%= link_to '<button class="button">Add New Event</button>'.html_safe, new_event_path, :class => 'action new' %>
+    <%= link_to '<button class="button">Admin Users Menu</button>'.html_safe, members_path, :class => 'action index' %>
   </h2>
   <table class="centertable" summary="Member list">
+
     <tr class="header">
       <th>ID</th>
       <th>Title</th>
@@ -22,6 +28,7 @@
       <td class="actions">
         <%= link_to("Show", event_path(event), :class => 'action show') %>
         <%= link_to("Edit", edit_event_path(event), :class => 'action edit') %>
+        <%= link_to("Delete", delete_event_path(event), :class => 'action delete') %>
       </td>
     </tr>
     <% end %>

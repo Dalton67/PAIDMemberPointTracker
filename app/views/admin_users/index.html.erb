@@ -1,8 +1,9 @@
 <%= link_to("<< Back to Menu", admin_path, :class => 'back-link') %>
 <div class="admin-users index">
   <h2>Admin Users</h2>
-
-  <%= link_to("Add New Admin User", new_admin_user_path, :class => 'action new') %>
+  <h2 style="text-align:center">
+  <%= link_to '<button class="button">Add New Admin User</button>'.html_safe, new_admin_user_path, :class => 'action new' %>
+  </h2>
   
   <table class="listing" summary="Admin User List">
     <tr class="header">
