@@ -12,4 +12,13 @@ RSpec.feature "Forms", type: :feature do
         fill_in 'password', with: "test" 
         click_on 'Log In'
     end
+    it "logging in gives access to documentation" do
+      visit '/access/login'
+      fill_in 'username', with: 'testing'
+      fill_in 'password', with: 'testing'
+      click_on "Log In"
+      expect(page).to have_content 'Admin Menu'
+      click_on "Documentation"
+      expect(page).to have_content 'HOW TO USE:'
+    end
 end
