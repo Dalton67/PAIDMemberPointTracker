@@ -22,3 +22,51 @@ RSpec.feature "Forms", type: :feature do
       expect(page).to have_content 'HOW TO USE:'
     end
 end
+
+describe "the signin process", type: :feature do
+  before :each do
+    a = AdminUser.new(username: 'testing', password: 'testing')
+    a.save()
+  end
+  it "signs me in" do
+    visit '/access/login'
+    fill_in 'username', with: 'testing'
+    fill_in 'password', with: 'testing'
+    click_on "Log In"
+    expect(page).to have_content 'Admin Menu'
+    click_on "Manage Members"
+    expect(page).to have_content 'Add New Member'
+  end
+  
+  it "signs me in create member" do
+    visit '/access/login'
+    fill_in 'username', with: 'testing'
+    fill_in 'password', with: 'testing'
+    click_on "Log In"
+    expect(page).to have_content 'Admin Menu'
+    click_on "Manage Members"
+    expect(page).to have_content 'Add New Member'
+  end
+
+  it "logs out and ends session" do
+    visit '/access/login'
+    fill_in 'username', with: 'testing'
+    fill_in 'password', with: 'testing'
+    click_on "Log In"
+    expect(page).to have_content 'Admin Menu'
+    click_on "Logout"
+    expect(page).to have_content 'Logged out'
+  end
+
+  it "loggging out restricts access" do
+    visit '/access/login'
+    fill_in 'username', with: 'testing'
+    fill_in 'password', with: 'testing'
+    click_on "Log In"
+    expect(page).to have_content 'Admin Menu'
+    click_on "Logout"
+    expect(page).to have_content 'Logged out'
+    visit '/members'
+    expect(page).to have_content 'Please log in'
+  end
+end
