@@ -40,8 +40,6 @@ class MembersController < ApplicationController
     @missing_members = session[:data]
     @points = session[:points_worth]
     @semester = session[:semester]
-    puts "$$$$$$$$$$$$$$$$$"
-    puts @semester
   end
 
   def import
@@ -51,8 +49,6 @@ class MembersController < ApplicationController
       session[:data] = data
       session[:points_worth] = params[:points_worth]
       session[:semester] = params[:semester]
-      puts "%%%%%%%%%%%%%%%"
-      puts  params[:semester]
       if !data.empty?
         redirect_to missing_members_path
       else
@@ -80,14 +76,11 @@ class MembersController < ApplicationController
     session[:data] = data
     session[:points_worth] = params[:points_worth]
     session[:semester] = params[:semester]
-    puts "%%%%%%%%%%%%%%%"
-    puts  session[:semester]
     if !data.empty?
       redirect_to missing_members_path
     else
        redirect_to(members_path)
     end
-
   end
 
   def show
@@ -103,17 +96,20 @@ class MembersController < ApplicationController
       @member.spring_points = params[:points] if params[:points]
     end 
     @member.total_points = @member.fall_points+@member.spring_points
-    @member.save()
+    # @member.save()
   end
 
   def bulk_create
     #flash[:notice] = "Creating members..."
   end
   def create
+    puts "CREATE CALLED"
     @member = Member.new(member_params)
     if @member.save
       session[:data].delete(@member.email)
-      if session[:data]
+      puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+      puts session[:data]
+      if !session[:data].empty?
         redirect_to missing_members_path
       else
         redirect_to(members_path)
