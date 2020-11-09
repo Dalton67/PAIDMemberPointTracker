@@ -35,10 +35,10 @@ RSpec.describe "member crud functionality", type: :system do
     fill_in('member_email', :with => 'test@email.com')
     click_button('Create Member')
     expect(page).to have_content 'Firstname'
+    click_link('<< Back to List')
     click_link('Edit')
     fill_in('member_fall_points', :with => '10')
     fill_in('member_spring_points', :with => '20')
-    fill_in('member_total_points', :with => '30')
     click_button('Update Member')
     click_link('<< Back to List')
     expect(page).to have_content '10'
@@ -50,6 +50,9 @@ RSpec.describe "member crud functionality", type: :system do
     expect(page).not_to have_content 'Firstname'
   end
 end
+
+
+
 
 RSpec.describe "routing to members", type: :routing do
     it "routes /members to members#index" do

@@ -38,6 +38,65 @@ RSpec.describe "member crud functionality", type: :system do
     expect(page).to have_content '1100'
   end
 end
+RSpec.describe "API", type: :system do
+  before :each do
+    a = AdminUser.new(username: 'testing', password: 'testing')
+    a.save()
+  end
+  it "sign in to mamange events" do
+    visit '/access/login'
+    fill_in 'username', with: 'testing'
+    fill_in 'password', with: 'testing'
+    click_on "Log In"
+    expect(page).to have_content 'Admin Menu'
+    click_on "Manage Events"
+    expect(page).to have_content 'Refresh'
+    click_link('Refresh')
+    expect(page).to have_content 'Future'
+  end
+  it do 
+    visit '/access/login'
+    fill_in 'username', with: 'testing'
+    fill_in 'password', with: 'testing'
+    click_on "Log In"
+    expect(page).to have_content 'Admin Menu'
+    click_on "Manage Events"
+    expect(page).to have_content 'Refresh'
+    click_link('Refresh')
+    expect(page).to have_content 'Event Ongoing'
+    first('.actions').click_link('Show')
+  end 
+  it do 
+    visit '/access/login'
+    fill_in 'username', with: 'testing'
+    fill_in 'password', with: 'testing'
+    click_on "Log In"
+    expect(page).to have_content 'Admin Menu'
+    click_on "Manage Events"
+    expect(page).to have_content 'Refresh'
+    click_link('Refresh')
+    expect(page).to have_content 'Event Ongoing'
+    first('.actions').click_link('Show')
+    expect(page).to have_button 'Update Semester'
+    click_button('Update Semester')
+  end 
+  it do 
+    visit '/access/login'
+    fill_in 'username', with: 'testing'
+    fill_in 'password', with: 'testing'
+    click_on "Log In"
+    expect(page).to have_content 'Admin Menu'
+    click_on "Manage Events"
+    expect(page).to have_content 'Refresh'
+    click_link('Refresh')
+    expect(page).to have_content 'Event Ongoing'
+    first('.actions').click_link('Show')
+    expect(page).to have_button 'Update Semester'
+    click_button('Update Semester')
+    expect(page).to have_button 'Import Points from Sign Up'
+    click_button 'Import Points from Sign Up'
+  end 
+end
 RSpec.describe "routing to events", type: :routing do
     it "routes /events to events#index" do
       expect(get: "/events").to route_to(
