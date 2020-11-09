@@ -62,7 +62,7 @@ class Member < ApplicationRecord
     v = JSON.parse(result.body)
     points = v["points"].to_i
     data = []
-    event = Event.find_by(mapped_id: 9)
+    event = Event.find_by(mapped_id: id)
       v["sign_ins"].each do |row|
         member = Member.find_by(email: row['email'])
         if member
