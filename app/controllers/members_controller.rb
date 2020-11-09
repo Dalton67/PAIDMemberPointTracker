@@ -40,6 +40,9 @@ class MembersController < ApplicationController
     @missing_members = session[:data]
     @points = session[:points_worth]
     @semester = session[:semester]
+    @mapped_id = session[:mapped_id]
+    @id = session[:id]
+    @type = session[:type]
   end
 
   def import
@@ -49,6 +52,8 @@ class MembersController < ApplicationController
       session[:data] = data
       session[:points_worth] = params[:points_worth]
       session[:semester] = params[:semester]
+      session[:id] = params[:id]
+      session[:type] = params[:type]
       if !data.empty?
         redirect_to missing_members_path
       else
@@ -76,6 +81,8 @@ class MembersController < ApplicationController
     session[:data] = data
     session[:points_worth] = params[:points_worth]
     session[:semester] = params[:semester]
+    session[:mapped_id] = params[:mapped_id]
+    session[:id] = params[:id]
     if !data.empty?
       redirect_to missing_members_path
     else
@@ -103,12 +110,17 @@ class MembersController < ApplicationController
     #flash[:notice] = "Creating members..."
   end
   def create
-    puts "CREATE CALLED"
     @member = Member.new(member_params)
+    if session[:type] == "api"
+      event = Event.find_by(mapped_id: session[:mapped_id])
+    else 
+      event = Event.find_by(id: session[:id])
+    end 
+    if  @member.events.exclude? event
+      @member.events << event
+    end
     if @member.save
       session[:data].delete(@member.email)
-      puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-      puts session[:data]
       if !session[:data].empty?
         redirect_to missing_members_path
       else

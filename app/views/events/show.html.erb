@@ -30,7 +30,7 @@
     </tr>
     <tr>
         <th>Import Points from CSV File</th>
-        <td><%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester), multipart: true do%>
+        <td><%=form_tag import_members_path(points_worth: @event.points_worth,id: @event.id, semester: @event.semester, type: "file"), multipart: true do%>
           <% if @event.semester == 'Fall' || @event.semester == 'Spring' %>
           <%=file_field_tag :file, :class => "button"%>
           <% if @event.semester == 'Fall' %>
@@ -54,7 +54,7 @@
   <% if @event.semester == 'Fall' %>
   <%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post, data: { :confirm => 'This will add points to the Fall semester for all members who attended this event. Proceed?' } %>
   <% else @event.semester == 'Spring' %>
-  <%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester),:method => :post, data: { :confirm => 'This will add points to the Spring semester for all members who attended this event. Proceed?' } %>
+  <%= button_to "Import Points from Sign Up", apimport_members_path(points_worth: @event.points_worth,mapped_id: @event.mapped_id,semester: @event.semester, type: "api"),:method => :post, data: { :confirm => 'This will add points to the Spring semester for all members who attended this event. Proceed?' } %>
   <% end %>
   <% else %>
   <h3>* To distribute points to attendees, select a semester. *</h3>
