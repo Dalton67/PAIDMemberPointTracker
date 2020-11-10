@@ -16,31 +16,36 @@ class MembersController < ApplicationController
     end
 
     if params[:sort] == 'total_points'
-      @members = @searched_members.all.order('total_points').reverse_order
+      @searched_members = @searched_members.all.order('total_points').reverse_order
       # puts "total_points"
     elsif params[:sort] == 'fall_points'
-      @members = @searched_members.all.order('fall_points').reverse_order
+      @searched_members = @searched_members.all.order('fall_points').reverse_order
       # puts "fall_points"
     elsif params[:sort] == 'spring_points'
-      @members = @searched_members.all.order('spring_points').reverse_order
+      @searched_members = @searched_members.all.order('spring_points').reverse_order
       # puts "spring_points"
     elsif params[:sort] == 'first_name'
-      @members = @searched_members.all.order('first_name')
+      @searched_members = @searched_members.all.order('first_name')
       # puts "first_name"
     elsif params[:sort] == 'last_name'
-      @members = @searched_members.all.order('last_name')
+      @searched_members = @searched_members.all.order('last_name')
       # puts "last_name"
     else
-      @members = @searched_members.all.order('total_points').reverse_order
+      @searched_members = @searched_members.all.order('total_points').reverse_order
       # puts "default (total_points)"
     end
+
+    @members = @searched_members.paginate(page: params[:page], per_page: 50)
+
   end
 
   def missing
     @missing_members = session[:data]
     @points = session[:points_worth]
     @semester = session[:semester]
-    puts @semester
+    @mapped_id = session[:mapped_id]
+    @id = session[:id]
+    @type = session[:type]
   end
 
   def import
@@ -48,6 +53,10 @@ class MembersController < ApplicationController
     begin
       data = Member.import(params[:file],params[:points_worth],params[:id],params[:semester])
       session[:data] = data
+      session[:points_worth] = params[:points_worth]
+      session[:semester] = params[:semester]
+      session[:id] = params[:id]
+      session[:type] = params[:type]
       if !data.empty?
         redirect_to missing_members_path
       else
@@ -74,13 +83,14 @@ class MembersController < ApplicationController
     data = Member.api(params[:mapped_id].to_i,params[:semester])
     session[:data] = data
     session[:points_worth] = params[:points_worth]
-    session[:semester] = params[:search]
+    session[:semester] = params[:semester]
+    session[:mapped_id] = params[:mapped_id]
+    session[:id] = params[:id]
     if !data.empty?
       redirect_to missing_members_path
     else
        redirect_to(members_path)
     end
-
   end
 
   def show
@@ -95,26 +105,26 @@ class MembersController < ApplicationController
     else 
       @member.spring_points = params[:points] if params[:points]
     end 
+    @member.total_points = @member.fall_points+@member.spring_points
+    # @member.save()
   end
 
   def bulk_create
     #flash[:notice] = "Creating members..."
   end
-
-
-        # <td>
-        #   <%=file_field_tag :file, :class => "button"%>
-        #   <%= submit_tag "Import", :class => "button"%>
-        #   <%= submit_tag "Import", :class => "button", {:controller => "member", :action => "import_members_from_csv", :file => } , :method=>:post  %>
-        # </td>
-
-
-
   def create
     @member = Member.new(member_params)
+    if session[:type] == "api"
+      event = Event.find_by(mapped_id: session[:mapped_id])
+    else 
+      event = Event.find_by(id: session[:id])
+    end 
+    if  @member.events.exclude? event
+      @member.events << event
+    end
     if @member.save
       session[:data].delete(@member.email)
-      if session[:data]
+      if !session[:data].empty?
         redirect_to missing_members_path
       else
         redirect_to(members_path)
@@ -131,6 +141,8 @@ class MembersController < ApplicationController
   def update
     @member = Member.find(params[:id])
     if @member.update_attributes(member_params)
+      @member.total_points = @member.fall_points+@member.spring_points
+      @member.save()
       redirect_to(member_path(@member))
     else
       render('new')

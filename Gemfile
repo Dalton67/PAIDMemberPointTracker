@@ -30,6 +30,9 @@ gem "httparty"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Creates pages for tables
+gem 'will_paginate', '~> 3.0'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
