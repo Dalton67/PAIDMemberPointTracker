@@ -60,6 +60,8 @@ class Member < ApplicationRecord
     # semester = semester
     result = r.event(id)
     v = JSON.parse(result.body)
+    puts "hello"
+    puts v
     points = v["points"].to_i
     data = []
     event = Event.find_by(mapped_id: id)
