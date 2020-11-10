@@ -135,6 +135,8 @@ class MembersController < ApplicationController
         else 
           redirect_to(members_path)
         end
+      else
+        redirect_to(members_path)
       end
     else
       render('new')
