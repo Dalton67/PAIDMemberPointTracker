@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'admin', to: 'access#menu'
   post 'access/attempt_login'
   get 'access/logout'
+  get 'access/documentation'
   get 'members/bulk_create'
 
   delete '/events/:id' => 'events#destroy'
