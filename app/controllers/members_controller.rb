@@ -109,25 +109,37 @@ class MembersController < ApplicationController
   def bulk_create
     #flash[:notice] = "Creating members..."
   end
+
   def create
     @member = Member.new(member_params)
+    event = nil
     if session[:type] == "api"
       event = Event.find_by(mapped_id: session[:mapped_id])
-    else 
+    elsif session[:type] == "file"
       event = Event.find_by(id: session[:id])
+    else
+      event = nil
     end 
-    if  @member.events.exclude? event
-      @member.events << event
-    end
-    if @member.save
-      session[:data].delete(@member.email)
-      if !session[:data].empty?
-        redirect_to missing_members_path
-      else
-        redirect_to(members_path)
+
+    if !event.nil? 
+      if @member.events.exclude? event 
+        @member.events << event
       end
+    end
+
+    if @member.save
+      if !session[:data].nil? 
+        if !session[:data].empty?
+          session[:data].delete(@member.email)
+          redirect_to missing_members_path
+        else
+          redirect_to(members_path)
+        end
+      end
+      
     else
       render('new')
+      redirect_to(members_path)
     end
   end
 
