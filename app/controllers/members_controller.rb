@@ -16,24 +16,27 @@ class MembersController < ApplicationController
     end
 
     if params[:sort] == 'total_points'
-      @members = @searched_members.all.order('total_points').reverse_order
+      @searched_members = @searched_members.all.order('total_points').reverse_order
       # puts "total_points"
     elsif params[:sort] == 'fall_points'
-      @members = @searched_members.all.order('fall_points').reverse_order
+      @searched_members = @searched_members.all.order('fall_points').reverse_order
       # puts "fall_points"
     elsif params[:sort] == 'spring_points'
-      @members = @searched_members.all.order('spring_points').reverse_order
+      @searched_members = @searched_members.all.order('spring_points').reverse_order
       # puts "spring_points"
     elsif params[:sort] == 'first_name'
-      @members = @searched_members.all.order('first_name')
+      @searched_members = @searched_members.all.order('first_name')
       # puts "first_name"
     elsif params[:sort] == 'last_name'
-      @members = @searched_members.all.order('last_name')
+      @searched_members = @searched_members.all.order('last_name')
       # puts "last_name"
     else
-      @members = @searched_members.all.order('total_points').reverse_order
+      @searched_members = @searched_members.all.order('total_points').reverse_order
       # puts "default (total_points)"
     end
+
+    @members = @searched_members.paginate(page: params[:page], per_page: 50)
+
   end
 
   def missing
