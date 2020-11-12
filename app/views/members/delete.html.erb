@@ -5,12 +5,13 @@
 
   <%= form_for(@member, :method => 'delete') do |f| %>
 
-    <p>Are you sure you want to permanently delete this member?</p>
-
-    <p class="reference-name"><%= @member.first_name %> <%= @member.last_name %></p>
+    <div style="text-align:center">
+      <p>Are you sure you want to permanently delete this member?</p>
+      <p class="reference-name"><%= @member.first_name %> <%= @member.last_name %></p>
+    </div>
 
     <div class="form-buttons">
-      <%= f.submit("Delete Member") %>
+      <%= f.submit "Delete Member", :class => "button" %>
     </div>
 
   <% end %>

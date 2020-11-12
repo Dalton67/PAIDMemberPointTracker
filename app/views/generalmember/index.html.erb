@@ -44,4 +44,13 @@
     </tr>
     <% end %>
   </table>
+
+  <div class="button_pagination">
+    <div class="page_info">
+      <%= page_entries_info @members %>
+    </div>
+    <br>
+    <%= will_paginate @members, :container => false %>
+  </div>
+
 </div>
