@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'date'
 
 class Event < ApplicationRecord
   has_and_belongs_to_many :members
@@ -18,8 +19,21 @@ class Event < ApplicationRecord
         e = Event.create(
           :mapped_id=>  mapped_event["id"],
           :points_worth => mapped_event["points"],
-          :title => mapped_event["name"]
+          :title => mapped_event["name"],
+          :date => mapped_event["date"]
         )
+
+        # making date prettier
+        date_obj = Date.parse(e.date)
+        e.date = date_obj.to_s
+
+        # assigning semester based off date's month
+        if (date_obj.month > 7 && date_obj.month <= 12)
+          e.semester = "Fall"
+        elsif (date_obj.month >= 1  && date_obj.month < 7)
+          e.semester = "Spring"
+        end
+
         e.save()
       end 
     end 
