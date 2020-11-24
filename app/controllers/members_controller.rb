@@ -90,7 +90,7 @@ class MembersController < ApplicationController
     else
        redirect_to(members_path)
        count = Member.get_attendee_count()
-      flash[:notice] = "#{count} member(s) successfully received #{session[:points_worth]} point"
+      flash[:notice] = "#{count} members successfully received #{session[:points_worth]} points"
     end
   end
 
