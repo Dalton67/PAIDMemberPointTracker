@@ -6,6 +6,9 @@ class Member < ApplicationRecord
   require 'csv'
   require 'json'
   require 'restclient.rb'
+
+
+
   def init
     self.fall_points ||= 0
     self.spring_points ||= 0
@@ -32,8 +35,10 @@ class Member < ApplicationRecord
         data.push(row['email'])
       end
     end
+    set_attendee_count()
     return data
   end
+
 
   def self.import_members(file)
     new_member_count = 0
@@ -82,9 +87,20 @@ class Member < ApplicationRecord
           data.push(row['email'])
         end
       end
+      puts "************"
+      puts v["sign_ins"].length()
+      set_attendee_count(v["sign_ins"].length())
     return data
   end
 
+  @attendee_count = 0
+  def self.set_attendee_count(count)
+    @attendee_count = count
+  end
+
+  def self.get_attendee_count()
+    return @attendee_count
+  end
 
   def self.search(search)
     if search
