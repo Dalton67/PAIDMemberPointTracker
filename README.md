@@ -22,3 +22,9 @@ Continuous Integration is set up on this github repo using Github Actions. All c
 ```
 rspec admin_spec
 ```
+* To manually test for SQL injection vulnerabilities, enter similar commands below within submission forms on the application.
+```
+" or ""="
+1; DROP TABLE members;
+' UNION SELECT username, password FROM admin_users--
+```
