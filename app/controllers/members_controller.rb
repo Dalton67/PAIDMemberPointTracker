@@ -132,14 +132,14 @@ class MembersController < ApplicationController
         if !session[:data].empty?
           session[:data].delete(@member.email)
           redirect_to missing_members_path
-        else
+        else 
           redirect_to(members_path)
         end
+      else
+        redirect_to(members_path)
       end
-      
     else
       render('new')
-      redirect_to(members_path)
     end
   end
 
