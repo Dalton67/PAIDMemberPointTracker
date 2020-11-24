@@ -83,10 +83,14 @@ class MembersController < ApplicationController
     session[:semester] = params[:semester]
     session[:mapped_id] = params[:mapped_id]
     session[:id] = params[:id]
+
+    # if there are members not in our database
     if !data.empty?
       redirect_to missing_members_path
     else
        redirect_to(members_path)
+       count = Member.get_attendee_count()
+      flash[:notice] = "#{count} member(s) successfully received #{session[:points_worth]} point"
     end
   end
 
