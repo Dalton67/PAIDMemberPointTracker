@@ -18,3 +18,7 @@ rails s
 Continuous Integration is set up on this github repo using Github Actions. All code is for these actions is checked in on the master branch. 
 
 ## Security Analysis/Tests
+* This command will run the rspec tests for the admin functionalities. All other rspec tests are located in files under the ```spec``` directory.
+```
+rspec admin_spec
+```
