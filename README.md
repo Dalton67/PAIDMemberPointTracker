@@ -1,5 +1,7 @@
 # Welcome to the PAID Member Point Tracker!
 
+https://tamu-paid-points.herokuapp.com
+
 ## Code Execution
 
 * To run server locally start your server by running this command 
